@@ -36,7 +36,7 @@ Things you may want to cover:
 |name|string|null: false|
 |a_categories_id|integer|null: false, foreign_key: true|
 ### Association
-- belongs_to :a_categorie
+- belongs_to :a_category
 - has_many   :c_categories
 
 ## c_categoriesテーブル
@@ -45,7 +45,7 @@ Things you may want to cover:
 |name|string|null: false|
 |b_categories_id|integer|null: false, foreign_key: true|
 ### Association
-- has_many   :b_categories
+- belongs_to :b_category
 - belongs_to :product
 
 ## userテーブル
@@ -76,12 +76,13 @@ Things you may want to cover:
 - has_many  :buys
 - has_many  :feelings
 - has_many  :likes
+- has_many  :like_product, through: :likes, source: :product
+- has_many  :feeling_product, through: :feelings, source: :product
 
 ## productsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|email|string|null: false|
 |description|string|null: false|
 |category|string|null: false|
 |brand|string|
@@ -101,6 +102,8 @@ Things you may want to cover:
 - has_many   :images
 - has_many   :feelings
 - has_many   :likes
+- has_many   :like_user, through: :likes, source: :user
+- has_many   :feeling_user, through: :feelings, source: :user
 
 ## imagesテーブル
 |Column|Type|Options|
