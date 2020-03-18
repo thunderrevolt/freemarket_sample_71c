@@ -105,8 +105,8 @@ Things you may want to cover:
 ## imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|image|string|null: false|
-|product_id|integer|null:false|
+|image|string|null:false|
+|product_id|integer|null:false, foreign_key: true|
 ### Association  
 - belongs_to :product
 
@@ -117,7 +117,7 @@ Things you may want to cover:
 |month|string|null: false|
 |year|string|null: false|
 |pass|integer|null: false|
-|user_id|integer|null:false|
+|user_id|integer|null:false, foreign_key: true|
 ### Association
 - belongs_to :user
 
@@ -125,9 +125,10 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |point|integer|null: false|
-|user_id|integer|null:false|
+|user_id|integer|null:false, foreign_key: true|
 ### Association
 - belongs_to :user
+- belongs_to :transfer
 
 ## buysテーブル
 |Column|Type|Options|
@@ -161,7 +162,7 @@ Things you may want to cover:
 |fist_name|string|null: false|
 |last_name|string|null: false|
 ### Association
-- belongs_to :point
+- has_many   :points
 - belongs_to :user
 
 ## likesテーブル
@@ -185,5 +186,5 @@ Things you may want to cover:
 ## noticesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|text|string|null: false, foreign_key: true|
+|text|string|null: false|
 ### Association
