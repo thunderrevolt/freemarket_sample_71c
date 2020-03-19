@@ -1,1 +1,108 @@
+
+
+
+
+
+= render 'shared/header'
+.top-main
+  .top-main__view
+    .top-main__view__container
+      .top-main__view__title 人生を変えるフリマアプリ
+      .top-main__view__text FURIMAはだれでもかんたんに出品・購入できる<br>フリマアプリです
+      -# アップルストアボタン
+      = image_tag "app-store-a5c17948c6fd6d5b60b13d421cd60b35.png", class: "company-btn"
+      %span<>
+      -# グーグルボタン
+      = image_tag "google-play-495575abb895b405aa6336b2a4304958.png", class: "company-btn google"
+.top-title
+  .top-title__text FURIMAが選ばれる3つの理由
+  .top-title__images
+    .top-title__images--left.reason-size
+      = image_tag "pict-reason-01.jpg", class: "reason-size"
+      %h1 
+        %span> 3分
+        &nbsp;ですぐに出品
+      %p スマホで入力するだけで簡単に出品できる！
+    .top-title__images--center.reason-size
+      = image_tag "pict-reason-02.jpg", class: "reason-size"
+      %h1 シンプル で使いやすい
+      %P めんどくさい入力は必要なく、検索も購入もスムーズ！
+    .top-title__images--right.reason-size
+      = image_tag "pict-reason-03.jpg", class: "reason-size"
+      %h1 手数料 業界最安
+      %P 最大3%でお得に出品&購入！
+.member
+  .member__container
+    %h1 会員数日本一位
+    %p FURIMAは、フリマアプリで最も人気。<br>出品・購入回数も業界最多です！<br>ほしかったあの商品に出会えるかもしれません。
+    = image_tag "app-store-a5c17948c6fd6d5b60b13d421cd60b35.png", class: "company-btn"
+    %span<>
+    = image_tag "google-play-495575abb895b405aa6336b2a4304958.png", class: "company-btn google"
+.top-char
+  .top-char__container
+    %h1 FURIMAの特徴
+    .top-illust
+      .top-illust--left.illust-padding
+        = image_tag "icon-01.png", class: "illust-size"
+        %h2 簡単に売り買いできる
+        %p スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
+      .top-illust--center.illust-padding
+        = image_tag "icon-03.png", class: "illust-size"
+        %h2 売上金は即日振込みに対応
+        %p 午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします!
+      .top-illust--right.illust-padding
+        = image_tag "icon-04.png", class: "illust-size"
+        %h2 様々な支払いに対応
+        %p お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
+.top-picup
+  .top-picup__container
+    %h1 ピックアップカテゴリー
+    %h2 新規投稿商品
+    .top-picup__item
+      .top-picup__item--left.picup-size
+        = image_tag "picup1.png", class: ""
+        .product-box
+          %ul
+            %li product
+            %li 10000円
+          %p (税込)
+      .top-picup__item--center.picup-size
+        = image_tag "picup1.png", class: ""
+        .product-box
+          %ul
+            %li product
+            %li 10000円
+          %p (税込)
+      .top-picup__item--right.picup-size
+        = image_tag "picup1.png", class: ""
+        .product-box
+          %ul
+            %li product
+            %li 10000円
+          %p (税込)
+  .top-picup__container
+    %h1.top-picup__space ピックアップブランド
+    %h2 アーカイバ
+    .top-picup__item
+      .top-picup__item--left.picup-size
+        = image_tag "picup1.png", class: ""
+        .product-box
+          %ul
+            %li product
+            %li 10000円
+          %p (税込)
+      .top-picup__item--center.picup-size
+        = image_tag "picup1.png", class: ""
+        .product-box
+          %ul
+            %li product
+            %li 10000円
+          %p (税込)
+      .top-picup__item--right.picup-size
+        = image_tag "picup1.png", class: ""
+        .product-box
+          %ul
+            %li product
+            %li 10000円
+          %p (税込)
 = render 'shared/footer'
