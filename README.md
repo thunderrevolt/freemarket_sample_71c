@@ -41,8 +41,8 @@ Things you may want to cover:
 |password|string|null: false|
 |first_name|string|null: false|
 |last_name|string|null: false|
-|ruby_first_name|string|null: false|
-|ruby_last_name|string|null: false|
+|first_name_kana|string|null: false|
+|last_name_kana|string|null: false|
 |birthday|integer|null: false|
 |tel|integer|
 ### Association
@@ -63,8 +63,8 @@ Things you may want to cover:
 |------|----|-------|
 |first_name|string|null: false|
 |last_name|string|null: false|
-|ruby_first_name|string|null: false|
-|ruby_last_name|string|null: false|
+|first_name_kana|string|null: false|
+|last_name_kana|string|null: false|
 |postal_code|integer|null: false|
 |state|string|null: false|
 |city|string|null: false|
