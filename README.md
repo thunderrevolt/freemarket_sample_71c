@@ -23,30 +23,14 @@ Things you may want to cover:
 
 * ...
 
-## a_categoriesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
-### Association
-- has_many :b_categories
 
-## b_categoriesテーブル
+## categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|a_categories_id|integer|null: false, foreign_key: true|
 ### Association
-- belongs_to :a_category
-- has_many   :c_categories
-
-## c_categoriesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
-|b_categories_id|integer|null: false, foreign_key: true|
-### Association
-- belongs_to :b_category
-- belongs_to :product
+- has_many :product
+- has_ancestry
 
 ## userテーブル
 |Column|Type|Options|
@@ -59,13 +43,6 @@ Things you may want to cover:
 |ruby_first_name|string|null: false|
 |ruby_last_name|string|null: false|
 |birthday|integer|null: false|
-|destination_name|string|null: false|
-|ruby_destination_name|string|null: false|
-|postal_code|integer|null: false|
-|state|string|null: false|
-|city|string|null: false|
-|address|string|null: false|
-|apartment|string|
 |tel|integer|
 ### Association
 - has_many  :products
@@ -78,6 +55,23 @@ Things you may want to cover:
 - has_many  :likes
 - has_many  :like_product, through: :likes, source: :product
 - has_many  :feeling_product, through: :feelings, source: :product
+
+## addressesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|first_name|string|null: false|
+|last_name|string|null: false|
+|ruby_first_name|string|null: false|
+|ruby_last_name|string|null: false|
+|postal_code|integer|null: false|
+|state|string|null: false|
+|city|string|null: false|
+|number|string|null: false|
+|apartment|string|
+|tel|integer|
+|user_id|integer|null: false, foreign_key: true|
+### Association  
+- belongs_to :user
 
 ## productsテーブル
 |Column|Type|Options|
@@ -93,10 +87,10 @@ Things you may want to cover:
 |price|string|null: false|
 |size|string|
 |user_id|integer|null: false, foreign_key: true|
-|c_categories_id|integer|null: false, foreign_key: true|
+|categories_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
-- belongs_to :c_category
+- belongs_to :category
 - belongs_to :sell
 - belongs_to :buy
 - has_many   :images
@@ -190,4 +184,3 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |text|string|null: false|
-### Association
