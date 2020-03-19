@@ -28,6 +28,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
+|ancestry|string|index|
 ### Association
 - has_many :product
 - has_ancestry
