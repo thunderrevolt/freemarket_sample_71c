@@ -30,7 +30,7 @@ Things you may want to cover:
 |name|string|null: false|
 |ancestry|string|index|
 ### Association
-- has_many :product
+- has_many :product, dependent: :destroy
 - has_ancestry
 
 ## userテーブル
@@ -46,14 +46,15 @@ Things you may want to cover:
 |birthday|integer|null: false|
 |tel|integer|
 ### Association
-- has_many  :products
-- has_many  :cards
-- has_many  :points
-- has_many  :transfers
-- has_many  :sells
-- has_many  :buys
-- has_many  :feelings
-- has_many  :likes
+- has_many  :products, dependent: :destroy
+- has_many  :cards, dependent: :destroy
+- has_many  :points, dependent: :destroy
+- has_many  :transfers, dependent: :destroy
+- has_many  :sells, dependent: :destroy
+- has_many  :buys, dependent: :destroy
+- has_many  :feelings, dependent: :destroy
+- has_many  :likes, dependent: :destroy
+- belongs_to:addresses, dependent: :destroy
 - has_many  :like_product, through: :likes, source: :product
 - has_many  :feeling_product, through: :feelings, source: :product
 
@@ -94,9 +95,9 @@ Things you may want to cover:
 - belongs_to :category
 - belongs_to :sell
 - belongs_to :buy
-- has_many   :images
-- has_many   :feelings
-- has_many   :likes
+- has_many   :images, dependent: :destroy
+- has_many   :feelings, dependent: :destroy
+- has_many   :likes, dependent: :destroy
 - has_many   :like_user, through: :likes, source: :user
 - has_many   :feeling_user, through: :feelings, source: :user
 
@@ -128,7 +129,7 @@ Things you may want to cover:
 - belongs_to :user
 - belongs_to :transfer
 
-## buysテーブル
+## buiesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |product_id|integer|null: false, foreign_key: true|
