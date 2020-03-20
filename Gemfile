@@ -70,6 +70,10 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'haml-rails'
 gem 'ancestry'
 gem 'devise'
+gem 'carrierwave'
+gem 'mini_magick'
+
+
 
 group :production do
   gem 'unicorn'
