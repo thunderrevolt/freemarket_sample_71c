@@ -1,53 +1,32 @@
+.top-exhibit {
+  width: 120px;
+  background: $main-color;
+  text-align: center;
+  border-radius: 4%;
+  bottom: 32px;
+  right: 32px;
+  position: fixed;
+  padding: 15px;
+  box-sizing: border-box;
+  z-index: 2;
+  &:hover {
+    opacity: 0.9;
+    cursor: pointer;
+  }
+  &__text {
+    color: #fff;
+    display: block;
+    font-size: 18px;
+    text-decoration: none;
+    margin-bottom: 5px;
+  }
+  img {
+    width: 54px;
+  }
+}
+
 .top-main {
   margin-top: 100px;
-}
-
-.top-category--left {
-  margin-right: 20px;
-  cursor: pointer;
-}
-
-.top-category--left:hover {
-  color: #0095ee;
-}
-
-.top-category--right {
-  cursor: pointer;
-}
-
-.top-category--right:hover {
-  color: #0095ee;
-}
-
-.top-category__btn--left {
-  margin-left: 10px;
-  background: #ea352d;
-  border: 1px solid #ea352d;
-  color: white;
-}
-
-.top-category__btn--right {
-  margin-left: 10px;
-  border: 1px solid #0095ee;
-  color: #0095ee;
-}
-
-.top-category__btn--right:hover {
-  background: #0095ee;
-  color: white;
-}
-
-.btn {
-  padding: 8px 10px;
-  border-radius: 4px;
-  font-size: 14px;
-  vertical-align: baseline;
-  line-height: 1;
-  vertical-align: middle;
-  cursor: pointer;
-}
-
-.top-main {
   background-image: url('back-img.jpg');
   background-size: cover;
   height: 560px;
@@ -75,6 +54,10 @@
 
 .company-btn {
   width: 170px;
+  &:hover {
+    cursor: pointer;
+    opacity: 0.4;
+  }
 }
 
 .google {
@@ -95,7 +78,7 @@
       content: "";
       width: 70px;
       height: 4px;
-      background-color: #3CCACE;
+      background-color: $main-color;
       position: absolute;
       bottom: 0;
       left: 50%;
@@ -113,7 +96,7 @@
       margin-top: 16px;
       font-weight: bold;
       span {
-        color: #3CCACE;
+        color: $main-color;
       }
     }
     p {
@@ -127,9 +110,22 @@
   }
 }
 
+.reason {
+  position: relative;
+  width: 306px;
+  .span {
+    font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+    position: absolute;
+    font-size: 30px;
+    padding: 10px 20px;
+    background-color: $main-color;
+    color: #fff;
+    border-radius: 4%;
+  }
+}
+
 .reason-size {
   width: 306px;
-  position: relative;
 }
 
 .member {
@@ -169,7 +165,7 @@
       content: "";
       width: 70px;
       height: 4px;
-      background-color: #3CCACE;
+      background-color: $main-color;
       position: absolute;
       bottom: 0;
       left: 50%;
@@ -217,7 +213,7 @@
     }
     h2 {
       font-size: 24px;
-      color: #3ccace;
+      color: $main-color;
       font-weight: bold;
       text-align: center;
     }
@@ -247,6 +243,10 @@
       .product-box {
         padding: 16px;
         background: white;
+        .top-flex {
+          display: flex;
+          justify-content: space-between;
+        }
       }
       ul {
         padding-top: 150px;
