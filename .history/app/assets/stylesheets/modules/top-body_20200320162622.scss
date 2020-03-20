@@ -27,7 +27,7 @@
 
 .top-main {
   margin-top: 100px;
-  background-image: image-url('back-img.jpg');
+  background-image: url('back-img.jpg');
   background-size: cover;
   height: 560px;
   display: flex;
@@ -130,7 +130,7 @@
 
 .member {
   height: 400px;
-  background-image: image-url('back-image2.jpg');
+  background-image: url('back-image2.jpg');
   display: flex;
   align-items: center;
   background-size: cover;
