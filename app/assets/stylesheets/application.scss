@@ -1,7 +1,11 @@
 $main-color: #3CCACE;
+body {
+  font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+}
 
 @import "modules/reset";
 @import "modules/header";
 @import "modules/footer";
 @import "modules/top-body";
 @import "modules/registration.scss";
+@import "modules/login";

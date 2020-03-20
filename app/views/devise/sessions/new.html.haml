@@ -1,0 +1,37 @@
+.login-body
+  .login-logo
+    = image_tag "logo.png"
+  .login-signup
+    .login-signup__text アカウントをお持ちでない方はこちら
+    = link_to "新規会員登録", "/users/sign_up", class: "login-signup__btn"
+  .login-main
+    .login-main__facebook Facebookでログイン
+    .login-main__google Googleでログイン
+  .login-form
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      .field
+        .field-input
+          = f.email_field :email, autofocus: true, placeholder: "メールアドレス", class: "login-form__email"
+        .field
+          .field-label
+            = f.password_field :password, autocomplete: "off", placeholder: "パスワード", class: "login-form__password"
+        .actions
+          = f.submit "ログイン", class: 'login-form__btn'
+    %p パスワードをお忘れの方
+  .login-footer
+    .login-footer__content
+      .login-footer__content--left プライバシーポリシー
+      .login-footer__content--center メルカリ利用規約
+      .login-footer__content--right 特定商取引に関する表記
+    = image_tag "logo-white.png"
+    %p © Furima, Inc.
+    
+    
+    
+
+
+
+
+
+
+
