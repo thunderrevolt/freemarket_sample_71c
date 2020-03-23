@@ -33,6 +33,7 @@
         .top-category__btn--left.btn マイページ
         .top-category__btn--right.btn ログアウト
       - else
-        .top-category__btn--left.btn 新規会員登録
+        .top-category__btn--left.btn 
+           = link_to "新規会員登録", "/users"
         -# ログインボタン
         .top-category__btn--right.btn ログイン
