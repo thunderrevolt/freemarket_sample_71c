@@ -1,0 +1,28 @@
+%body
+  .registration-header
+    = link_to image_tag "logo.png", size: "185x49"
+  .registration-form
+    .registration-form--main-box
+      %h3.new-member-registration
+        新規会員登録
+    .registration-form__form-box
+      .registration-form__form-box--email-box
+        %i.far.fa-envelope
+        = link_to "メールアドレスで登録", "/users/sign_up"
+      .registration-form__form-box--facebook-box
+        %i.fab.fa-facebook-square
+        = link_to "facebookで登録", "#"
+      .registration-form__form-box--google-box
+        = image_tag "google_logo.png", size: "50x50"
+        = link_to "Googleで登録", "#"
+  .registration-footer
+    %ul
+      %li
+        = link_to "プライバシーポリシー", "#"
+      %li
+        = link_to "メルカリ利用規約", "#"
+      %li
+        = link_to "特定商取引に関する表記", "#"
+    .registration-logo
+      = link_to image_tag "logo-white.png", size: "140x50", class: "registration_logo"
+    %p.registration-copyright © FURIMA

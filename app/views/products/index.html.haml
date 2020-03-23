@@ -1,9 +1,7 @@
-
-
-
-
-
 = render 'shared/header'
+.top-exhibit
+  .top-exhibit__text 出品する
+  = image_tag "icon_camera.png"
 .top-main
   .top-main__view
     .top-main__view__container
@@ -17,19 +15,26 @@
 .top-title
   .top-title__text FURIMAが選ばれる3つの理由
   .top-title__images
-    .top-title__images--left.reason-size
+    .top-title__images--left.reason
+      %span.span 1
       = image_tag "pict-reason-01.jpg", class: "reason-size"
       %h1 
         %span> 3分
         &nbsp;ですぐに出品
       %p スマホで入力するだけで簡単に出品できる！
-    .top-title__images--center.reason-size
+    .top-title__images--center.reason
+      %span.span 2
       = image_tag "pict-reason-02.jpg", class: "reason-size"
-      %h1 シンプル で使いやすい
+      %h1 
+        %span> シンプル 
+        &nbsp;で使いやすい
       %P めんどくさい入力は必要なく、検索も購入もスムーズ！
-    .top-title__images--right.reason-size
+    .top-title__images--right.reason
+      %span.span 3
       = image_tag "pict-reason-03.jpg", class: "reason-size"
-      %h1 手数料 業界最安
+      %h1
+        %span> 手数料 
+        &nbsp;業界最安
       %P 最大3%でお得に出品&購入！
 .member
   .member__container
@@ -64,21 +69,27 @@
         .product-box
           %ul
             %li product
-            %li 10000円
+            %li.top-flex
+              .top-flex--left 10000円
+              .top-flex--right ○0
           %p (税込)
       .top-picup__item--center.picup-size
         = image_tag "picup1.png", class: ""
         .product-box
           %ul
             %li product
-            %li 10000円
+            %li.top-flex
+              .top-flex--left 10000円
+              .top-flex--right ○0
           %p (税込)
       .top-picup__item--right.picup-size
         = image_tag "picup1.png", class: ""
         .product-box
           %ul
             %li product
-            %li 10000円
+            %li.top-flex
+              .top-flex--left 10000円
+              .top-flex--right ○0
           %p (税込)
   .top-picup__container
     %h1.top-picup__space ピックアップブランド
@@ -89,20 +100,26 @@
         .product-box
           %ul
             %li product
-            %li 10000円
+            %li.top-flex
+              .top-flex--left 10000円
+              .top-flex--right ○0
           %p (税込)
       .top-picup__item--center.picup-size
         = image_tag "picup1.png", class: ""
         .product-box
           %ul
             %li product
-            %li 10000円
+            %li.top-flex
+              .top-flex--left 10000円
+              .top-flex--right ○0
           %p (税込)
       .top-picup__item--right.picup-size
         = image_tag "picup1.png", class: ""
         .product-box
           %ul
             %li product
-            %li 10000円
+            %li.top-flex
+              .top-flex--left 10000円
+              .top-flex--right ○0
           %p (税込)
 = render 'shared/footer'
