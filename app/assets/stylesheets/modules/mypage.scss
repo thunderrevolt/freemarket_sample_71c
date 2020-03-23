@@ -1,0 +1,147 @@
+.myp {
+  width: 1020px;
+  padding: 40px 0;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+.myp-head__space {
+  height: 100px;
+  background: white;
+}
+
+.myp-side-bar {
+  color: #333;
+  width: 280px;
+  h1 {
+    margin-top: 40px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    line-height: 1;
+    font-weight: bold;
+  }
+}
+
+.myp-container {
+  font-size: 14px;
+  line-height: 1;
+  &__box {
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    background: white;
+    border-bottom: 1px solid #ebebeb;
+  }
+  i {
+    color: #ccc;
+    font-size: 16px;
+  }
+}
+
+.myp-main {
+  width: 700px;
+  &__top {
+    height: 160px;
+    background: url(user-bg.jpg);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    &__container {
+      width: 100%;
+      text-align: center;
+    }
+    img {
+      width: 60px;
+      border-radius: 50%;
+    }
+    h1 {
+      font-size: 14px;
+      line-height: 20px;
+      margin-top: 8px;
+      font-weight: 600;
+    }
+    .myp-main__list {
+      display: flex;
+      justify-content: center;
+      font-size: 14px;
+      line-height: 1;
+      margin-top: 8px;
+      p {
+        margin-left: 8px;
+        font-weight: 600;
+      }
+      &__space {
+        margin-left: 16px;
+      }
+    }
+  }
+  &__top2 {
+    padding: 0 16px;
+    font-size: 16px;
+    line-height: 72px;
+    background: #fafafa;
+    margin-top: 40px;
+  }
+}
+
+.myp-main__title {
+  height: 72px;
+  display: flex;
+  text-align: center;
+  font-size: 16px;
+  line-height: 72px;
+  font-weight: bold;
+  &--left {
+    width: 350px;
+    background: white;
+    border-top: 2px solid $main-color;
+  }
+  &--right {
+    width: 350px;
+    background: #eee;
+  }
+}
+
+.myp-main__body {
+  padding: 16px;
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ebebeb;
+  img {
+    width: 48px;
+  }
+  &--center {
+    width: 560px;
+  }
+  p {
+    font-size: 14px;
+    line-height: 21px;
+  }
+  .myp-days {
+    line-height: 14px;
+    color: #888;
+  }
+  .myp-done {
+    font-size: 12px;
+    line-height: 1;
+    display: inline-block;
+    margin: 8px 0 0 0;
+    padding: 5px 6px;
+    border-radius: 2px;
+    color: white;
+    font-weight: 600;
+    background: #888;
+  }
+}
+
+.myp-main__btn {
+  background: #eee;
+  line-height: 56px;
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+}
