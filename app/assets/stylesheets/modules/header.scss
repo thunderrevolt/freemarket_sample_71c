@@ -35,7 +35,9 @@
   display: flex;
   justify-content: space-between;
   margin-top: 8px;
+  position: relative;
   &__left {
+    height: 2rem;
     display: flex;
     align-items: center;
     font-size: 14px;
@@ -46,17 +48,128 @@
   }
 }
 
-.top-category--left {
-  margin-right: 20px;
-  cursor: pointer;
+// カテゴリー＆ブランド
+.top-category {
+  &--left {
+    margin-right: 20px;
+    cursor: pointer;
+    position: absolute;
+    top: 3px;
+    left: 0px;
+    display: block;
+  }
+  &--right {
+    cursor: pointer;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    font-weight: bold;
+    position: absolute;
+    top: 3px;
+    left: 200px;
+  }
+}
+
+// カテゴリー(一覧)
+.top-category {
+  li a {
+    display: block;
+    color: black;
+    font-size: 14px;
+    text-decoration: none;
+    &:hover {
+      color: $main-color;
+    }
+  }
+  ul {
+    height: 2rem;
+    overflow: visible;
+  }
+  .top-category--left {
+    font-weight: bold;
+    font-size:14px;
+    margin-right: 10px;
+    height: 100%;
+    line-height: 46px;
+    position: relative;
+    &:hover {
+      .top-category__ul {
+        &__li {
+          display: block;
+          height: 44px;
+        }
+      }
+    }
+    .top-category__ul {
+      margin-left: -10px;
+      position: absolute;
+      top: 44px;
+      z-index: 1000;
+      height: 100%;
+      font-weight: normal;
+      &__li {
+        width: 220px;
+        height: 0;
+        display: none;
+        padding-left: 10px;
+        background-color: white;
+        box-shadow: $shadow;
+        &:hover {
+          .top-category__children {
+            &__li {
+              display: block;
+              height: 44px;
+            }
+          }
+        }
+        .top-category__children {
+          position: absolute;
+          top: 0;
+          left: 220px;
+          z-index: 1000;
+          height: 100%;
+          background-color: white;
+          &__li {
+            width: 220px;
+            height: 0;
+            display: none;
+            padding-left: 10px;
+            box-shadow: $shadow;
+            background-color: white;
+            &:hover {
+              .top-category__grandchild {
+                &__li {
+                  display: block;
+                  height: 44px;
+                }
+              }
+            }
+            .top-category__grandchild {
+              position: absolute;
+              top: 0;
+              left: 220px;
+              z-index: 1000;
+              height: 100%;
+              background-color: white;
+              &__li {
+                width: 300px;
+                height: 0;
+                display: none;
+                padding-left: 10px;
+                box-shadow: $shadow;
+                background-color: white;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 .top-category--left:hover {
   color: $main-color;
-}
-
-.top-category--right {
-  cursor: pointer;
 }
 
 .top-category--right:hover {
@@ -82,6 +195,7 @@
 }
 
 .btn {
+  height: 15px;
   padding: 8px 10px;
   border-radius: 4px;
   font-size: 14px;

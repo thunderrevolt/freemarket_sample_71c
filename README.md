@@ -33,6 +33,16 @@ Things you may want to cover:
 - has_many :product, dependent: :destroy
 - has_ancestry
 
+## commentsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|text|string|null: false|
+|user_id|integer|null: false, foreign_key: true|
+|product_id|integer|null: false, foreign_key: true|
+### Association
+- belongs_to :product
+- belongs_to :user
+
 ## userテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -54,9 +64,10 @@ Things you may want to cover:
 - has_many  :buys, dependent: :destroy
 - has_many  :feelings, dependent: :destroy
 - has_many  :likes, dependent: :destroy
-- belongs_to:addresses, dependent: :destroy
+- has_many  :comments, dependent: :destroy
 - has_many  :like_product, through: :likes, source: :product
 - has_many  :feeling_product, through: :feelings, source: :product
+- belongs_to:addresses, dependent: :destroy
 
 ## addressesテーブル
 |Column|Type|Options|
@@ -65,9 +76,7 @@ Things you may want to cover:
 |last_name|string|null: false|
 |first_name_kana|string|null: false|
 |last_name_kana|string|null: false|
-|postal_code|integer|null: false|
-|state|string|null: false|
-|city|string|null: false|
+|zipcode|integer|null: false|
 |number|string|null: false|
 |apartment|string|
 |tel|integer|
@@ -95,6 +104,7 @@ Things you may want to cover:
 - belongs_to :category
 - belongs_to :sell
 - belongs_to :buy
+- has_many   :comments, dependent: :destroy
 - has_many   :images, dependent: :destroy
 - has_many   :feelings, dependent: :destroy
 - has_many   :likes, dependent: :destroy
