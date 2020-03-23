@@ -14,7 +14,6 @@
             %input.exhibit-image__area{name: "image", type: "file"}
             %i.fa.fa-camera
             %p ドラッグアンドドロップ<br>もしくはクリックしてアップロード
-            
       .exhibit-boby--container__name
         .exhibit-flame
           .exhibit-label
@@ -47,12 +46,10 @@
             %option{:value => "チケット"}               チケット
             %option{:value => "自動車・オートバイ"}       自動車・オートバイ
             %option{:value => "その他"}                 その他
-          
           .exhibit-label
             %p ブランド
             %p.any 任意
           %input{name: "brand", placeholder: "例）シャネル", type: "text", value: ""}
-
           .exhibit-label
             %p 商品の状態
             %p.need 必須
@@ -127,7 +124,6 @@
             %option{:value => "宮崎県"}宮崎県
             %option{:value => "鹿児島県"}鹿児島県
             %option{:value => "沖縄県"}沖縄県
-
           .exhibit-label
             %p 発送までの日数
             %p.need 必須
@@ -136,7 +132,6 @@
             %option{:value => "1~2日で発送"} 1~2日で発送
             %option{:value => "2~3日で発送"} 2~3日で発送
             %option{:value => "4~7日で発送"} 4~7日で発送
-
       .exhibit-boby--container__price
         .exhibit-flame
           %h3 販売価格（300~9,999,999）
@@ -170,19 +165,12 @@
             %a{href:"#"}>加盟店規約
             に同意したことになります。
 
-
-
-
-
-  
-
 .exhibit-footer
   .exhibit-footer--container
     .exhibit-footer--container__menu
       = link_to "プライバシーポリシー", "#"
       = link_to "FURIMA利用規約", "#"
       = link_to "特定商取引に関する表記", "#"
-
     .exhibit-footer--container__logo
       =link_to root_path do
         = image_tag "logo.png", size: "120x30"
