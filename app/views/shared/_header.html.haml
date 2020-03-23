@@ -6,12 +6,34 @@
   .top-header--middle
     .top-header--middle__left
       -# カテゴリーから探す
-      .top-category--left カテゴリーから探す
+      %ul.top-category
+        %li.top-category--left
+          カテゴリーから探す
+          %ul.top-category__ul
+            - @categories.each do |category|
+              %li.top-category__ul__li
+                = link_to "" do
+                  = category.name
+                  %ul.top-category__children
+                    - category.children.each do |child|
+                      %li.top-category__children__li
+                        = link_to "" do
+                          = child.name
+                          %ul.top-category__grandchild
+                            - child.children.each do |grandchild|
+                              .top-category__grandchild__li
+                                =link_to "" do
+                                  = grandchild.name
+
       -# ブランドから探す
-      .top-category--right ブランドから探す
+    .top-category--right ブランドから探す
     .top-header--middle__right
       -# 会員登録ボタン
-      .top-category__btn--left.btn 
-        = link_to "新規会員登録", "/users"
-      -# ログインボタン
-      .top-category__btn--right.btn ログイン
+      - if user_signed_in?
+        .top-category__btn--left.btn マイページ
+        .top-category__btn--right.btn ログアウト
+      - else
+        .top-category__btn--left.btn 
+           = link_to "新規会員登録", "/users"
+        -# ログインボタン
+        .top-category__btn--right.btn ログイン
