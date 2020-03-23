@@ -19,7 +19,6 @@ class ProductsController < ApplicationController
 
   def show
     @comment = Comment.new
-    # @comments = @Product.comments.includes(:user)
   end
 
 
