@@ -2,6 +2,8 @@ class ApplicationController < ActionController::Base
 
   before_action :basic_auth, if: :production?
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :category_all
+  
 
   private
   
@@ -14,6 +16,10 @@ class ApplicationController < ActionController::Base
 
   def production?
     Rails.env.production?
+  end
+
+  def category_all
+    @categories = Category.all.order("id ASC").limit(13)
   end
 
   protected
