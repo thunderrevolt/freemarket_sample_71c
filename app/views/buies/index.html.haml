@@ -1,0 +1,43 @@
+.buy-index
+  = render 'shared/product_header'
+  -# 購入内容
+  .buy-index__content
+    .buy-index__content__header
+      %h2 購入確認の内容
+    .buy-index__content__img
+      .buy-index__content__img__content
+        = image_tag 'komaki.jpg', size: "80x80"
+        .buy-index__content__img__content__text
+          .buy-index__content__img__content__text__up
+            このベイブレードは硬く強くすぐ止まります
+          .buy-index__content__img__content__text__down
+            ¥555 （税込）送料込み
+    .buy-index__content__method
+      .buy-index__content__method__money
+        .buy-index__content__method__money__amount
+          .buy-index__content__method__money__amount__text
+            支払い金額
+          .buy-index__content__method__money__amount__nun
+            ¥555
+        .buy-index__content__method__money__point
+          ポイントを使用 (所持ポイント: P0)
+      .buy-index__content__method__pay
+        支払い方法
+        .buy-index__content__method__pay__link
+          = link_to "" do
+            ※登録してください
+      .buy-index__content__method__delivery
+        .buy-index__content__method__delivery__text
+          配送先
+          %ul
+            %li 〒580-0098
+            %li 大阪府 堺市 5-3-18
+            %li 榊原 慧士
+        .buy-index__content__method__delivery__link
+          = link_to "" do
+            変更する
+      .buy-index__content__method__btn
+        .buy-index__content__method__btn__link
+          = link_to "" do
+            購入する
+  = render 'shared/product_footer'

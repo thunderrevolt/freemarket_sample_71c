@@ -1,6 +1,8 @@
 $main-color: #3CCACE;
+
+$shadow: rgba(145, 145, 145, 0.18) 0px 0px 2px;
 $back-color: #f8f8f8;
-$shadow: rgba(165, 165, 165, 0.18) 0px 0px 2px;
+
 body {
   font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
 }
@@ -18,4 +20,4 @@ body {
 @import "modules/login";
 @import "modules/mypage";
 @import "modules/exhibit";
-
+@import "modules/buy";
