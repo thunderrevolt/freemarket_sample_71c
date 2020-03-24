@@ -17,7 +17,6 @@
 
 // 商品関連
 .product-show {
-  height: 100%;
   width: 100%;
   background-color: #eee;
   .product-show-main {
@@ -110,6 +109,7 @@
     padding: 10px;
     align-items: center;
     color: $main-color;
+    cursor: pointer;
     &:hover {
       opacity: 0.4;
     }
@@ -124,6 +124,7 @@
     border-radius: 10px;
     font-size: 16px;
     padding: 10px;
+    cursor: pointer;
     &:hover {
       opacity: 0.4;
     }
@@ -158,10 +159,13 @@
       height: 50px;
       color: white;
       background-color: $main-color;
-      margin: 0 auto;
+      margin: 0 110px;
       margin-top: 20px;
-      display: block;
       border-radius: 40px;
+      cursor: pointer;
+      &:hover {
+        opacity: 0.4;
+      }
     }
   }
 }
@@ -170,13 +174,27 @@
 .product-after-before {
   display: flex;
   justify-content: space-between;
-  margin-top: 10px;
+  margin: 10px 0;
   color: $main-color;
   font-size: 20px;
+  cursor: pointer;
+  &__before {
+    &:hover {
+      opacity: 0.4;
+    }
+  }
+  &__after {
+    &:hover {
+      opacity: 0.4;
+    }
+  }
 }
+
+// カテゴリーもっとみる
 .product-show-category {
   font-weight: bold;
   font-size: 24px;
-  padding: 20px 0;
+  margin: 20px 0;
   color: $main-color;
+  cursor: pointer;
 }
