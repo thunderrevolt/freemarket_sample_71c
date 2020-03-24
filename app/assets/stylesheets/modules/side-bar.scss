@@ -1,0 +1,42 @@
+.myp-side-bar {
+  color: #333;
+  width: 280px;
+  h1 {
+    margin-top: 40px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    line-height: 1;
+    font-weight: bold;
+  }
+}
+
+.myp-container {
+  font-size: 14px;
+  line-height: 1;
+  &__box {
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    background: white;
+    border-bottom: 1px solid #ebebeb;
+    position: relative;
+    a {
+      display: block;
+      line-height: 48px;
+      width: 248px;
+      padding: 0 16px;
+      text-decoration: none;
+      color: #333;
+      &:hover {
+        background: #fbfbfb;
+      }
+    }
+  }
+  i {
+    color: #ccc;
+    font-size: 16px;
+    line-height: 48px;
+    position: absolute;
+    right: 16px;
+  }
+}
