@@ -7,5 +7,5 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:index, :show]
-
+  get '/logout', to: 'users#logout'
 end

@@ -38,35 +38,6 @@
   margin: 0 auto;
 }
 
-.myp-side-bar {
-  color: #333;
-  width: 280px;
-  h1 {
-    margin-top: 40px;
-    margin-bottom: 10px;
-    font-size: 16px;
-    line-height: 1;
-    font-weight: bold;
-  }
-}
-
-.myp-container {
-  font-size: 14px;
-  line-height: 1;
-  &__box {
-    padding: 16px;
-    display: flex;
-    justify-content: space-between;
-    box-sizing: border-box;
-    background: white;
-    border-bottom: 1px solid #ebebeb;
-  }
-  i {
-    color: #ccc;
-    font-size: 16px;
-  }
-}
-
 .myp-main {
   width: 700px;
   &__top {
