@@ -1,8 +1,13 @@
 class CommentsController < ApplicationController
   def create
     comment = Comment.create(product_params)
-    redirect_to products_path(comment.product.id)
+    if comment.save
+      redirect_to products_path(comment.product.id), notice: '投稿OK'
+    else
+      render "product/show",notice: '投稿に失敗しました'
+    end
   end
+  
 
   private
   def product
