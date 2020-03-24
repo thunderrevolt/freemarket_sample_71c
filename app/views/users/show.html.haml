@@ -1,8 +1,12 @@
 = render 'shared/header'
-.myp-head__space
 .top-exhibit
   .top-exhibit__text 出品する
   = image_tag "icon_camera.png"
+.myp-header
+  .myp-header__container
+    = link_to "フリマ"
+    %i.fas.fa-chevron-right
+    %p マイページ
 .myp
   .myp-side-bar
     %ul.myp-container

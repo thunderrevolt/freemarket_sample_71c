@@ -1,11 +1,7 @@
 .top-header {
   width: 100%;
-  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
   padding-bottom: 10px;
-  z-index: 3;
-  position: absolute;
-  top: 0;
-  left: 0;
+  background: white;
 }
 
 .top-header--top {
@@ -45,6 +41,10 @@
   }
   &__right {
     display: flex;
+    a {
+      color: white;
+      text-decoration: none;
+    }
   }
 }
 
