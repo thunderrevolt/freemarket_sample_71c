@@ -17,6 +17,11 @@ class ProductsController < ApplicationController
     end
   end
 
+  def show
+    @comment = Comment.new
+  end
+
+
   def edit
     @product = Product.find(params[:id])
     @size = Size.find(@product.size_id)

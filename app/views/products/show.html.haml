@@ -1,0 +1,114 @@
+= render 'shared/header'
+.product-header
+  .product-header__right
+    %ul.product-header__right--navi
+      %li
+        = link_to root_path do
+          FURIMA
+        >
+      %li
+        ベビー・キッズベビー
+        >
+      %li
+        ベビー服（男女兼用）〜95cm
+        >
+      %li
+        アウター
+        >
+      %li
+        プロダクト
+      
+.top-exhibit
+  .top-exhibit__text 出品する
+  = image_tag "icon_camera.png"
+.product-show
+  .product-show-main
+    .product-show-box
+      .product-show-items
+        %h2.puroduct-name
+          プロダクト
+        .product-show-item-lists
+          %ul.product-show-item-lists__img
+            %li.product-show-item-lists__img--main{ id: "main" }
+              = image_tag "picup1.png", class: "main-size"
+              %ul.product-show-item-lists__sub
+                %li.product-show-item-lists__sub--img{ id: "first" }
+                  = image_tag "picup1.png", class: "sub-size"
+                %li.product-show-item-lists__sub--img{ id: "second" }
+                  = image_tag "picup1.png", class: "sub-size"
+                %li.product-show-item-lists__sub--img{ id: "third" }
+                  = image_tag "picup1.png", class: "sub-size"
+      .product-show-price
+        %span.product-show-price__span1
+          ¥30000
+        .product-show-price__tax
+          %span.product-show-span2
+            (税込) 
+            %span.product-show-span3
+              送料込み
+      .product-show-text
+        親譲りの無鉄砲で小供の時から？？？ばかりしている。小学校に居る時分学校の二階から？？？して一週間ほど腰を抜かした事がある。なぜそんな無闇をしたと聞く人があるかも知れぬ。別段深い理由でもない。新築の二階から首を出していたら、同級生の一人が冗談に、いくら威張っても、そこから飛び降りる事は出来まい。弱虫やーい。と囃したからである。小使に負ぶさって帰って来た時、おやじが大きな眼をして二階ぐらいから飛び降りて腰
+      .product-show-status
+        %table.show-teable
+          %tr.show-teable__tr
+            %th.show-teable__th 出品者
+            %td.show-teable__td hoge
+          %tr.show-teable__tr
+            %th.show-teable__th カテゴリー
+            %td.show-teable__td 
+              %p
+                ベビー・キッズベビー
+                %br
+                服(男女兼用)
+                %br
+                95cmアウター
+          %tr.show-teable__tr
+            %th.show-teable__th ブランド
+            %td.show-teable__td るいびとん
+          %tr.show-teable__tr
+            %th.show-teable__th 商品のサイズ
+            %td.show-teable__td 8L
+          %tr.show-teable__tr
+            %th.show-teable__th 商品の状態
+            %td.show-teable__td 未使用に近い
+          %tr.show-teable__tr
+            %th.show-teable__th 配送料の負担	
+            %td.show-teable__td 送料込み（出品者負担）
+          %tr.show-teable__tr
+            %th.show-teable__th 発送元の地域
+            %td.show-teable__td 岩手県
+          %tr.show-teable__tr
+            %th.show-teable__th 発送日の目安
+            %td.show-teable__td 4-79日で発送
+      .product-show-btns
+        .product-show-btns__like
+          %i.fas.fa-star
+          %p お気に入り0
+        .product-show-btns__report
+          %i.fas.fa-flag
+          %p 不適切な商品の情報
+    
+    .product-comments-box
+      .product-comments
+      -# コメントがあれば表示
+    .product-comment-form
+      %form.product-comment-form__new
+        %input{type: "textarea", class: "product-comment-form__new--text"}
+        %p.product-comment-form__new--report
+          相手のことを考え丁寧なコメントを心がけましょう。
+          %br
+          不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        %input{type: "submit", class:"product-comment-form__new--btn fas fa-star", value: "コメントする"}
+        
+    .product-after-before
+      .product-after-before__before
+        ＜前の商品
+      .product-after-before__after
+        次の商品＞
+    .product-show-category
+      ベビー商品をもっとみる
+
+
+    
+
+  = render 'shared/footer'
