@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   def create
-    comment = Comment.create(product_params)
+    comment = Comment.new(product_params)
     if comment.save
       redirect_to products_path(comment.product.id), notice: '投稿OK'
     else
