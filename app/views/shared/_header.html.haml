@@ -31,10 +31,12 @@
     .top-header--middle__right
       -# 会員登録ボタン
       - if user_signed_in?
-        .top-category__btn--left.btn マイページ
+        .top-category__btn--left.btn 
+          = link_to "マイページ", user_path(1)
         .top-category__btn--right.btn ログアウト
       - else
         .top-category__btn--left.btn 
           = link_to "新規会員登録", "/users"
         -# ログインボタン
-        .top-category__btn--right.btn ログイン
+        .top-category__btn--right
+          = link_to "ログイン", "/users/sign_in"
