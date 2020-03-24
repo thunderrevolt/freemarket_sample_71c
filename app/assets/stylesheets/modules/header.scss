@@ -183,13 +183,20 @@
   color: white;
 }
 
-.top-category__btn--right {
+.top-category__btn--right a {
+  display: block;
   margin-left: 10px;
   border: 1px solid $main-color;
   color: $main-color;
+  height: 15px;
+  padding: 8px 10px;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
 }
 
-.top-category__btn--right:hover {
+.top-category__btn--right:hover a {
   background: $main-color;
   color: white;
 }
