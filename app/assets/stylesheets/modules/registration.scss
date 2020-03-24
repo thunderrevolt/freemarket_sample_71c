@@ -1,6 +1,6 @@
 body {
   background-color: rgb(235, 235, 235);
-  width: 100%;
+  height: 100vh;
 
   .registration-header {
     height: 50px;
@@ -14,7 +14,7 @@ body {
   
   .registration-form {
     position: relative;
-    height: 70%;
+    height: 55vh;
 
     &--main-box {
       background-color: white;

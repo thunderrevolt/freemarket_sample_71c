@@ -2,7 +2,8 @@
   .top-header--top
     = image_tag "logo.png", class: "top-header--top__image"
     -# 検索フォーム
-    %input{placeholder: "キーワードから探す", type: "text", class: "top-heder--top__form"}
+    .top-header--top__search
+      %input{placeholder: "キーワードから探す", type: "search", class: "top-heder--top__form"}
   .top-header--middle
     .top-header--middle__left
       -# カテゴリーから探す
