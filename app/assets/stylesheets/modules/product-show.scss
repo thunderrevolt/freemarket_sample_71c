@@ -1,0 +1,200 @@
+// ヘッダー
+.product-header {
+  border-top: solid 1px #eee;
+  height: 55px;
+  background-color: white;
+  display: block;
+  &__right {
+    height: 55px;
+    &--navi {
+      display: flex;
+      justify-content: left;
+      line-height: 55px;
+      margin: 0 auto;
+    }
+  }
+}
+
+// 商品関連
+.product-show {
+  width: 100%;
+  background-color: #eee;
+  .product-show-main {
+    width: 700px;
+    background-color: #eee;
+    margin: auto;
+    padding-top: 30px;
+    .product-show-box {
+      background-color: #fff;
+      padding: 24px 40px 40px;
+      .puroduct-name {
+        text-align: center;
+        font-weight: bold;
+        font-size: 24px;
+      }
+      .product-show-item-lists {
+        margin-top: 20px;
+        &__img {
+          display: flex;
+          justify-content: center;
+          .product-show-item-lists__sub {
+            display: flex;
+            &--img {
+              margin-left: 10px;
+            }
+          }
+        }
+      }
+    }
+    .product-show-price {
+      text-align: center;
+      margin: 20px 0;
+      &__span1 {
+        font-size: 46px;
+        font-weight: bold;
+      }
+      &__tax {
+        display: flex;
+        justify-content: center;
+      }
+    }
+    .product-show-text {
+      line-height: 1.5;
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+  }
+}
+
+// 写真サイズ
+.main-size {
+  display: table;
+  margin: 0 auto 10px;
+  width: 500px;
+  height: 346px;
+}
+.sub-size {
+  width: 180px;
+  height: 180px;
+}
+
+// 表
+.show-teable{
+  border: solid 1px #ccc;
+  width: 620px;
+  &__th {
+    border: solid 1px #ccc;
+    background-color: #eee;
+    text-align: center;
+    width: auto;
+    padding: 20px 0;
+  }
+  &__td {
+    border: solid 1px #ccc;
+    padding: 10px 0;
+    padding-left: 10px;
+  }
+}
+
+// お気に入り 不適な情報ボタン
+.product-show-btns {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  &__like {
+    display: flex;
+    border: solid 2px #ffb340;
+    border-radius: 40px;
+    font-size: 16px;
+    padding: 10px;
+    align-items: center;
+    color: $main-color;
+    cursor: pointer;
+    &:hover {
+      opacity: 0.4;
+    }
+    .fa-star {
+      margin-right: 5px;
+    }
+  }
+  &__report {
+    display: flex;
+    align-items: center;
+    border: solid 2px #333;
+    border-radius: 10px;
+    font-size: 16px;
+    padding: 10px;
+    cursor: pointer;
+    &:hover {
+      opacity: 0.4;
+    }
+    .fa-flag {
+      margin-right: 5px;
+    }
+  }
+}
+
+// コメント入力蘭
+.product-comment-form {
+  margin-top: 20px;
+  background-color: white;
+  width: 620px;
+  padding: 20px 40px;
+  height: auto;
+  &__new {
+    width: 620px;
+    &--text {
+      width: 620px;
+      height: 200px;
+    }
+    &--report{
+      background-color: #eee;
+      text-align: left;
+      margin-top: 10px;
+      padding: 10px 0 10px 10px;
+      line-height: 1.5;
+    }
+    &--btn {
+      width: 400px;
+      height: 50px;
+      color: white;
+      background-color: $main-color;
+      margin: 0 110px;
+      margin-top: 20px;
+      border-radius: 40px;
+      cursor: pointer;
+      &:hover {
+        opacity: 0.4;
+      }
+    }
+  }
+}
+
+// 前の商品 次の商品
+.product-after-before {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+  color: $main-color;
+  font-size: 20px;
+  cursor: pointer;
+  &__before {
+    &:hover {
+      opacity: 0.4;
+    }
+  }
+  &__after {
+    &:hover {
+      opacity: 0.4;
+    }
+  }
+}
+
+// カテゴリーもっとみる
+.product-show-category {
+  font-weight: bold;
+  font-size: 24px;
+  margin: 20px 0;
+  color: $main-color;
+  cursor: pointer;
+}
