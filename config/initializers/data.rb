@@ -17,4 +17,13 @@ Prefecture.data = [
   {id: 43, name: '熊本県'}, {id: 44, name: '大分県'}, {id: 45, name: '宮崎県'},
   {id: 46, name: '鹿児島県'}, {id: 47, name: '沖縄県'}
 ]
+
+Shipping.data = [
+  {id: 1, name: '送料込み（出品者負担）'}, {id: 2, name: '着払い（購入者負担）'}
+]
+ 
+Day.data = [
+  {id: 1, name: '1~2日で発送'}, {id: 2, name: '2~3日で発送'}, {id: 3, name: '4~7日で発送'}
+]
+
 end

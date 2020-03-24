@@ -47,14 +47,15 @@
           .exhibit-label
             %p 配送料の負担
             %p.need 必須
-          = f.select :status, [["選択してください",""],["送料込み（出品者負担）","送料込み（出品者負担）"],["着払い（購入者負担）","着払い（購入者負担）"]]
+          = f.collection_select :shipping_id, Shipping.all, :id, :name, prompt: "選択してください"
           .exhibit-label
             %p 発送元の地域
             %p.need 必須
-          = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "--"
+          = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "選択してください"
+          .exhibit-label
             %p 発送までの日数
             %p.need 必須
-          = f.select :shipping_day, [["選択してください",""],["1~2日で発送","1~2日で発送"],["2~3日で発送","2~3日で発送"],["4~7日で発送","4~7日で発送"]]
+          = f.collection_select :day_id, Day.all, :id, :name, prompt: "選択してください"
       .exhibit-boby--container__price
         .exhibit-flame
           %h3 販売価格（300~9,999,999）
