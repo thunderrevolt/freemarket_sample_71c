@@ -1,49 +1,77 @@
-%h2 Sign up
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :nickname
-    %br/
-    = f.text_field :nickname
-  .field
-    = f.label :first_name
-    %br/
-    = f.text_field :first_name
-  .field
-    = f.label :last_name
-    %br/
-    = f.text_field :last_name
-    .field
-    = f.label :first_name_kana
-    %br/
-    = f.text_field :first_name_kana
-  .field
-    = f.label :last_name_kana
-    %br/
-    = f.text_field :last_name_kana
-  .field
-    = f.label :birthday
-    %br/
-    = f.text_field :birthday
-  .field
-    = f.label :tel
-    %br/
-    = f.text_field :tel
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    - if @minimum_password_length
-      %em
-        (#{@minimum_password_length} characters minimum)
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .actions
-    = f.submit "Next"
-= render "devise/shared/links"
+= render 'shared/product_header'
+.info-registration
+  .info-registration--head
+    %h2 会員情報登録
+  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+    = render "devise/shared/error_messages", resource: resource
+    .info-registration--form
+      .field
+        .nickname
+          .nickname__dialogue
+            = f.label :ニックネーム
+            %span.required 必須
+            %br/
+            = f.text_field :nickname, placeholder: "ニックネーム"
+      .field
+        .fullname
+          .fullname--surname
+            .fullname--surname__dialogue
+              = f.label :名字
+              %span.required 必須
+              %br/
+              = f.text_field :first_name, placeholder: "例：府李間"
+          .fullname--name
+            .fullname--name__dialogue
+              = f.label :名前
+              %span.required 必須
+              %br/
+              = f.text_field :last_name, placeholder: "例：負利尾"
+      .field
+        .fullname-kana
+          .fullname-kana--surname-kana
+            .fullname-kana--surname-kana__dialogue
+              = f.label :名字（カナ）
+              %span.required 必須
+              %br/
+              = f.text_field :first_name_kana, placeholder: "例：フリマ"
+          .fullname-kana--name-kana
+            .fullname-kana--name-kana__dialogue
+              = f.label :名前（カナ）
+              %span.required 必須
+              %br/
+              = f.text_field :last_name_kana, placeholder: "例：フリオ"
+      .field
+        .birthday
+          .birthday__dialogue
+            = f.label :生年月日
+            %span.required 必須
+            %br/
+            = f.text_field :birthday
+      .field
+        .tel
+          .tel__dialogue
+            = f.label :電話番号
+            %span.required 必須
+            %br/
+            = f.text_field :tel, placeholder: "01234567890"
+      .field
+        .mail
+          .mail__dialogue
+            = f.label :メールアドレス
+            %span.required 必須
+            %br/
+            = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "例：aaa@test.com"
+      .field
+        .password
+          .password__dialogue
+            = f.label :パスワード
+            %span.required 必須
+            %br/
+            = f.password_field :password, autocomplete: "new-password", placeholder: "6文字以上入力してください"
+      .field
+        .password-con
+          .password-con__dialogue
+            = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "もう一度パスワードを入力してください"
+      .actions
+        = f.submit "次へ進む"
+= render 'shared/product_footer'
