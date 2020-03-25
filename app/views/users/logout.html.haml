@@ -1,4 +1,11 @@
 = render 'shared/header'
+.myp-header
+  .myp-header__container
+    = link_to "フリマ", root_path
+    %i.fas.fa-chevron-right
+    = link_to "マイページ", user_path(1)
+    %i.fas.fa-chevron-right
+    %p ログアウト
 .logout
   .logout__container
     = render 'shared/user_side-bar'
