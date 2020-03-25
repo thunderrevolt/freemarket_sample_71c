@@ -99,7 +99,7 @@
               = link_to "" do
                 編集
             .product-show-link__destroy
-              = link_to "" do
+              = link_to product_path(@product), method: :delete do
                 削除
         - else
           .product-show-link

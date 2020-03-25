@@ -31,6 +31,12 @@ class ProductsController < ApplicationController
     @images_length = @product.images.length
   end
 
+  def destroy
+    @product = Product.find_by(params[:id])
+    @product.destroy
+    redirect_to root_path
+  end
+
 
   private
   def product_params
