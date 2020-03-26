@@ -27,23 +27,6 @@
       p{
         margin-top: 16px;
       }
-      .exhibit-image{
-        width: 100%;
-        background-color: #f5f5f5;
-        margin-top: 16px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border: 1px dashed pink;
-        height: 120px;
-        flex-direction: column;
-        .exhibit-image__area{
-          display: none;
-        }
-        p{
-          text-align: center;
-        }
-      }
     }
     &__name{
       border-bottom: 1px solid #eee;
@@ -182,6 +165,7 @@ input, textarea, select {
 }
 
 .exhibit-flame{
+  width: 490px;
   padding:30px 30px;
 }
 
@@ -231,4 +215,83 @@ input, textarea, select {
     }
   }
 }
-  
+// 商品詳細カテゴリー
+.exhibit-detail-category {
+  width: 100%;
+  .exhibit-detail-category-name{
+    margin-bottom: 15px;
+  }
+  .exhibit-category-select {
+    width: 490px;
+    font-size: 12px;
+    border-radius: 3px;
+    border:1px solid rgb(166, 166, 166);
+    background-color: white;
+    box-sizing: border-box;
+  }
+}
+// 子と孫のカテゴリー
+.exhibit-select-wrapper__box--select {
+  margin-top: 10px;
+}
+
+.item-num-0{
+  width: 100%;
+}
+.item-num-1{
+  width: 491px;
+}
+.item-num-2{
+  width: 363px;
+}
+.item-num-3{
+  width: 234px;
+}
+.item-num-4{
+  width: 106px;
+}
+//下段のfile_field
+.item-num-5{
+  width: 100%;
+}
+.item-num-6{
+  width: 491px;
+}
+.item-num-7{
+  width: 363px;
+}
+.item-num-8{
+  width: 234px;
+}
+.item-num-9{
+  width: 106px;
+}
+
+
+
+
+
+#image-box-1 {
+  width: 100%;
+  display: flex;
+}
+#image-box__container{
+  width: 100%;
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px dashed pink;
+  height: 120px;
+  flex-direction: column;
+}
+.exhibit-image__area{
+  display: none;
+}
+p{
+  text-align: center;
+}
+
+
+
+

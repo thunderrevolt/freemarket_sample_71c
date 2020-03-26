@@ -13,11 +13,32 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     @product.images.new
+    @category_parent_array = ["---"]
+    #データベースから、親カテゴリーのみ抽出し、配列化
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
+    end
+    def get_category_children
+      #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
+      @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
+    end
+
+      # 子カテゴリーが選択された後に動くアクション
+    def get_category_grandchildren
+      #選択された子カテゴリーに紐付く孫カテゴリーの配列を取得
+      @category_grandchildren = Category.find("#{params[:child_id]}").children
+    end
+   
   end
+
 
   def create
     @product = Product.new(product_params)
+    category_id_params
     if @product.save
+      params[:images][:image].each do |a|
+        @images = @product.images.create!(image: a, product_id: @product.id)
+      end
       redirect_to root_path
     else
       redirect_to new_product_path unless @product.valid?
@@ -49,8 +70,11 @@ class ProductsController < ApplicationController
 
   private
   def product_params
-    params.require(:product).permit(images_attributes: [:image]).merge(user_id: current_user.id)
-    # :name, :description, :category, :brand, :status, :postage_bearer, :shipping_area, :shipping_day, :price, :size,
+    params.require(:product).permit(:name, :description, :brand, :status, :postage_bearer, :shipping_area, :shipping_day, :price, :size, :category_id, images_attributes: [:id, {images: []}, :post_id]).merge(user_id: current_user.id)
   end
 
+  def category_id_params
+    category = params.permit(:category_id)
+    @product[:category_id] = category[:category_id]
+  end
 end
