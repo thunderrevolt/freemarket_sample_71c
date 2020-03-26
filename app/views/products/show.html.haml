@@ -7,16 +7,16 @@
           FURIMA
         >
       %li
-        ベビー・キッズベビー
+        = @product.category.root.name
         >
       %li
-        ベビー服（男女兼用）〜95cm
+        = @product.category.parent.name
         >
       %li
-        アウター
+        = @product.category.name
         >
       %li
-        プロダクト
+        = @product.name
       
 .top-exhibit
   .top-exhibit__text 出品する
@@ -26,60 +26,65 @@
     .product-show-box
       .product-show-items
         %h2.puroduct-name
-          プロダクト
+          = @product.name
         .product-show-item-lists
           %ul.product-show-item-lists__img
             %li.product-show-item-lists__img--main{ id: "main" }
-              = image_tag "picup1.png", class: "main-size"
+              = image_tag @image_1.image.url, class: "main-size"
               %ul.product-show-item-lists__sub
-                %li.product-show-item-lists__sub--img{ id: "first" }
-                  = image_tag "picup1.png", class: "sub-size"
-                %li.product-show-item-lists__sub--img{ id: "second" }
-                  = image_tag "picup1.png", class: "sub-size"
-                %li.product-show-item-lists__sub--img{ id: "third" }
-                  = image_tag "picup1.png", class: "sub-size"
+                - @image.each do |image|
+                  %li.product-show-item-lists__sub--img{ id: "first" }
+                    = image_tag image.image.url, class: "sub-size"
       .product-show-price
         %span.product-show-price__span1
-          ¥30000
+          ¥
+          = @product.price
         .product-show-price__tax
           %span.product-show-span2
             (税込) 
             %span.product-show-span3
               送料込み
       .product-show-text
-        親譲りの無鉄砲で小供の時から？？？ばかりしている。小学校に居る時分学校の二階から？？？して一週間ほど腰を抜かした事がある。なぜそんな無闇をしたと聞く人があるかも知れぬ。別段深い理由でもない。新築の二階から首を出していたら、同級生の一人が冗談に、いくら威張っても、そこから飛び降りる事は出来まい。弱虫やーい。と囃したからである。小使に負ぶさって帰って来た時、おやじが大きな眼をして二階ぐらいから飛び降りて腰
+        = @product.description
       .product-show-status
         %table.show-teable
           %tr.show-teable__tr
             %th.show-teable__th 出品者
-            %td.show-teable__td hoge
+            %td.show-teable__td
+              = @product.user.nickname
           %tr.show-teable__tr
             %th.show-teable__th カテゴリー
             %td.show-teable__td 
               %p
-                ベビー・キッズベビー
+                = @product.category.root.name
                 %br
-                服(男女兼用)
+                = @product.category.parent.name
                 %br
-                95cmアウター
+                = @product.category.name
           %tr.show-teable__tr
             %th.show-teable__th ブランド
-            %td.show-teable__td るいびとん
+            %td.show-teable__td
+              = @product.brand
           %tr.show-teable__tr
             %th.show-teable__th 商品のサイズ
-            %td.show-teable__td 8L
+            %td.show-teable__td 
+              = @product.size
           %tr.show-teable__tr
             %th.show-teable__th 商品の状態
-            %td.show-teable__td 未使用に近い
+            %td.show-teable__td
+              = @product.status
           %tr.show-teable__tr
             %th.show-teable__th 配送料の負担	
-            %td.show-teable__td 送料込み（出品者負担）
+            %td.show-teable__td 
+              = @product.postage_bearer
           %tr.show-teable__tr
             %th.show-teable__th 発送元の地域
-            %td.show-teable__td 岩手県
+            %td.show-teable__td
+              = @product.shipping_area
           %tr.show-teable__tr
             %th.show-teable__th 発送日の目安
-            %td.show-teable__td 4-79日で発送
+            %td.show-teable__td
+              = @product.shipping_day
       .product-show-btns
         .product-show-btns__like
           %i.fas.fa-star
@@ -87,6 +92,20 @@
         .product-show-btns__report
           %i.fas.fa-flag
           %p 不適切な商品の情報
+      - if user_signed_in?
+        - if @product.user_id == current_user.id
+          .product-show-link
+            .product-show-link__edit
+              = link_to "" do
+                編集
+            .product-show-link__destroy
+              = link_to "" do
+                削除
+        - else
+          .product-show-link
+            .product-show-link__btn
+              = link_to "" do
+                購入する
     
     .product-comments-box
       .product-comments

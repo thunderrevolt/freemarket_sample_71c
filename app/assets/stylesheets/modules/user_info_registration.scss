@@ -1,0 +1,277 @@
+.info-registration {
+  margin: auto;
+  width: 800px;
+  text-align: center;
+
+  &--head {
+    background-color: white;
+    margin-bottom: 1px;
+
+    & h2 {
+      text-align: center;
+      padding: 32px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+  }
+
+  &--form {
+    background-color: white;
+    width: 400px;
+    padding: 0 200px;
+
+    .field {
+      display: flex;
+      padding: 20px 0;
+
+      .nickname {
+
+        &__dialogue {
+          text-align: left;
+
+          label {
+            font-size: 14px;
+            font-weight: bold;
+          }
+
+          .required {
+            background-color: red;
+            color: white;
+            font-size: 16px;
+          }
+
+          input[type="text"] {
+            width: 425px;
+            height: 40px;
+          }
+        }
+      }
+
+      .fullname {
+        display: flex;
+        margin: left;
+
+        &--surname {
+          padding-right: 20px;
+
+          &__dialogue {
+            text-align: left;
+
+            label {
+              font-size: 14px;
+              font-weight: bold;
+            }
+
+            .required {
+              background-color: red;
+              color: white;
+              font-size: 16px;
+            }
+
+            input[type="text"] {
+              width: 200px;
+              height: 40px;
+            }
+          }
+        }
+
+        &--name {
+
+          &__dialogue {
+            text-align: left;
+
+            label {
+              font-size: 14px;
+              font-weight: bold;
+            }
+
+            .required {
+              background-color: red;
+              color: white;
+              font-size: 16px;
+            }
+
+            input[type="text"] {
+              width: 200px;
+              height: 40px;
+            }
+          }
+        }
+      }
+
+      .fullname-kana {
+        display: flex;
+        margin: left;
+
+        &--surname-kana {
+          padding-right: 20px;
+
+          &__dialogue {
+            text-align: left;
+
+            label {
+              font-size: 14px;
+              font-weight: bold;
+            }
+
+            .required {
+              background-color: red;
+              color: white;
+              font-size: 16px;
+            }
+
+            input[type="text"] {
+              width: 200px;
+              height: 40px;
+            }
+          }
+        }
+
+        &--name-kana {
+
+          &__dialogue {
+            text-align: left;
+
+            label {
+              font-size: 14px;
+              font-weight: bold;
+            }
+
+            .required {
+              background-color: red;
+              color: white;
+              font-size: 16px;
+            }
+
+            input[type="text"] {
+              width: 200px;
+              height: 40px;
+            }
+          }
+        }
+      }
+
+      .birthday {
+        margin: left;
+
+        &__dialogue {
+          text-align: left;
+
+          label {
+            font-size: 14px;
+            font-weight: bold;
+          }
+
+          .required {
+            background-color: red;
+            color: white;
+            font-size: 16px;
+          }
+
+          input[type="text"] {
+            width: 425px;
+            height: 40px;
+          }
+        }
+      }
+
+      .tel {
+        margin: left;
+
+        &__dialogue {
+          text-align: left;
+
+          label {
+            font-size: 14px;
+            font-weight: bold;
+          }
+
+          .required {
+            background-color: red;
+            color: white;
+            font-size: 16px;
+          }
+
+          input[type="text"] {
+            width: 425px;
+            height: 40px;
+          }
+        }
+      }
+
+      .mail {
+        margin: left;
+
+        &__dialogue {
+          text-align: left;
+
+          label {
+            font-size: 14px;
+            font-weight: bold;
+          }
+
+          .required {
+            background-color: red;
+            color: white;
+            font-size: 16px;
+          }
+
+          input[type="email"] {
+            width: 425px;
+            height: 40px;
+          }
+        }
+      }
+
+      .password {
+        margin: left;
+
+        &__dialogue {
+          text-align: left;
+
+          label {
+            font-size: 14px;
+            font-weight: bold;
+          }
+
+          .required {
+            background-color: red;
+            color: white;
+            font-size: 16px;
+          }
+
+          input[type="password"] {
+            width: 425px;
+            height: 40px;
+          }
+        }
+      }
+
+      .password-con {
+        margin: left;
+
+        &__dialogue {
+          text-align: left;
+
+          input[type="password"] {
+            width: 425px;
+            height: 40px;
+          }
+        }
+      }
+    }
+
+    .actions {
+      padding-bottom: 20px;
+      
+      input[type="submit"] {
+        width: 425px;
+        height: 40px;
+      }
+
+      input {
+        cursor: pointer;
+      }
+    }
+  }
+}

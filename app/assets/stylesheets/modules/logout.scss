@@ -1,0 +1,29 @@
+.logout {
+  padding: 40px 0;
+  background: $back-color;
+  &__container {
+    width: 1020px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+  }
+  &__main {
+    width: 700px;
+    background: white;
+    padding: 64px;
+    box-sizing: border-box;
+    height: 178px;
+    a {
+      display: table;
+      margin: 0 auto;
+      text-decoration: none;
+      color: white;
+      background: $main-color;
+      width: 320px;
+      height: 50px;
+      font-size: 14px;
+      line-height: 50px;
+      text-align: center;
+    }
+  }
+}

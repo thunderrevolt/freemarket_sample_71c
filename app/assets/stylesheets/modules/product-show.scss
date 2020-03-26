@@ -39,6 +39,9 @@
           justify-content: center;
           .product-show-item-lists__sub {
             display: flex;
+            margin-right: 10px;
+            width: 480px;
+            overflow: scroll;
             &--img {
               margin-left: 10px;
             }
@@ -70,29 +73,30 @@
 .main-size {
   display: table;
   margin: 0 auto 10px;
-  width: 500px;
+  width: 480px;
   height: 346px;
 }
 .sub-size {
-  width: 180px;
-  height: 180px;
+  width: 150px;
+  height: 150px;
 }
 
 // 表
 .show-teable{
   border: solid 1px #ccc;
-  width: 620px;
+  overflow: scroll;
   &__th {
     border: solid 1px #ccc;
     background-color: #eee;
     text-align: center;
-    width: auto;
+    width: 180px;
     padding: 20px 0;
   }
   &__td {
     border: solid 1px #ccc;
     padding: 10px 0;
     padding-left: 10px;
+    width: 540px;
   }
 }
 
@@ -131,6 +135,49 @@
     .fa-flag {
       margin-right: 5px;
     }
+  }
+}
+// 購入ボタン
+.product-show-link {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  &__edit {
+    margin-left: 50px;
+    font-size: 20px;
+    height: 50px;
+    width: 100px;
+    line-height: 50px;
+    text-align: center;
+    background-color: $main-color;
+    box-shadow: $shadow;
+    border-radius: 10px;
+  }
+  &__destroy {
+    margin-right: 50px;
+    font-size: 20px;
+    height: 50px;
+    width: 100px;
+    line-height: 50px;
+    text-align: center;
+    background-color: rgb(204, 0, 0);
+    box-shadow: $shadow;
+    border-radius: 10px;
+  }
+  a {
+    text-decoration: none;
+    color: #ffffff;
+    display: block;
+  }
+  &__btn {
+    height: 70px;
+    line-height: 70px;
+    width: 500px;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+    margin: 0 auto;
+    background-color: rgb(204, 0, 0);
   }
 }
 

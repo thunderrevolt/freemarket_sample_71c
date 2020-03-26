@@ -27,7 +27,10 @@ class ProductsController < ApplicationController
   
 
   def show
+    @product = Product.find(params[:id])
     @comment = Comment.new
+    @image_1 = Image.where(product_id: @product).first
+    @image   = Image.where(product_id: @product)
   end
 
 

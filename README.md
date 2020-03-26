@@ -56,7 +56,7 @@ Things you may want to cover:
 |birthday|integer|null: false|
 |tel|integer|
 ### Association
-- has_many  :products, dependent: :destroy
+- has_many  :products
 - has_many  :cards, dependent: :destroy
 - has_many  :points, dependent: :destroy
 - has_many  :transfers, dependent: :destroy
