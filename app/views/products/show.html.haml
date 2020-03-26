@@ -1,22 +1,22 @@
 = render 'shared/header'
-.product-header
-  .product-header__right
-    %ul.product-header__right--navi
-      %li
-        = link_to root_path do
-          FURIMA
-        >
-      %li
-        = @product.category.root.name
-        >
-      %li
-        = @product.category.parent.name
-        >
-      %li
-        = @product.category.name
-        >
-      %li
-        = @product.name
+-# logout.html.hamlと同じclass
+.myp-header
+  %ul.myp-header__container
+    %li
+      = link_to root_path do
+        FURIMA
+      %i.fas.fa-chevron-right
+    %li
+      = @product.category.root.name
+      %i.fas.fa-chevron-right
+    %li
+      = @product.category.parent.name
+      %i.fas.fa-chevron-right
+    %li
+      = @product.category.name
+      %i.fas.fa-chevron-right
+    %li
+      = @product.name
       
 .top-exhibit
   .top-exhibit__text 出品する
