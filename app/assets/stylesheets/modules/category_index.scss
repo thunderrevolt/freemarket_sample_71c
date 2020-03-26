@@ -1,0 +1,85 @@
+.category-index {
+  background-color: $back-color;
+  padding: 30px 0;
+  // カテゴリー一覧ボックス
+  &__text {
+    width: 620px;
+    margin: 0 auto;
+    font-size: 21px;
+    font-weight: bold;
+  }
+  &__box {
+    width: 620px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    &__list {
+      padding: 8px 27px;
+      background-color: #ffffff;
+      margin-left: 10px;
+      margin-top: 10px;
+      border-radius: 5px;
+      box-shadow: 0px 0px 3px rgba(0,0,0,0.6);
+      &:hover {
+        color: $main-color;
+        transition: 1s;
+        cursor: pointer;
+      }
+    }
+  }
+  // カテゴリー一覧( 子 => 孫 )
+  &__list {
+    width: 620px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    &__name {
+      border-top-right-radius: 5px;
+      border-top-left-radius : 5px;
+      margin-top: 50px;
+      padding: 5px 10px;
+      width: 620px;
+      font-size: 24px;
+      font-weight: bold;
+      color: #ffffff;
+      background-color: $main-color;
+    }
+    &__child {
+      background-color: #ffffff;
+      padding: 0 10px 20px;
+      width: 620px;
+      &__name {
+        margin-top: 20px;
+        font-size: 16px;
+        font-weight: bold;
+        a {
+          text-decoration: none;
+          color: $main-color;
+        }
+        a:hover {
+          color: black;
+          transition: 1s;
+        }
+      }
+      &__grand {
+        padding: 5px 20px;
+        display: flex;
+        flex-wrap: wrap;
+        &__name {
+          font-size: 14px;
+          font-weight: normal;
+          width: calc(100% / 2);
+          margin-bottom: 8px;
+          a {
+            text-decoration: none;
+            color: $main-color;
+          }
+          a:hover {
+            color: black;
+            transition: 1s;
+          }
+        }
+      }
+    }
+  }
+}
