@@ -223,40 +223,61 @@
     padding: 0 20px;
     display: flex;
     justify-content: space-between;
+    a{
+      text-decoration: none;
+    }
+    .content_post{
+      width: 220px;
+      height: 150px;
+    }
     .picup-size {
       width: 220px;
       height: 150px;
       position: relative;
+      margin:1px;
+      color:black;
       img {
-        position: absolute;
         top: 0;
         left: 0;
         right: 0;
         bottom: 0;
         width: 100%;
         z-index: auto;
-        height: 150px;
+        height: 160px;
         object-fit: cover;
       }
-
       .product-box {
-        padding: 16px;
+        &:hover{
+          opacity: 0.5;
+        }
         background: white;
-        .top-flex {
-          display: flex;
-          justify-content: space-between;
+        height: 250px;
+        width: 220px;
+        .top-product__message{
+          padding: 10px;
+          .top-flex {
+            display: flex;
+            justify-content: space-between;
+            &--left{
+              display: flex;
+              p{
+                font-size: 15px;
+              }
+            }
+          }
         }
       }
       ul {
-        padding-top: 150px;
         li {
+          text-decoration: none;
           font-size: 16px;
           line-height: 24px;
         }
       }
       p {
-        font-size: 10px;
+        font-size: 8px;
       }
+
     }
   }
   &__space {
