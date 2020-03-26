@@ -46,7 +46,7 @@
           .exhibit-label
             %p 商品の状態
             %p.need 必須
-          = f.select :status, [["選択してください",""],["レディース","レディース"],["メンズ","メンズ"],["新品、未使用","新品、未使用"],["未使用に近い","未使用に近い"],["目立った傷や汚れなし","目立った傷や汚れなし"],["やや傷や汚れあり","やや傷や汚れあり"],["傷や汚れあり","傷や汚れあり"],["全体的に状態が悪い","全体的に状態が悪い"]]
+          = f.select :status, [["選択してください",""],["新品、未使用","新品、未使用"],["未使用に近い","未使用に近い"],["目立った傷や汚れなし","目立った傷や汚れなし"],["やや傷や汚れあり","やや傷や汚れあり"],["傷や汚れあり","傷や汚れあり"],["全体的に状態が悪い","全体的に状態が悪い"]]
       .exhibit-boby--container__delivery
         .exhibit-flame
           %h3.exhibit_h3 配送について
@@ -78,6 +78,8 @@
           .exhibit-profit
             %p  販売利益
             %p ー
+          .exhibit-hidden
+            = f.hidden_field :condition, value: 1
           .exhibit-btn
             = f.submit "出品する",class:"exhibit-submit"
             = f.submit "下書きに保存",class:"exhibit-draft"
@@ -94,38 +96,5 @@
             などの販売は犯罪であり、法律により処罰される可能性があります。また、出品をもちまして
             %a{href:"#"}>加盟店規約
             に同意したことになります。
-
-
-
-.main
-  %section.main__block
-    = form_with model:@item, local:true do |f|
-      %h2.sell__block__head
-        商品の情報を入力
-      .sell__block__form
-        .sell__block__form__upload
-          %h3.sell__block__form__upload__head
-            出品画像
-            %span.require 必須
-          %p 最大10枚までアップロードできます
-          #image-box-1
-            .item-num-0#image-box__container
-              = f.fields_for :images do |i|
-                .input-area
-                  = i.file_field :image, type: 'file', name: "item[images_attributes][][image_url]", value:"", style: "display:none", id:"img-file"
-                  %label{for: "img-file"}
-                    %i.fas.fa-camera
-
-        .sell__block__form__name
-          .form-group__name
-            %label
-              商品名
-              %span.require 必須
-            %div
-              = f.text_field :name, placeholder:"商品名（必須 40文字まで)",class: "form__group__name"
-
-        .sell__block__form__btn
-          %div
-            = f.submit "出品する",class: "btn-default__btn-red"
 
 = render 'shared/product_footer'

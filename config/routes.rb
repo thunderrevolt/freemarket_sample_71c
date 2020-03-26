@@ -3,9 +3,8 @@ Rails.application.routes.draw do
   root 'products#index'
 
   resources :buies, only: :index
-  resources :products, only: [:new, :create, :show, :destroy] do
 
-  resources :products, only: [:index, :show, :new, :edit, :destroy, :create] do
+  resources :products, only: [:show, :new, :edit, :destroy, :create] do
     resources :comments, only: :create
     #Ajaxで動くアクションのルートを作成
     collection do
@@ -16,4 +15,5 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show]
   resources :cards, only: [:index, :new]
   get '/logout', to: 'users#logout'
+
 end
