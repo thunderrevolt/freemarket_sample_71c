@@ -15,9 +15,10 @@ class ProductsController < ApplicationController
     @product.images.new
     @category_parent_array = ["---"]
     #データベースから、親カテゴリーのみ抽出し、配列化
-    Category.where(ancestry: nil).each do |parent|
-      @category_parent_array << parent.name
-    end
+    array = Category.where(ancestry: nil).pluck(:name)
+    @category_parent_array.push(array)
+    @category_parent_array.flatten!
+   
     def get_category_children
       #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
       @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
