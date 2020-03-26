@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
 
   resources :buies, only: :index
-  resources :products, only: [:new, :create, :show ] do
+  resources :products, only: [:new, :create, :show, :destroy] do
     resources :comments, only: :create
   end
   resources :users, only: [:index, :show]
