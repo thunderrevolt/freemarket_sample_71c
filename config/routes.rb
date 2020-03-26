@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root 'products#index'
 
+
   resources :buies, only: :index
   resources :products, only: [:new, :create, :show ] do
     resources :comments, only: :create

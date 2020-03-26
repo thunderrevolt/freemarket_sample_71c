@@ -1,6 +1,13 @@
 class ProductsController < ApplicationController
+  MAX_DISPLAY_RELATED_PRODUCTS = 3
+
   def index
     # @products = Product.includes(:images,:user).order('created_at DESC')
+    # ↓新しく作成された3つのデータのみ取得。
+    @products = Product.where(condition: 1).order(created_at: "DESC").take(MAX_DISPLAY_RELATED_PRODUCTS)
+    # ↓1(出品中)のブランド名「ma--ru」の商品をshuffleメソッドとtakeメソッドでランダムで３つのデータを取得。distinctで重複する情報削除。
+    @products_B = Product.where(condition:1, brand:'ma--ru').distinct.shuffle.take(MAX_DISPLAY_RELATED_PRODUCTS)
+    
   end
 
   def new
@@ -16,6 +23,8 @@ class ProductsController < ApplicationController
       redirect_to new_product_path unless @product.valid?
     end
   end
+
+  
 
   def show
     @product = Product.find(params[:id])
