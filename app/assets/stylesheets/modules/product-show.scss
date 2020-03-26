@@ -1,19 +1,5 @@
 // ヘッダー
-.product-header {
-  border-top: solid 1px #eee;
-  height: 55px;
-  background-color: white;
-  display: block;
-  &__right {
-    height: 55px;
-    &--navi {
-      display: flex;
-      justify-content: left;
-      line-height: 55px;
-      margin: 0 auto;
-    }
-  }
-}
+// //logout.scssと同じ
 
 // 商品関連
 .product-show {
