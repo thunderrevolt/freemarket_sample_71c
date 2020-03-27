@@ -36,8 +36,8 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     category_id_params
-    if @product.save
-      params[:images][:image].each do |a|
+    if @product.save 
+      params[:images][:image].first(10).each do |a|
         @images = @product.images.create!(image: a, product_id: @product.id)
       end
       redirect_to root_path

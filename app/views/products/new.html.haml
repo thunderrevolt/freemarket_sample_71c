@@ -71,19 +71,19 @@
                 %p 販売価格
                 %p.need 必須
               %p ¥
-            = f.text_field :price, placeholder: '0',style: "text-align: right;"
+            = f.text_field :price, placeholder: '0', id: "exhibit-price",onkeyup:"ShowPrice(value);", style: "text-align: right;"
           .exhibit-commission
             %p 販売手数料（10%）
-            %p ー
+            %p#tax-price ー
           .exhibit-profit
             %p  販売利益
-            %p ー
+            %p#profit-price ー
           .exhibit-hidden
             = f.hidden_field :condition, value: 1
           .exhibit-btn
             = f.submit "出品する",class:"exhibit-submit"
             = f.submit "下書きに保存",class:"exhibit-draft"
-            = link_to "もどる", "#",class: ""
+            = link_to "もどる", root_path,class: ""
           %p
             禁止されている出品、
             %a{href:"#"}>行為
