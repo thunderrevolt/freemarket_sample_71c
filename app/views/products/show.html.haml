@@ -29,10 +29,15 @@
           %ul.product-show-item-lists__img
             %li.product-show-item-lists__img--main{ id: "main" }
               = image_tag @image_1.image.url, class: "main-size"
+              // 以下３行でsold表示
+              - if @product.condition == 3
+                .product-sold-container
+                  %p sold
               %ul.product-show-item-lists__sub
                 - @image.each do |image|
                   %li.product-show-item-lists__sub--img{ id: "first" }
                     = image_tag image.image.url, class: "sub-size"
+
       .product-show-price
         %span.product-show-price__span1
           ¥
@@ -102,7 +107,7 @@
         - else
           .product-show-link
             .product-show-link__btn
-              = link_to "" do
+              = link_to product_buy_path(@product) do
                 購入する
     
     .product-comments-box
@@ -124,8 +129,5 @@
         次の商品＞
     .product-show-category
       ベビー商品をもっとみる
-
-
-    
 
   = render 'shared/footer'

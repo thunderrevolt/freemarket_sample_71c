@@ -9,14 +9,18 @@ Rails.application.routes.draw do
 
   resources :products, only: [:show, :new, :edit, :destroy, :create] do
     resources :comments, only: :create
+    get "/buy" , to: "creditcards#buy"
     #Ajaxで動くアクションのルートを作成
     collection do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
     end
   end
-  resources :users, only: [:index, :show]
-  resources :cards, only: [:index, :new]
+  
+  resources :users, only: [:index, :show] do
+    resources :creditcards, only: [:index, :new, :create, :destroy]
+  end
+  
   get '/logout', to: 'users#logout'
 
 end

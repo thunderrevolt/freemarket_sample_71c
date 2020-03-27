@@ -32,7 +32,7 @@
       -# 会員登録ボタン
       - if user_signed_in?
         .top-category__btn--left.btn 
-          = link_to "マイページ", user_path(1)
+          = link_to "マイページ", user_path(current_user.id)
         .top-category__btn--right
           = link_to "ログアウト", destroy_user_session_path, method: :delete
       - else
