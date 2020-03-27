@@ -180,4 +180,11 @@ $(function(){
 
 
 
-
+// 値段売り上げ手数料
+// HTML側でonkeyup:"ShowPrice(value);"属性作成
+function ShowPrice( price ) {
+  // Math.floorで小数点以下切り捨て
+  document.getElementById("tax-price").innerHTML = Math.floor(price * 0.1)
+  document.getElementById("profit-price").innerHTML = price - (Math.floor(price * 0.1))
+}
+  
