@@ -1,0 +1,10 @@
+- if user_signed_in?
+  .top-exhibit
+    = link_to new_product_path, class:'top-exhibit__link' do
+      .top-exhibit__link--text 出品する
+      = image_tag "icon_camera.png"
+- else
+  .top-exhibit
+    = link_to new_user_session_path, class:'top-exhibit__link' do
+      .top-exhibit__link--text 出品する
+      = image_tag "icon_camera.png"

@@ -76,6 +76,13 @@ gem 'jquery-rails'
 gem 'active_hash'
 gem 'devise-i18n'
 
+# PAY.JPのgem
+gem 'payjp'
+
+# 環境変数を簡単に定義できるENVファイルを対応させるgem
+gem 'dotenv-rails'
+
+gem 'fog-aws'
 
 group :production do
   gem 'unicorn'

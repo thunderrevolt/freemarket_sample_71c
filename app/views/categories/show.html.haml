@@ -1,0 +1,41 @@
+= render 'shared/header'
+.myp-header
+  %ul.myp-header__container
+    %li
+      = link_to root_path do
+        FURIMA
+      %i.fas.fa-chevron-right
+    %li
+      = link_to categories_path do
+        カテゴリー一覧
+      %i.fas.fa-chevron-right
+    %li
+      = @category.root.name
+      %i.fas.fa-chevron-right
+    %li
+      = @category.parent.name
+      %i.fas.fa-chevron-right
+    %li
+      = @category.name
+      
+
+.c-show
+  .c-show__container
+    .c-show__container__title
+      = @category.name + "の商品一覧"
+    .c-show__container__box
+      .c-show__box
+        .c-show__box__image
+          = image_tag "picup1.png"
+          .c-show__box__text
+            %ul
+              %li さば
+              %li 1000円
+            %p (税込)
+
+
+      
+      
+
+
+= render 'shared/footer'

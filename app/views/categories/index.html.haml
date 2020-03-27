@@ -1,0 +1,44 @@
+-# ヘッダー&パンくず
+= render 'shared/header'
+.myp-header
+  %ul.myp-header__container
+    %li
+      = link_to root_path do
+        FURIMA
+      %i.fas.fa-chevron-right
+    %li
+      = link_to categories_path do
+        カテゴリー一覧
+
+-# カテゴリー一覧ボックス
+.category-index
+  .category-index__text
+    カテゴリー一覧
+  .category-index__box
+    - num = 1
+    - @categories.each do |category|
+      .category-index__box__list{ id: num }
+        = category.name
+        - num += 1
+  
+  -#カテゴリー一覧( 子 => 孫 ) 
+  .category-index__list
+    - num = 1
+    - @categories.each do |category|
+      .category-index__list__name{ id: num }
+        = category.name
+        - num += 1
+      .category-index__list__child
+        .category-index__list__child__name
+          - category.children.each do |child|
+            = child.name
+            .category-index__list__child__grand
+              - child.children.each do |grandchild|
+                .category-index__list__child__grand__name
+                  = link_to category_path(grandchild) do
+                    = grandchild.name
+        .category-index__list__child__name
+          = link_to categories_path do
+            ⬆︎ ページトップへ
+-# ヘッダー
+= render 'shared/footer'

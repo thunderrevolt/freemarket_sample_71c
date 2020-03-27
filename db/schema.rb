@@ -48,6 +48,14 @@ ActiveRecord::Schema.define(version: 2020_03_27_041247) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "creditcards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "payjp_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_creditcards_on_user_id"
+  end
+
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "image", null: false
     t.bigint "product_id"
@@ -59,18 +67,18 @@ ActiveRecord::Schema.define(version: 2020_03_27_041247) do
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "description", null: false
-    t.string "category", null: false
     t.string "brand"
     t.string "status", null: false
     t.string "postage_bearer", null: false
     t.string "shipping_area", null: false
     t.string "shipping_day", null: false
-    t.string "price", null: false
     t.string "size"
     t.bigint "category_id"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "condition"
+    t.bigint "price", null: false
     t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["user_id"], name: "index_products_on_user_id"
   end
@@ -98,6 +106,7 @@ ActiveRecord::Schema.define(version: 2020_03_27_041247) do
   add_foreign_key "addresses", "users"
   add_foreign_key "comments", "products"
   add_foreign_key "comments", "users"
+  add_foreign_key "creditcards", "users"
   add_foreign_key "images", "products"
   add_foreign_key "products", "categories"
   add_foreign_key "products", "users"

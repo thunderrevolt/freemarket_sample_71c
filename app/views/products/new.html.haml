@@ -3,17 +3,19 @@
 
 .exhibit-boby
   .exhibit-boby--container
-    = form_for '' do |f|
+    = form_with model: @product, class:"form-box", local: true do |f| 
       .exhibit-boby--container__image
         .exhibit-flame
           .exhibit-label
             %p 出品画像
             %p.need 必須
           %p 最大10枚までアップロードできます
-          = f.label :image, class:"exhibit-image" do
-            = f.file_field :image, class: "exhibit-image__area"
-            %i.fa.fa-camera
-            %p ドラッグアンドドロップ<br>もしくはクリックしてアップロード
+          = f.fields_for :images do |i|
+            #image-box-1
+              %label#image-box__container
+                = i.file_field :image, multiple: true, class: "exhibit-image__area", type: 'file', name: "images[image][]", value:"",  id:"img-file"
+                %i.fa.fa-camera
+                %p ドラッグアンドドロップ<br>もしくはクリックしてアップロード
       .exhibit-boby--container__name
         .exhibit-flame
           .exhibit-label
@@ -23,15 +25,20 @@
           .exhibit-label
             %p 商品の説明
             %p.need 必須
-          = f.text_area :text, class: "exhibit-text", placeholder: '商品の説明（必須1000文字以内)&#13;&#10;(色、素材、重さ、定価、注意点など)&#13;&#10; &#13;&#10;例)2010年頃に１万円で購入したジャケットです。ライトグレーで傷はありません。合わせやすいのでオススメです♡'.html_safe
+          = f.text_area :description, class: "exhibit-text", placeholder: '商品の説明（必須1000文字以内)&#13;&#10;(色、素材、重さ、定価、注意点など)&#13;&#10; &#13;&#10;例)2010年頃に１万円で購入したジャケットです。ライトグレーで傷はありません。合わせやすいのでオススメです♡'.html_safe
           %h5 0/1000
       .exhibit-boby--container__detail
         .exhibit-flame
           %h3.exhibit_h3 商品の詳細
           .exhibit-label
-            %p カテゴリー
-            %p.need 必須
-          = f.select :category, [["選択してください",""],["レディース","レディース"],["メンズ","メンズ"],["ベビー・キッズ","ベビー・キッズ"],["インテリア・住まい・小物","インテリア・住まい・小物"],["本・音楽・ゲーム","本・音楽・ゲーム"],["おもちゃ・ホビー・グッズ","おもちゃ・ホビー・グッズ"],["コスメ・香水・美容","コスメ・香水・美容"],["スポーツ・レジャー","スポーツ・レジャー"],["ハンドメイド","ハンドメイド"],["チケット","チケット"],["自動車・オートバイ","自動車・オートバイ"],["その他","その他"]]
+            .exhibit-detail-category
+              .exhibit-detail-category-name
+                = f.label 'カテゴリー', class: 'exhibit-default-label'
+                %span.need 必須
+              .exhibit-select-wrapper
+                .exhibit-select-wrapper__box
+                  = f.select :category, @category_parent_array, {}, {class: 'exhibit-category-select', id: 'parent_category'}
+                  
           .exhibit-label
             %p ブランド
             %p.any 任意
@@ -39,22 +46,22 @@
           .exhibit-label
             %p 商品の状態
             %p.need 必須
-          = f.select :status, [["選択してください",""],["レディース","レディース"],["メンズ","メンズ"],["新品、未使用","新品、未使用"],["未使用に近い","未使用に近い"],["目立った傷や汚れなし","目立った傷や汚れなし"],["やや傷や汚れあり","やや傷や汚れあり"],["傷や汚れあり","傷や汚れあり"],["全体的に状態が悪い","全体的に状態が悪い"]]
+          = f.select :status, [["選択してください",""],["新品、未使用","新品、未使用"],["未使用に近い","未使用に近い"],["目立った傷や汚れなし","目立った傷や汚れなし"],["やや傷や汚れあり","やや傷や汚れあり"],["傷や汚れあり","傷や汚れあり"],["全体的に状態が悪い","全体的に状態が悪い"]]
       .exhibit-boby--container__delivery
         .exhibit-flame
           %h3.exhibit_h3 配送について
           .exhibit-label
             %p 配送料の負担
             %p.need 必須
-          = f.collection_select :shipping_id, Shipping.all, :id, :name, prompt: "選択してください"
+          = f.collection_select :postage_bearer, Shipping.all, :id, :name, prompt: "選択してください"
           .exhibit-label
             %p 発送元の地域
             %p.need 必須
-          = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "選択してください"
+          = f.collection_select :shipping_area, Prefecture.all, :id, :name, prompt: "選択してください"
           .exhibit-label
             %p 発送までの日数
             %p.need 必須
-          = f.collection_select :day_id, Day.all, :id, :name, prompt: "選択してください"
+          = f.collection_select :shipping_day, Day.all, :id, :name, prompt: "選択してください"
       .exhibit-boby--container__price
         .exhibit-flame
           %h3.exhibit_h3 販売価格（300~9,999,999）
@@ -64,17 +71,19 @@
                 %p 販売価格
                 %p.need 必須
               %p ¥
-            = f.text_field :price, placeholder: '0',style: "text-align: right;"
+            = f.text_field :price, placeholder: '0', id: "exhibit-price",onkeyup:"ShowPrice(value);", style: "text-align: right;"
           .exhibit-commission
             %p 販売手数料（10%）
-            %p ー
+            %p#tax-price ー
           .exhibit-profit
             %p  販売利益
-            %p ー
+            %p#profit-price ー
+          .exhibit-hidden
+            = f.hidden_field :condition, value: 1
           .exhibit-btn
             = f.submit "出品する",class:"exhibit-submit"
             = f.submit "下書きに保存",class:"exhibit-draft"
-            = link_to "もどる", "#",class: ""
+            = link_to "もどる", root_path,class: ""
           %p
             禁止されている出品、
             %a{href:"#"}>行為

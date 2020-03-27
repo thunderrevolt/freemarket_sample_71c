@@ -1,7 +1,8 @@
 = render 'shared/header'
-.top-exhibit
-  .top-exhibit__text 出品する
-  = image_tag "icon_camera.png"
+
+
+= render 'shared/exhibit-btn'
+
 .top-main
   .top-main__view
     .top-main__view__container
@@ -64,62 +65,43 @@
     %h1 ピックアップカテゴリー
     %h2 新規投稿商品
     .top-picup__item
-      .top-picup__item--left.picup-size
-        = image_tag "picup1.png", class: ""
-        .product-box
-          %ul
-            %li product
-            %li.top-flex
-              .top-flex--left 10000円
-              .top-flex--right ○0
-          %p (税込)
-      .top-picup__item--center.picup-size
-        = image_tag "picup1.png", class: ""
-        .product-box
-          %ul
-            %li product
-            %li.top-flex
-              .top-flex--left 10000円
-              .top-flex--right ○0
-          %p (税込)
-      .top-picup__item--right.picup-size
-        = image_tag "picup1.png", class: ""
-        .product-box
-          %ul
-            %li product
-            %li.top-flex
-              .top-flex--left 10000円
-              .top-flex--right ○0
-          %p (税込)
+      - @products.each do |product|
+        =link_to root_path do
+          .picup-size
+            .product-box
+              - product.images.first(1).each do |i|
+                = image_tag i.image.url
+              .top-product__message
+                %ul
+                  %li 
+                    = product.name
+                  %li.top-flex
+                    .top-flex--left
+                      %p 
+                        = product.price
+                      %p 円
+                    .top-flex--right 
+                %p (税込)
+
   .top-picup__container
     %h1.top-picup__space ピックアップブランド
     %h2 アーカイバ
     .top-picup__item
-      .top-picup__item--left.picup-size
-        = image_tag "picup1.png", class: ""
-        .product-box
-          %ul
-            %li product
-            %li.top-flex
-              .top-flex--left 10000円
-              .top-flex--right ○0
-          %p (税込)
-      .top-picup__item--center.picup-size
-        = image_tag "picup1.png", class: ""
-        .product-box
-          %ul
-            %li product
-            %li.top-flex
-              .top-flex--left 10000円
-              .top-flex--right ○0
-          %p (税込)
-      .top-picup__item--right.picup-size
-        = image_tag "picup1.png", class: ""
-        .product-box
-          %ul
-            %li product
-            %li.top-flex
-              .top-flex--left 10000円
-              .top-flex--right ○0
-          %p (税込)
+      - @products_B.each do |product|
+        =link_to root_path do
+          .top-picup__item--left.picup-size
+            .product-box
+              - product.images.first(1).each do |i|
+                = image_tag i.image.url
+              .top-product__message
+                %ul
+                  %li 
+                    = product.name
+                  %li.top-flex
+                    .top-flex--left
+                      %p 
+                        = product.price
+                      %p 円
+                    .top-flex--right 
+                %p (税込)
 = render 'shared/footer'
