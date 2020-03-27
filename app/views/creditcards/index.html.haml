@@ -1,0 +1,36 @@
+= render 'shared/header'
+.top-exhibit
+  .top-exhibit__text 出品する
+  = image_tag "icon_camera.png"
+.myp-header
+  .myp-header__container
+    = link_to "フリマ", root_path
+    %i.fas.fa-chevron-right
+    = link_to "マイページ", user_path(current_user.id)
+    %i.fas.fa-chevron-right
+    %p 支払い方法
+.card
+  .card__container
+    = render 'shared/user_side-bar'
+    .card__main
+      %h1 支払い方法
+      .card__main__container
+        %h2 クレジットカード一覧
+
+        - if @card.present?
+          .container
+            .creditcard-info
+              -# = image_tag "creditcards/#{@card_image}",width:'34',height:'20', alt:'master-card'
+              %p.creditcard-info__number
+                = "**** **** **** " + @card_info.last4 #クレジットカードの下４桁を表示
+              %p.creditcard-info__period 
+              = @exp_month + " / " + @exp_year
+              = button_to "削除する", "/users/:user_id/creditcards/:id", method: :delete, class:"creditcard-info__delete"
+
+        - else
+          .card__main__btn
+            = link_to "クレジットカードを追加する", new_user_creditcard_path(current_user.id)
+            %i.fas.fa-credit-card
+          .card__main__about
+            = link_to "支払い方法について", "#"
+            %i.fas.fa-chevron-right

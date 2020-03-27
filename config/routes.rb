@@ -6,8 +6,12 @@ Rails.application.routes.draw do
   resources :buies, only: :index
   resources :products, only: [:new, :create, :show, :destroy] do
     resources :comments, only: :create
+    get "/buy" , to: "creditcards#buy"
   end
-  resources :users, only: [:index, :show]
-  resources :cards, only: [:index, :new]
+  
+  resources :users, only: [:index, :show] do
+    resources :creditcards, only: [:index, :new, :create, :destroy]
+  end
+  
   get '/logout', to: 'users#logout'
 end
