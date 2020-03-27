@@ -74,6 +74,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'jquery-rails'
 gem 'active_hash'
+gem 'devise-i18n'
 
 # PAY.JPのgem
 gem 'payjp'

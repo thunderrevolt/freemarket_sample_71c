@@ -23,35 +23,12 @@
     .field {
       display: flex;
       padding: 20px 0;
+      position: relative;
 
-      .nickname {
-
-        &__dialogue {
-          text-align: left;
-
-          label {
-            font-size: 14px;
-            font-weight: bold;
-          }
-
-          .required {
-            background-color: red;
-            color: white;
-            font-size: 16px;
-          }
-
-          input[type="text"] {
-            width: 425px;
-            height: 40px;
-          }
-        }
-      }
-
-      .fullname {
+      .fullname-of-address {
         display: flex;
-        margin: left;
 
-        &--surname {
+        &--lastname {
           padding-right: 20px;
 
           &__dialogue {
@@ -75,7 +52,8 @@
           }
         }
 
-        &--name {
+        &--firstname {
+          padding-right: 20px;
 
           &__dialogue {
             text-align: left;
@@ -99,11 +77,11 @@
         }
       }
 
-      .fullname-kana {
+      .fullname-of-address-kana {
         display: flex;
         margin: left;
 
-        &--surname-kana {
+        &--lastname-kana {
           padding-right: 20px;
 
           &__dialogue {
@@ -127,7 +105,8 @@
           }
         }
 
-        &--name-kana {
+        &--firstname-kana {
+          padding-right: 20px;
 
           &__dialogue {
             text-align: left;
@@ -151,36 +130,63 @@
         }
       }
 
-      .birthday {
-        margin: left;
+      .postal-code {
+        display: flex;
 
-        &__dialogue {
-          text-align: left;
+        &--left-box {
+          padding-right: 20px;
 
-          label {
-            font-size: 14px;
-            font-weight: bold;
-          }
+          &__dialogue {
+            text-align: left;
 
-          .required {
-            background-color: red;
-            color: white;
-            font-size: 16px;
+            label {
+              font-size: 14px;
+              font-weight: bold;
+            }
+  
+            .required {
+              background-color: red;
+              color: white;
+              font-size: 16px;
+            }
+  
+            input[type="text"] {
+              width: 200px;
+              height: 40px;
+            }
           }
         }
 
-        &__date {
-          display: flex;
+        &--hyphen {
+          padding: 0 8px;
+          position: absolute;
+          left: 50%;
+          bottom: 30px;
+        }
 
-          select {
-            width: 140px;
-            height: 40px;
+        &--right-box {
+          position: relative;
+
+          &__dialogue {
+            text-align: left;
+  
+            .required {
+              background-color: red;
+              color: white;
+              font-size: 16px;
+            }
+  
+            input[type="text"] {
+              width: 200px;
+              height: 40px;
+              position: absolute;
+              bottom: 0;
+            }
           }
         }
       }
 
-      .tel {
-        margin: left;
+      .address {
 
         &__dialogue {
           text-align: left;
@@ -203,8 +209,7 @@
         }
       }
 
-      .mail {
-        margin: left;
+      .street_address {
 
         &__dialogue {
           text-align: left;
@@ -220,15 +225,14 @@
             font-size: 16px;
           }
 
-          input[type="email"] {
+          input[type="text"] {
             width: 425px;
             height: 40px;
           }
         }
       }
 
-      .password {
-        margin: left;
+      .apartment {
 
         &__dialogue {
           text-align: left;
@@ -238,43 +242,28 @@
             font-weight: bold;
           }
 
-          .required {
-            background-color: red;
-            color: white;
-            font-size: 16px;
-          }
-
-          input[type="password"] {
+          input[type="text"] {
             width: 425px;
             height: 40px;
           }
         }
       }
 
-      .password-con {
-        margin: left;
+      .address-tel {
 
         &__dialogue {
           text-align: left;
 
-          input[type="password"] {
+          label {
+            font-size: 14px;
+            font-weight: bold;
+          }
+
+          input[type="text"] {
             width: 425px;
             height: 40px;
           }
         }
-      }
-    }
-
-    .actions {
-      padding-bottom: 20px;
-      
-      input[type="submit"] {
-        width: 425px;
-        height: 40px;
-      }
-
-      input {
-        cursor: pointer;
       }
     }
   }
