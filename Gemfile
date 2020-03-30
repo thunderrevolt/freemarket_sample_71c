@@ -75,6 +75,7 @@ gem 'mini_magick'
 gem 'jquery-rails'
 gem 'active_hash'
 gem 'devise-i18n'
+gem 'rspec-rails'
 
 # PAY.JPのgem
 gem 'payjp'
