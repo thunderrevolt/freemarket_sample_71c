@@ -31,12 +31,19 @@
     .top-header--middle__right
       -# 会員登録ボタン
       - if user_signed_in?
-        .top-category__btn--left.btn 
-          = link_to "マイページ", user_path(current_user.id)
-        .top-category__btn--right
-          = link_to "お知らせ", "#"
-        .top-category__btn--right
-          = link_to "やることリスト", "#"
+        .top-category__btn--sign_in
+          = link_to "#", class: "top-li_to" do
+            %i.far.fa-bell
+            %p.top-li お知らせ
+        .top-category__btn--sign_in
+          = link_to "#", class: "top-li_to" do
+            %i.fas.fa-check
+            %p.top-li やることリスト
+            
+        .top-category__btn--sign_in
+          = link_to user_path(current_user.id), class: "top-li_to" do
+            = image_tag "komaki.jpg"
+            %p.top-li マイページ 
       - else
         .top-category__btn--left.btn 
           = link_to "新規会員登録", "/users"
