@@ -46,6 +46,9 @@ group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
   gem 'capistrano-rails-console'
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
+  gem 'rails-controller-testing'
 end
 
 group :development do
@@ -75,7 +78,8 @@ gem 'mini_magick'
 gem 'jquery-rails'
 gem 'active_hash'
 gem 'devise-i18n'
-gem 'rspec-rails'
+
+
 
 # PAY.JPのgem
 gem 'payjp'
