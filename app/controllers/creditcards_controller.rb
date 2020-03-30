@@ -116,4 +116,5 @@ class CreditcardsController < ApplicationController
   def set_card
     @card = Creditcard.where(user_id: current_user.id).first if Creditcard.where(user_id: current_user.id).present?
   end
+
 end
