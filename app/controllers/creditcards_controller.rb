@@ -21,20 +21,20 @@ class CreditcardsController < ApplicationController
       @exp_year = @card_info.exp_year.to_s.slice(2,3) 
 
       # クレジットカード会社を取得したので、カード会社の画像をviewに表示させるため、ファイルを指定する。
-      # case @card_brand
-      # when "Visa"
-      #   @card_image = "visa.svg"
-      # when "JCB"
-      #   @card_image = "jcb.svg"
-      # when "MasterCard"
-      #   @card_image = "master-card.svg"
-      # when "American Express"
-      #   @card_image = "american_express.svg"
-      # when "Diners Club"
-      #   @card_image = "dinersclub.svg"
-      # when "Discover"
-      #   @card_image = "discover.svg"
-      # end
+      case @card_brand
+      when "Visa"
+        @card_image = "visa.svg"
+      when "JCB"
+        @card_image = "jcb.svg"
+      when "MasterCard"
+        @card_image = "master-card.svg"
+      when "American Express"
+        @card_image = "american_express.svg"
+      when "Diners Club"
+        @card_image = "dinersclub.svg"
+      when "Discover"
+        @card_image = "discover.svg"
+      end
     end
   end
 

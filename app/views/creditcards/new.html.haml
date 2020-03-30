@@ -4,21 +4,21 @@
       = f.label :カード番号
       %span.form-require 必須
       = f.text_field :card_number, name: "card_number", id:"card_number", type: "text", placeholder: '半角数字のみ', class: 'input-default', maxlength: "16"
-      -# %ol
-      -#   %li
-      -#     %object{type: "image/svg+xml", data: "#{asset_path 'creditcards/visa.svg'}", width:"35", height:"20"}
-      -#   %li
-      -#     %object{type: "image/svg+xml", data: "#{asset_path 'creditcards/master-card.svg'}", width:"35", height:"20"}
-      -#   %li
-      -#     %object{type: "image/svg+xml", data: "#{asset_path 'creditcards/saison-card.svg'}", width:"35", height:"20"}
-      -#   %li
-      -#     %object{type: "image/svg+xml", data: "#{asset_path 'creditcards/jcb.svg'}", width:"35", height:"20"}
-      -#   %li
-      -#     %object{type: "image/svg+xml", data: "#{asset_path 'creditcards/american_express.svg'}", width:"35", height:"20", class:"american_express"}
-      -#   %li
-      -#     %object{type: "image/svg+xml", data: "#{asset_path 'creditcards/dinersclub.svg'}", width:"35", height:"20"}
-      -#   %li
-      -#     %object{type: "image/svg+xml", data: "#{asset_path 'creditcards/discover.svg'}", width:"35", height:"20"}
+      %ol
+        %li
+          %object{type: "image/svg+xml", data: "#{asset_path 'creditcards/visa.svg'}", width:"35", height:"20"}
+        %li
+          %object{type: "image/svg+xml", data: "#{asset_path 'creditcards/master-card.svg'}", width:"35", height:"20"}
+        %li
+          %object{type: "image/svg+xml", data: "#{asset_path 'creditcards/saison-card.svg'}", width:"35", height:"20"}
+        %li
+          %object{type: "image/svg+xml", data: "#{asset_path 'creditcards/jcb.svg'}", width:"35", height:"20"}
+        %li
+          %object{type: "image/svg+xml", data: "#{asset_path 'creditcards/american_express.svg'}", width:"35", height:"20", class:"american_express"}
+        %li
+          %object{type: "image/svg+xml", data: "#{asset_path 'creditcards/dinersclub.svg'}", width:"35", height:"20"}
+        %li
+          %object{type: "image/svg+xml", data: "#{asset_path 'creditcards/discover.svg'}", width:"35", height:"20"}
     .form__upper__group.exp
       .name
         = f.label :有効期限
