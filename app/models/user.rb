@@ -11,6 +11,7 @@ class User < ApplicationRecord
   
   validates :nickname,
             presence: true,
+            uniqueness: true,
             length: { maximum: 255 }
             
   validates :first_name, :last_name,
