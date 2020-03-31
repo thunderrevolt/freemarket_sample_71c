@@ -1,3 +1,4 @@
+
 require 'rails_helper'
 
 describe Creditcard do
@@ -26,3 +27,4 @@ describe Creditcard do
     end
   end
 end
+
