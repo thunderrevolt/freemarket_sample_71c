@@ -1,6 +1,7 @@
 %header.top-header
   .top-header--top
-    = image_tag "logo.png", class: "top-header--top__image"
+    = link_to root_path do
+      = image_tag "logo.png", class: "top-header--top__image"
     -# 検索フォーム
     .top-header--top__search
       %input{placeholder: "キーワードから探す", type: "search", class: "top-heder--top__form"}
