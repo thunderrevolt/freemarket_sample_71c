@@ -1,12 +1,20 @@
-describe ◯◯Controller do
-  describe 'HTTPメソッド名 #アクション名' do
-    it "インスタンス変数は期待した値になるか？" do
-    "擬似的にリクエストを行ったことにするコードを書く"
-      "エクスペクテーションを書く"
-    end
+# require 'rails_helper'
 
-    it "期待するビューに遷移するか？" do
-      "擬似的にリクエストを行ったことにするコードを書く"
-      "エクスペクテーションを書く"
-    end
-  end
+# describe CreditcardsController do
+#   let(:creditcard) { create(:creditcard) }
+
+#   describe 'GET #new' do
+#     it "assigns  @creditcard" do
+#       card = find(:creditcard)
+#       get :new, params: {:card}
+#       expect(assigns(:card)).to eq card
+#     end
+
+
+#     # it "renders the :new template" do
+#     #   get :new, params: {  id: 1 }
+#     #   expect(response).to render_template :new
+#     # end
+#   end
+# end
+
