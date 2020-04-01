@@ -34,6 +34,7 @@ $(function(){
   $('#parent_category').on('change', function(){
     var parentCategory = document.getElementById('parent_category').value; //選択された親カテゴリーの名前を取得
     if (parentCategory != "---"){ //親カテゴリーが初期値でないことを確認
+
       $.ajax({
         url: 'get_category_children',
         type: 'GET',
@@ -144,7 +145,6 @@ $(function(){
       $('#image-box__container').attr('class', `item-num-${num}`)
     });
   });
-  //削除ボタンをクリックすると発火するイベント
   //削除ボタンをクリックすると発火するイベント
   $(document).on("click", '.item-image__operetion--delete', function(){
     //削除を押されたプレビュー要素を取得

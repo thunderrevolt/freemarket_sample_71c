@@ -13,11 +13,12 @@ Rails.application.routes.draw do
 
   resources :buies, only: :index
 
-  resources :products, only: [:show, :new, :edit, :destroy, :create] do
+  resources :products, only: [:show, :new, :edit, :destroy, :create, :update] do
     resources :comments, only: :create
     get "/buy" , to: "creditcards#buy"
     #Ajaxで動くアクションのルートを作成
     collection do
+      get 'category_list', defaults: { format: 'json' }
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
     end

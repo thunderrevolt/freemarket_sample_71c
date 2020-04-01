@@ -89,6 +89,7 @@ gem 'payjp'
 gem 'dotenv-rails'
 
 gem 'fog-aws'
+gem "gon"
 
 group :production do
   gem 'unicorn'
