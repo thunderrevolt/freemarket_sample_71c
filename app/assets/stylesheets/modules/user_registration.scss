@@ -1,0 +1,270 @@
+.info-registration {
+  margin: auto;
+  width: 800px;
+  text-align: center;
+
+  &--head {
+    background-color: white;
+    margin-bottom: 1px;
+
+    & h2 {
+      text-align: center;
+      padding: 32px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+  }
+
+  &--form {
+    background-color: white;
+    width: 400px;
+    padding: 0 200px;
+
+    .field {
+      display: flex;
+      padding: 20px 0;
+      position: relative;
+
+      .fullname-of-address {
+        display: flex;
+
+        &--lastname {
+          padding-right: 20px;
+
+          &__dialogue {
+            text-align: left;
+
+            label {
+              font-size: 14px;
+              font-weight: bold;
+            }
+
+            .required {
+              background-color: red;
+              color: white;
+              font-size: 16px;
+            }
+
+            input[type="text"] {
+              width: 200px;
+              height: 40px;
+            }
+          }
+        }
+
+        &--firstname {
+          padding-right: 20px;
+
+          &__dialogue {
+            text-align: left;
+
+            label {
+              font-size: 14px;
+              font-weight: bold;
+            }
+
+            .required {
+              background-color: red;
+              color: white;
+              font-size: 16px;
+            }
+
+            input[type="text"] {
+              width: 200px;
+              height: 40px;
+            }
+          }
+        }
+      }
+
+      .fullname-of-address-kana {
+        display: flex;
+        margin: left;
+
+        &--lastname-kana {
+          padding-right: 20px;
+
+          &__dialogue {
+            text-align: left;
+
+            label {
+              font-size: 14px;
+              font-weight: bold;
+            }
+
+            .required {
+              background-color: red;
+              color: white;
+              font-size: 16px;
+            }
+
+            input[type="text"] {
+              width: 200px;
+              height: 40px;
+            }
+          }
+        }
+
+        &--firstname-kana {
+          padding-right: 20px;
+
+          &__dialogue {
+            text-align: left;
+
+            label {
+              font-size: 14px;
+              font-weight: bold;
+            }
+
+            .required {
+              background-color: red;
+              color: white;
+              font-size: 16px;
+            }
+
+            input[type="text"] {
+              width: 200px;
+              height: 40px;
+            }
+          }
+        }
+      }
+
+      .postal-code {
+        display: flex;
+
+        &--left-box {
+          padding-right: 20px;
+
+          &__dialogue {
+            text-align: left;
+
+            label {
+              font-size: 14px;
+              font-weight: bold;
+            }
+  
+            .required {
+              background-color: red;
+              color: white;
+              font-size: 16px;
+            }
+  
+            input[type="text"] {
+              width: 200px;
+              height: 40px;
+            }
+          }
+        }
+
+        &--hyphen {
+          padding: 0 8px;
+          position: absolute;
+          left: 50%;
+          bottom: 30px;
+        }
+
+        &--right-box {
+          position: relative;
+
+          &__dialogue {
+            text-align: left;
+  
+            .required {
+              background-color: red;
+              color: white;
+              font-size: 16px;
+            }
+  
+            input[type="text"] {
+              width: 200px;
+              height: 40px;
+              position: absolute;
+              bottom: 0;
+            }
+          }
+        }
+      }
+
+      .address {
+
+        &__dialogue {
+          text-align: left;
+
+          label {
+            font-size: 14px;
+            font-weight: bold;
+          }
+
+          .required {
+            background-color: red;
+            color: white;
+            font-size: 16px;
+          }
+
+          input[type="text"] {
+            width: 425px;
+            height: 40px;
+          }
+        }
+      }
+
+      .street_address {
+
+        &__dialogue {
+          text-align: left;
+
+          label {
+            font-size: 14px;
+            font-weight: bold;
+          }
+
+          .required {
+            background-color: red;
+            color: white;
+            font-size: 16px;
+          }
+
+          input[type="text"] {
+            width: 425px;
+            height: 40px;
+          }
+        }
+      }
+
+      .apartment {
+
+        &__dialogue {
+          text-align: left;
+
+          label {
+            font-size: 14px;
+            font-weight: bold;
+          }
+
+          input[type="text"] {
+            width: 425px;
+            height: 40px;
+          }
+        }
+      }
+
+      .address-tel {
+
+        &__dialogue {
+          text-align: left;
+
+          label {
+            font-size: 14px;
+            font-weight: bold;
+          }
+
+          input[type="text"] {
+            width: 425px;
+            height: 40px;
+          }
+        }
+      }
+    }
+  }
+}

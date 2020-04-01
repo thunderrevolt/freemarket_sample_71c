@@ -1,0 +1,81 @@
+%script{:charset => "UTF-8", :src => "https://ajaxzip3.github.io/ajaxzip3.js"}
+= render 'shared/product_header'
+.info-registration
+  .info-registration--head
+    %h2 住所情報登録
+  = form_for @address do |f|
+    .info-registration--form
+      .error_log
+        = devise_error_messages!
+      .field
+        .fullname-of-address
+          .fullname-of-address--lastname
+            .fullname-of-address--lastname__dialogue
+              = f.label :住所先の名字
+              %span.required 必須
+              %br/
+              = f.text_field :last_name, placeholder: "例：府李間"
+          .fullname-of-address--firstname
+            .fullname-of-address--firstname__dialogue
+              = f.label :住所先の名前
+              %span.required 必須
+              %br/
+              = f.text_field :first_name, placeholder: "例：負利尾"
+      .field
+        .fullname-of-address-kana
+          .fullname-of-address-kana--lastname-kana
+            .fullname-of-address-kana--lastname-kana__dialogue
+              = f.label :住所先の名字（かな）
+              %span.required 必須
+              %br/
+              = f.text_field :last_name_kana, placeholder: "例：ふりま"
+          .fullname-of-address-kana--firstname-kana
+            .fullname-of-address-kana--firstname-kana__dialogue
+              = f.label :住所先の名前（かな）
+              %span.required 必須
+              %br/
+              = f.text_field :first_name_kana, placeholder: "例：ふりお"
+      .field
+        .postal-code
+          .postal-code--left-box
+            .postal-code--left-box__dialogue
+              = f.label :郵便番号
+              %span.required 必須
+              %br/
+              = f.text_field :zip1, :name => "address[zip1]", :onkeyup => "AjaxZip3.zip2addr('address[zip1]', 'address[zip2]', 'address[address1]', 'address[address2]');", :type => "text"
+          .postal-code--hyphen
+            \-
+          .postal-code--right-box
+            .postal-code--right-box__dialogue
+              = f.text_field :zip2, :name => "address[zip2]", :onkeyup => "AjaxZip3.zip2addr('address[zip1]', 'address[zip2]', 'address[address1]', 'address[address2]');", :type => "text"
+              %br/
+      .field
+        .address
+          .address__dialogue
+            = f.label :住所
+            %span.required 必須
+            %br/
+            = f.text_field :address1, :name => "address[address1]", :placeholder => "都道府県", :type => "text"
+            = f.text_field :address2, :name => "address[address2]", :placeholder => "市区町村", :type => "text"
+      .field
+        .street_address
+          .street_address__dialogue
+            =f.label :番地
+            %span.required 必須
+            %br/
+            = f.text_field :street_address
+      .field
+        .apartment
+          .apartment__dialogue
+            = f.label :住所先のアパート・マンション名
+            %br/
+            = f.text_field :apartment
+      .field
+        .address-tel
+          .address-tel__dialogue
+            = f.label :住所先の電話番号（ハイフンなし）
+            %br/
+            = f.text_field :tel, placeholder: "0123456789"
+      .actions
+        = f.submit "Sign up"
+= render 'shared/product_footer'

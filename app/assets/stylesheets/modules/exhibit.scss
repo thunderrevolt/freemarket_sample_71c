@@ -270,12 +270,13 @@ input, textarea, select {
 }
 
 #image-box-1 {
-  width: 100%;
+  width: 490px;
   display: flex;
-  flex-wrap: inherit;
+  flex-wrap: wrap;
 }
-#image-box__container {
-  width: 100%;
+#image-box__container{
+  width: auto;
+  margin: 0 auto;
   background-color: #f5f5f5;
   display: flex;
   justify-content: center;
@@ -288,12 +289,25 @@ input, textarea, select {
 .exhibit-image__area{
   display: none;
 }
-p{
-  text-align: center;
+.creditcard-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 320px;
+  margin: 0 auto;
+  padding: 24px 0;
+  border-bottom: 1px solid $back-color;
+  &__delete {
+    border: 1px solid $main-color;
+    color: $main-color;
+    font-size: 14px;
+    height: 22px;
+    line-height: 22px;
+  }
 }
 .item-image {
-  margin: 0 5px;
-  .item-image__operetion--delete {
+  margin: 0 3px;
+  &__operetion--delete {
     cursor: pointer;
     &::after {
       color: $main-color;
