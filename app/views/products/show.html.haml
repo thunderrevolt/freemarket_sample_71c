@@ -142,12 +142,3 @@
       ベビー商品をもっとみる
 
   = render 'shared/footer'
-
-
-  -# - if current_user
-  -#   = form_with model: [@product, @comment], class: "product-comment-form__new", local: true do |f|
-  -#     = f.text_area :text, class: "product-comment-form__new--text", plsceholder: "コメントする", rows: "2"
-  -#     = f.submit "コメントする",class: "product-comment-form__new--btn fas fa-star"
-  -# - else
-  -#   %strong
-  -#     %p ※※※ コメントの投稿には新規登録/ログインが必要です ※※※

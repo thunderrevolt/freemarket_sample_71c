@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   resources :buies, only: :index
 
   resources :products, only: [:show, :new, :edit, :destroy, :create] do
-    resources :comments, only: :create
+    resources :comments, only: [:destroy, :create]
     get "/buy" , to: "creditcards#buy"
     #Ajaxで動くアクションのルートを作成
     collection do
