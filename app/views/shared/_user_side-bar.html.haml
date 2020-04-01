@@ -2,7 +2,7 @@
   %ul.myp-container
     %li.myp-container__box
       .myp-container__box--left 
-        = link_to "マイページ", "#"
+        = link_to "マイページ", user_path(current_user.id)
       %i.fas.fa-chevron-right
     %li.myp-container__box
       .myp-container__box--left 
@@ -18,7 +18,7 @@
       %i.fas.fa-chevron-right
     %li.myp-container__box
       .myp-container__box--left 
-        = link_to "出品する", "#"
+        = link_to "出品する", new_product_path
       %i.fas.fa-chevron-right
     %li.myp-container__box
       .myp-container__box--left 
