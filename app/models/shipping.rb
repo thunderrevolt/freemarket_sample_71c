@@ -1,4 +1,4 @@
 class Shipping < ActiveHash::Base
   include ActiveHash::Associations
-  belongs_to :addressz
+  belongs_to :address
 end
