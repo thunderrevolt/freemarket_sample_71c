@@ -11,7 +11,7 @@ class Product < ApplicationRecord
   validates :postage_bearer, presence: true
   validates :shipping_area, presence: true
   validates :shipping_day, presence: true
-  # validates :price, presence: true, inclusion: 300..9999999
+  validates :price, presence: true, inclusion: 300..9999999
   validates :category_id, presence: true
   validates :user_id, presence: true
   validates :condition, presence: true
