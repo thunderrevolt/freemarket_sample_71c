@@ -18,9 +18,6 @@
     %li
       = @product.name
       
-.top-exhibit
-  .top-exhibit__text 出品する
-  = image_tag "icon_camera.png"
 .product-show
   .product-show-main
     .product-show-box
@@ -96,7 +93,7 @@
         - if @product.user_id == current_user.id
           .product-show-link
             .product-show-link__edit
-              = link_to "" do
+              = link_to edit_product_path(@product) do
                 編集
             .product-show-link__destroy
               = link_to product_path(@product), method: :delete do

@@ -1,7 +1,9 @@
 = render 'shared/header'
 .top-exhibit
-  .top-exhibit__text 出品する
-  = image_tag "icon_camera.png"
+  .top-exhibit__text
+    = link_to new_product_path do
+      出品する
+      = image_tag "icon_camera.png"
 .top-main
   .top-main__view
     .top-main__view__container

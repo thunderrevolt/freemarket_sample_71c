@@ -14,14 +14,16 @@
     cursor: pointer;
   }
   &__text {
-    color: #fff;
     display: block;
-    font-size: 18px;
-    text-decoration: none;
-    margin-bottom: 5px;
-  }
-  img {
-    width: 54px;
+    a {
+      color: #fff;
+      font-size: 18px;
+      text-decoration: none;
+    }
+    img {
+      margin-top: 5px;
+      width: 54px;
+    }
   }
 }
 
