@@ -248,3 +248,53 @@
   color: $main-color;
   cursor: pointer;
 }
+
+
+// コメント一覧
+.product-comments-box {
+  width: 700px;
+  .product-comments {
+    margin-top: 20px;
+    background-color: white;
+    width: 620px;
+    padding: 20px 40px;
+    height: auto;
+    &__header {
+      padding: 0.5em 1em;
+      text-align: center;
+      background: -moz-linear-gradient(#ffb03c, #ff708d);
+      background: -webkit-linear-gradient(#ffb03c, #ff708d);
+      background: linear-gradient(to right, #ffb03c, #ff708d);
+      color: #FFF;
+    }
+    .comments__text--text {
+      position: relative;
+      display: inline-block;
+      margin: 5px 30px 30px 30px;
+      padding: 15px 10px;
+      min-width: 120px;
+      max-width: 100%;
+      color: #555;
+      font-size: 18px;
+      background: #e0edff;
+      border-radius: 15px;
+      &:before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: -25px;
+        margin-top: -15px;
+        border: 15px solid transparent;
+        border-right: 15px solid #e0edff;
+        z-index: 0;
+      }
+    }
+  }
+}
+.comments__text a {
+  text-decoration: none;
+  color: #555;
+  font-size: 18px;
+}
+
+

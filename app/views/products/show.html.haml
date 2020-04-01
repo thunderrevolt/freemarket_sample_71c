@@ -112,15 +112,26 @@
     
     .product-comments-box
       .product-comments
-      -# コメントがあれば表示
+        %h2.product-comments__header コメント一覧
+        - if @comments
+          - @comments.each do |comment|
+            .comments__text
+              = link_to comment.user.nickname, "/users/#{comment.user_id}"
+              %p.comments__text--text 
+                = comment.text
+
     .product-comment-form
-      %form.product-comment-form__new
-        %input{type: "textarea", class: "product-comment-form__new--text"}
-        %p.product-comment-form__new--report
-          相手のことを考え丁寧なコメントを心がけましょう。
-          %br
-          不快な言葉遣いなどは利用制限や退会処分となることがあります。
-        %input{type: "submit", class:"product-comment-form__new--btn fas fa-star", value: "コメントする"}
+      - if current_user
+        = form_with model: [@product, @comment], class: "product-comment-form__new", local: true do |f|
+          = f.text_area :text, class: "product-comment-form__new--text", plsceholder: "コメントする", rows: "2"
+          %p.product-comment-form__new--report
+            相手のことを考え丁寧なコメントを心がけましょう。
+            %br
+            不快な言葉遣いなどは利用制限や退会処分となることがあります。
+          = f.submit "コメントする",class: "product-comment-form__new--btn fas fa-star"
+      - else
+        %strong
+          %p ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
         
     .product-after-before
       .product-after-before__before
@@ -131,3 +142,12 @@
       ベビー商品をもっとみる
 
   = render 'shared/footer'
+
+
+  -# - if current_user
+  -#   = form_with model: [@product, @comment], class: "product-comment-form__new", local: true do |f|
+  -#     = f.text_area :text, class: "product-comment-form__new--text", plsceholder: "コメントする", rows: "2"
+  -#     = f.submit "コメントする",class: "product-comment-form__new--btn fas fa-star"
+  -# - else
+  -#   %strong
+  -#     %p ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
