@@ -14,12 +14,14 @@
       .myp-main__top
         .myp-main__top__container
           = image_tag "komaki.jpg"
-          %h1 小牧功知
+          %h1
+            = @user.nickname
           .myp-main__list
             %h2 評価
             %p 14
             %h2.myp-main__list__space 出品数
-            %p 29
+            %p
+              = @products.length
       .myp-main__title
         .myp-main__title--left お知らせ
         .myp-main__title--right やることリスト

@@ -24,7 +24,7 @@
                           %ul.top-category__grandchild
                             - child.children.each do |grandchild|
                               .top-category__grandchild__li
-                                =link_to "" do
+                                =link_to category_path(grandchild) do
                                   = grandchild.name
 
       -# ブランドから探す
