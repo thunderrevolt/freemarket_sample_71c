@@ -301,9 +301,13 @@ input, textarea, select {
 #previews{
   display: flex;
   padding-top: 16px;
+  width: 490px;
+  display: flex;
+  flex-wrap: wrap;
   .preview{
+    width: 490px;
     display: flex;
-    padding-top: 16px;
+    flex-wrap: wrap;
   }
 }
 
@@ -355,6 +359,9 @@ font-size: 20px;
   width: 490px;
   display: flex;
   flex-wrap: wrap;
+}
+.image_box {
+  padding: 0 3px;
 }
 
 
