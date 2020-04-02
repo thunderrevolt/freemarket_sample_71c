@@ -224,10 +224,19 @@ input, textarea, select {
   }
 }
 // 商品詳細カテゴリー
+.exhibit-default--label {
+  font-size: 14px;
+}
 .exhibit-detail-category, .exhibit-detail-categories{
   width: 100%;
+  margin-top: 5px;
   .exhibit-detail-category-name{
     margin-bottom: 15px;
+    display: flex;
+    p {
+      width: 24px;
+      height: 18px;
+    }
   }
   .exhibit-category-select {
     width: 490px;

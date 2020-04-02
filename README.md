@@ -57,16 +57,10 @@ Things you may want to cover:
 |tel|integer|
 ### Association
 - has_many  :products
-- has_many  :cards, dependent: :destroy
-- has_many  :points, dependent: :destroy
-- has_many  :transfers, dependent: :destroy
-- has_many  :sells, dependent: :destroy
-- has_many  :buys, dependent: :destroy
-- has_many  :feelings, dependent: :destroy
+- has_many  :creditcards, dependent: :destroy
 - has_many  :likes, dependent: :destroy
 - has_many  :comments, dependent: :destroy
 - has_many  :like_product, through: :likes, source: :product
-- has_many  :feeling_product, through: :feelings, source: :product
 - belongs_to:addresses, dependent: :destroy
 
 ## addressesテーブル
@@ -76,8 +70,11 @@ Things you may want to cover:
 |last_name|string|null: false|
 |first_name_kana|string|null: false|
 |last_name_kana|string|null: false|
-|zipcode|integer|null: false|
-|number|string|null: false|
+|zip1|integer|null: false|
+|zip2|integer|null: false|
+|address1|string|null: false|
+|address2|string|null: false|
+|street_address|string|null: false|
 |apartment|string|
 |tel|integer|
 |user_id|integer|null: false, foreign_key: true|
@@ -95,21 +92,18 @@ Things you may want to cover:
 |postage_bearer|string|null: false|
 |shipping_area|string|null: false|
 |shipping_day|string|null: false|
-|price|string|null: false|
+|price|integer|limit: 6|null: false|
 |size|string|
+|condition|integer|
 |user_id|integer|null: false, foreign_key: true|
 |categories_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
 - belongs_to :category
-- belongs_to :sell
-- belongs_to :buy
 - has_many   :comments, dependent: :destroy
 - has_many   :images, dependent: :destroy
-- has_many   :feelings, dependent: :destroy
 - has_many   :likes, dependent: :destroy
 - has_many   :like_user, through: :likes, source: :user
-- has_many   :feeling_user, through: :feelings, source: :user
 
 ## imagesテーブル
 |Column|Type|Options|
@@ -119,59 +113,12 @@ Things you may want to cover:
 ### Association  
 - belongs_to :product
 
-## cardsテーブル
+## creditcardsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|number|integer|null: false|
-|month|string|null: false|
-|year|string|null: false|
-|pass|integer|null: false|
+|payjp_id|string|null:false|
 |user_id|integer|null:false, foreign_key: true|
 ### Association
-- belongs_to :user
-
-## pointsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|point|integer|null: false|
-|user_id|integer|null:false, foreign_key: true|
-### Association
-- belongs_to :user
-- belongs_to :transfer
-
-## buiesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|product_id|integer|null: false, foreign_key: true|
-|user_id|integer|null: false, foreign_key: true|
-|status|string|null: false
-### Association
-- belongs_to :product
-- belongs_to :user
-
-## sellsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|product_id|integer|null: false, foreign_key: true|
-|user_id|integer|null: false, foreign_key: true|
-|status|string|null: false
-### Association
-- belongs_to :product
-- belongs_to :user
-
-## transfersテーブル
-|Column|Type|Options|
-|------|----|-------|
-|point_id|integer|null: false, foreign_key: true|
-|user_id|integer|null: false, foreign_key: true|
-|bank|string|null: false|
-|account|string|null: false|
-|branch|string|null: false|
-|number|integer|null: false|
-|fist_name|string|null: false|
-|last_name|string|null: false|
-### Association
-- has_many   :points
 - belongs_to :user
 
 ## likesテーブル
@@ -182,17 +129,3 @@ Things you may want to cover:
 ### Association
 - belongs_to :product
 - belongs_to :user
-
-## feelingsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|product_id|integer|null: false, foreign_key: true|
-|user_id|integer|null: false, foreign_key: true|
-### Association
-- belongs_to :product
-- belongs_to :user
-
-## noticesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|text|string|null: false|
