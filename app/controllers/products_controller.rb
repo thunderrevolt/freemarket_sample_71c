@@ -1,6 +1,8 @@
 class ProductsController < ApplicationController
+  before_action :require_login, except: [:index, :show]
   MAX_DISPLAY_RELATED_PRODUCTS = 3
   before_action :user_to_current_user?, only: [:edit, :update]
+  
 
   def index
     # @products = Product.includes(:images,:user).order('created_at DESC')
@@ -113,4 +115,13 @@ class ProductsController < ApplicationController
       redirect_to action: :index 
     end
   end
+
+  private
+  def require_login
+    unless user_signed_in?
+      flash[:error] = "ログイン状態でありません"
+      redirect_to root_path
+    end
+  end
+
 end
