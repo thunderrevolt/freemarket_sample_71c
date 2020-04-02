@@ -24,6 +24,7 @@
           display: flex;
           justify-content: center;
           .product-show-item-lists__img--main{
+            position: relative;
             .main-size {
               object-fit: cover;
             }
