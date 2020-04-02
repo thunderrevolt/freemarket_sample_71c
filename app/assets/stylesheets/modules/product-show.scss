@@ -25,7 +25,9 @@
           justify-content: center;
           .product-show-item-lists__img--main{
             position: relative;
-            // sold表示
+            .main-size {
+              object-fit: cover;
+            }
             .product-sold-container{
               position: absolute;
               top:0;
@@ -46,6 +48,9 @@
             overflow: scroll;
             &--img {
               margin-left: 10px;
+              .sub-size {
+                object-fit: cover;
+              }
             }
           }
         }
@@ -186,6 +191,7 @@
 
 // コメント入力蘭
 .product-comment-form {
+  text-align: center;
   margin-top: 20px;
   background-color: white;
   width: 620px;
@@ -299,5 +305,3 @@
   color: #555;
   font-size: 18px;
 }
-
-
