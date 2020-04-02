@@ -1,5 +1,5 @@
 $(window).load(function(){
-  console.log("hello");
+
   // PAY.JPの公開鍵をセットします。
   Payjp.setPublicKey('pk_test_a73b5f974aa6f0fc848073f5');
 

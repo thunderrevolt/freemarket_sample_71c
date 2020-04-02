@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :require_login, only: [:show, :logout]
+
   def index
   end
 
@@ -9,6 +11,14 @@ class UsersController < ApplicationController
   end
 
   def logout
+  end
+
+  private
+  def require_login
+    unless user_signed_in?
+      flash[:error] = "ログイン状態でありません"
+      redirect_to root_path
+    end
   end
   
 end
