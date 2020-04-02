@@ -204,47 +204,52 @@ if(document.URL.match(/product/&&/edit/)){
   });
 
   // もし削除ボタンが押された場合
-  $('#image-box').on('click', '.js-remove', function() {
+    $('#image-box').on('click', '.js-remove', function() {
 
-    // 押された削除ボタンの親要素のインデックス番号を取得
-    const targetIndex = $(this).parent().data('index');
+      // 押された削除ボタンの親要素のインデックス番号を取得
+      const targetIndex = $(this).parent().data('index');
 
-    //↑の番号を含むインプット要素のチェックボックスを取得
-    const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
+      //↑の番号を含むインプット要素のチェックボックスを取得
+      const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
 
-    // もしチェックボックスが存在すればチェックを入れる
-    if (hiddenCheck) hiddenCheck.prop('checked', true);
+      // もしチェックボックスが存在すればチェックを入れる
+      if (hiddenCheck) hiddenCheck.prop('checked', true);
 
-    // 親要素もろともインプット要素と削除ボタンを取り除く
-    $(this).parent().remove();
+      // 親要素もろともインプット要素と削除ボタンを取り除く
+      $(this).parent().remove();
 
-    // プレビュー表示画像を削除する
-    $(`img[data-index="${targetIndex}"]`).parent().remove();
+      // プレビュー表示画像を削除する
+      $(`img[data-index="${targetIndex}"]`).parent().remove();
 
-    // 画像入力欄が0個にならないようにしておく
-    if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
+      // 画像入力欄が0個にならないようにしておく
+      if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
 
-    // 10個目の画像が削除された時画像投稿ボタンを表示する
-    let count = $('.image_box').length
+      // 10個目の画像が削除された時画像投稿ボタンを表示する
+      let count = $('.image_box').length
 
-    if(count <= 9 ){
-      $('#image-box__container').css({
-        'display': `flex`
-      })
+      if(count <= 9 ){
+        $('#image-box__container').css({
+          'display': `flex`
+        })
+      }
+    });
+
+    // グレーのエリアがクリックされた時最後のフォームに画像を投稿する
+    $('#image-box').on('click', '#image-box__container', function(){
+      $('.js-file:last').click();
+      return false;
+    });
+
+    // 画像したの削除ボタンが押された時隠された削除ボタンを押す
+    $(document).on('click', '.js_remove__btn', function(){
+      let remove_index = $(this).data('index');
+      $(`.js-remove[data-index="${remove_index}"]`).click();
+      if($('.js-file').length <= 2){
+        $('.js_remove__btn').remove();
+      }
+    });
+    if($('.js-file').length <= 2){
+      $('.js_remove__btn').remove();
     }
-  });
-
-  // グレーのエリアがクリックされた時最後のフォームに画像を投稿する
-  $('#image-box').on('click', '#image-box__container', function(){
-    $('.js-file:last').click();
-    return false;
-  });
-
-  // 画像したの削除ボタンが押された時隠された削除ボタンを押す
-  $(document).on('click', '.js_remove__btn', function(){
-    let remove_index = $(this).data('index');
-    $(`.js-remove[data-index="${remove_index}"]`).click();
-  });
-
   };
 });
