@@ -34,17 +34,16 @@
             font-weight: bold;
           }
 
-          .required {
-            background-color: red;
-            color: white;
-            font-size: 16px;
-          }
-
+          
           input[type="text"] {
             width: 425px;
             height: 40px;
           }
         }
+      }
+      
+      .required {
+        @include required;
       }
 
       .fullname {
@@ -62,11 +61,7 @@
               font-weight: bold;
             }
 
-            .required {
-              background-color: red;
-              color: white;
-              font-size: 16px;
-            }
+            
 
             input[type="text"] {
               width: 200px;
@@ -85,11 +80,6 @@
               font-weight: bold;
             }
 
-            .required {
-              background-color: red;
-              color: white;
-              font-size: 16px;
-            }
 
             input[type="text"] {
               width: 200px;
@@ -114,11 +104,6 @@
               font-weight: bold;
             }
 
-            .required {
-              background-color: red;
-              color: white;
-              font-size: 16px;
-            }
 
             input[type="text"] {
               width: 200px;
@@ -137,11 +122,6 @@
               font-weight: bold;
             }
 
-            .required {
-              background-color: red;
-              color: white;
-              font-size: 16px;
-            }
 
             input[type="text"] {
               width: 200px;
@@ -162,11 +142,7 @@
             font-weight: bold;
           }
 
-          .required {
-            background-color: red;
-            color: white;
-            font-size: 16px;
-          }
+
         }
 
         &__date {
@@ -190,11 +166,7 @@
             font-weight: bold;
           }
 
-          .required {
-            background-color: red;
-            color: white;
-            font-size: 16px;
-          }
+
 
           input[type="text"] {
             width: 425px;
@@ -214,11 +186,7 @@
             font-weight: bold;
           }
 
-          .required {
-            background-color: red;
-            color: white;
-            font-size: 16px;
-          }
+
 
           input[type="email"] {
             width: 425px;
@@ -238,11 +206,7 @@
             font-weight: bold;
           }
 
-          .required {
-            background-color: red;
-            color: white;
-            font-size: 16px;
-          }
+
 
           input[type="password"] {
             width: 425px;

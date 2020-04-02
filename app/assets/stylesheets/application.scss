@@ -7,6 +7,17 @@ body {
   font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
 }
 
+@mixin required {
+  background-color: $main-color;
+  color: white;
+  height: 17px;
+  font-size: 12px;
+  padding: 0 4px;
+  display: inline-block;
+  border-radius: 2px;
+  font-weight: bold;
+}
+
 @import "modules/reset";
 @import "modules/header";
 @import "modules/footer";
