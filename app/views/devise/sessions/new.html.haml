@@ -4,8 +4,12 @@
     .login-signup__text アカウントをお持ちでない方はこちら
     = link_to "新規会員登録", "/users", class: "login-signup__btn"
   .login-main
-    .login-main__facebook Facebookでログイン
-    .login-main__google Googleでログイン
+    .login-main__facebook
+      %i.fab.fa-facebook-square
+      %p Facebookでログイン
+    .login-main__google
+      = image_tag "google_logo.png"
+      %p Googleでログイン
   .login-form
     = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
       .field
