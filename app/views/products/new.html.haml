@@ -15,7 +15,7 @@
               %label#image-box__container.item-num-0
                 = i.file_field :image, multiple: true, class: "exhibit-image__area", type: 'file', name: "images[image][]", value:"",  id:"img-file"
                 %i.fa.fa-camera
-                %p ドラッグアンドドロップ<br>もしくはクリックしてアップロード
+                %p クリックしてアップロード
       .exhibit-boby--container__name
         .exhibit-flame
           .exhibit-label
@@ -71,7 +71,7 @@
                 %p 販売価格
                 %p.need 必須
               %p ¥
-            = f.text_field :price, placeholder: '0', id: "exhibit-price",onkeyup:"ShowPrice(value);", style: "text-align: right;"
+            = f.text_field :price, placeholder: '0', id: "exhibit-price", style: "text-align: right;"
           .exhibit-commission
             %p 販売手数料（10%）
             %p#tax-price ー
