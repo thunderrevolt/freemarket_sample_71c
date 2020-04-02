@@ -14,6 +14,18 @@
     width: 134px;
     height: 36px;
   }
+  &__search {
+    position: relative;
+    i {
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 12px;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
   input {
     width: 841px;
     height: 40px;
