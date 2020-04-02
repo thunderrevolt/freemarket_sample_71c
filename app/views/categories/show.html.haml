@@ -8,34 +8,53 @@
     %li
       = link_to categories_path do
         カテゴリー一覧
-      %i.fas.fa-chevron-right
     %li
-      = @category.root.name
       %i.fas.fa-chevron-right
-    %li
-      = @category.parent.name
-      %i.fas.fa-chevron-right
-    %li
+      = link_to category_path(@category.root) do
+        = @category.root.name
+    - unless @category.parent == nil
+      - if @category.root == @category.parent
+        %li
+          %i.fas.fa-chevron-right
+          = @category.name
+      - else
+        %li
+          %i.fas.fa-chevron-right
+          = link_to category_path(@category.parent) do
+            = @category.parent.name
+        %li
+          %i.fas.fa-chevron-right
+          = @category.name
+
+- unless @category.children == [] 
+  .category-index__list
+    .category-index__list__name
       = @category.name
-      
+    .category-index__list__child
+      .category-index__list__child__grand
+        - @category.children.each do |child|
+          .category-index__list__child__grand__name
+            = link_to category_path(child) do
+              = child.name
 
-.c-show
-  .c-show__container
-    .c-show__container__title
-      = @category.name + "の商品一覧"
-    .c-show__container__box
-      .c-show__box
-        .c-show__box__image
-          = image_tag "picup1.png"
-          .c-show__box__text
-            %ul
-              %li さば
-              %li 1000円
-            %p (税込)
-
-
-      
-      
+.category-index__list
+  .category-index__list__name
+    = @category.name + "の商品一覧"
+  .c-show__container__box
+    .c-show__box
+      - @products.each do |products|
+        - products.each do |product|
+          .c-show__box__image
+            - product.images.first(1).each do |image|
+              = image_tag image.image.url
+            .c-show__box__text
+              %ul
+                %li 
+                = product.name
+                %li 
+                = product.price 
+                円
+              %p (税込)
 
 
 = render 'shared/footer'
