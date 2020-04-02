@@ -129,7 +129,14 @@ $(function(){
 
 
 if(document.URL.match(/product/&&/edit/)){
+
+  var price = ($('#exhibit-price').val())
+  // Math.floorで小数点以下切り捨て
+  $('#tax-price').text(Math.floor( price * 0.1));
+  $('#profit-price').text(price - (Math.floor(price * 0.1)));
+
   let image_count = $('.image_box').length
+  $('#image-box__container').attr('class', `item-num-${image_count}`)
   if(image_count >= 10 ){
     $('#image-box__container').css({'display': `none`})
   }
@@ -182,8 +189,8 @@ if(document.URL.match(/product/&&/edit/)){
 
     } else {  // 押されたjsファイル要素に画像が入っていない場合
 
-      // previewsに画像表示要素を追加
-      $('.preview').append(buildImg(targetIndex, blobUrl));
+      // #image-box__containerの前に画像表示要素を追加
+      $('#image-box__container').before(buildImg(targetIndex, blobUrl));
 
       // image-boxに画像データインプットボタンと削除ボタンを追加する
       $('#image-box').append(buildFileField(fileIndex[0]));
@@ -194,6 +201,7 @@ if(document.URL.match(/product/&&/edit/)){
 
       // 10個目の画像が投稿された時画像投稿ボタンを非表示にする
       let count = $('.image_box').length
+      $('#image-box__container').attr('class', `item-num-${count}`)
 
       if(count >= 10 ){
         $('#image-box__container').css({
@@ -220,6 +228,9 @@ if(document.URL.match(/product/&&/edit/)){
 
     // プレビュー表示画像を削除する
     $(`img[data-index="${targetIndex}"]`).parent().remove();
+
+    let image_count = $('.image_box').length
+    $('#image-box__container').attr('class', `item-num-${image_count}`)
 
     // 画像入力欄が0個にならないようにしておく
     if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
