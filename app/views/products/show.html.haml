@@ -106,10 +106,11 @@
               = link_to product_path(@product), method: :delete do
                 削除
         - else
-          .product-show-link
-            .product-show-link__btn
-              = link_to product_buy_path(@product) do
-                購入する
+          - if @product.condition == 1
+            .product-show-link
+              .product-show-link__btn
+                = link_to product_buy_path(@product) do
+                  購入する
     
     .product-comments-box
       .product-comments
@@ -140,6 +141,8 @@
       .product-after-before__after
         次の商品＞
     .product-show-category
-      ベビー商品をもっとみる
+      = link_to category_path(@product.category) do
+        = @product.category.name
+        商品をもっとみる
 
   = render 'shared/footer'

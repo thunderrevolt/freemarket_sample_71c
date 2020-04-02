@@ -11,7 +11,8 @@
       -# カテゴリーから探す
       %ul.top-category
         %li.top-category--left
-          カテゴリーから探す
+          = link_to categories_path do
+            カテゴリーから探す
           %ul.top-category__ul
             - @categories.each do |category|
               %li.top-category__ul__li

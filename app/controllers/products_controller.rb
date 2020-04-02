@@ -78,14 +78,17 @@ class ProductsController < ApplicationController
     end
   end
 
-  
-
   def show
-    @product = Product.find(params[:id])
-    @comment = Comment.new
-    @comments = @product.comments.includes(:user)
-    @image_1 = Image.where(product_id: @product).first
-    @image   = Image.where(product_id: @product)
+    # 商品が削除されているなら
+    unless Product.where(id: params[:id]) == []
+      @product = Product.find(params[:id])
+      @comment = Comment.new
+      @comments = @product.comments.includes(:user)
+      @image_1 = Image.where(product_id: @product).first
+      @image   = Image.where(product_id: @product)
+    else
+      redirect_to root_path
+    end
   end
 
 

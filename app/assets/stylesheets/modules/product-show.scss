@@ -24,9 +24,6 @@
           display: flex;
           justify-content: center;
           .product-show-item-lists__img--main{
-
-            // sold表示
-            position: relative;
             .main-size {
               object-fit: cover;
             }
@@ -253,8 +250,11 @@
   font-weight: bold;
   font-size: 24px;
   margin: 20px 0;
-  color: $main-color;
   cursor: pointer;
+  a {
+    text-decoration: none;
+    color: $main-color;
+  }
 }
 
 
