@@ -49,8 +49,8 @@
           .exhibit-label
             .exhibit-detail-categories
               .exhibit-detail-category-name
-                = f.label 'カテゴリー', class: 'exhibit-default-label'
-                %span.need 必須
+                = f.label 'カテゴリー', class: 'exhibit-default--label'
+                %p.need 必須
               .exhibit-select-wrapper
                 .exhibit-select-wrapper__box{id: "category-reset-js"}
                   = f.select :category, @category_root, {}, {class: 'exhibit-category-select', id: 'parent_categories'}

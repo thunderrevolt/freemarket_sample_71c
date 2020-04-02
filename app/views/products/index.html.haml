@@ -65,7 +65,7 @@
         %p お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
 .top-picup
   .top-picup__container
-    %h1 ピックアップカテゴリー
+    %h1 ピックアップNEW!!
     %h2 新規投稿商品
     .top-picup__item
       - @products.each do |product|
@@ -87,10 +87,10 @@
                 %p (税込)
 
   .top-picup__container
-    %h1.top-picup__space ピックアップブランド
-    %h2 アーカイバ
+    %h1.top-picup__space ピックアップカテゴリー
+    %h2 メンズ
     .top-picup__item
-      - @products_B.each do |product|
+      - @mens_samle.each do |product|
         = link_to product_path(product) do
           .top-picup__item--left.picup-size
             .product-box
@@ -107,4 +107,25 @@
                       %p 円
                     .top-flex--right 
                 %p (税込)
+
+    .top-picup__container
+      %h2 レディース
+      .top-picup__item
+        - @ledies_samle.each do |product|
+          = link_to product_path(product) do
+            .top-picup__item--left.picup-size
+              .product-box
+                - product.images.first(1).each do |i|
+                  = image_tag i.image.url
+                .top-product__message
+                  %ul
+                    %li 
+                      = product.name
+                    %li.top-flex
+                      .top-flex--left
+                        %p 
+                          = product.price
+                        %p 円
+                      .top-flex--right 
+                  %p (税込)
 = render 'shared/footer'

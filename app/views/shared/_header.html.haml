@@ -5,12 +5,14 @@
     -# 検索フォーム
     .top-header--top__search
       %input{placeholder: "キーワードから探す", type: "search", class: "top-heder--top__form"}
+      %i.fas.fa-search
   .top-header--middle
     .top-header--middle__left
       -# カテゴリーから探す
       %ul.top-category
         %li.top-category--left
-          カテゴリーから探す
+          = link_to categories_path do
+            カテゴリーから探す
           %ul.top-category__ul
             - @categories.each do |category|
               %li.top-category__ul__li

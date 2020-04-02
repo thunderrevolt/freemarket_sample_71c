@@ -45,16 +45,20 @@
       - @products.each do |products|
         - products.each do |product|
           .c-show__box__image
-            - product.images.first(1).each do |image|
-              = image_tag image.image.url
-            .c-show__box__text
-              %ul
-                %li 
-                = product.name
-                %li 
-                = product.price 
-                円
-              %p (税込)
+            - if product.condition == 3
+              .product-sold-container
+                %p sold
+            = link_to product_path(product) do
+              - product.images.first(1).each do |image|
+                = image_tag image.image.url
+              .c-show__box__text
+                %ul
+                  %li 
+                  = product.name
+                  %li 
+                  = product.price 
+                  円
+                %p (税込)
 
 
 = render 'shared/footer'

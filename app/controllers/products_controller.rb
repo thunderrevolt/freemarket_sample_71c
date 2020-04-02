@@ -6,11 +6,41 @@ class ProductsController < ApplicationController
 
   def index
     # @products = Product.includes(:images,:user).order('created_at DESC')
-    # ↓新しく作成された3つのデータのみ取得。
+    # ↓新規投稿商品。新しく作成された3つのデータのみ取得。
     @products = Product.where(condition: 1).order(created_at: "DESC").take(MAX_DISPLAY_RELATED_PRODUCTS)
-    # ↓1(出品中)のブランド名「ma--ru」の商品をshuffleメソッドとtakeメソッドでランダムで３つのデータを取得。distinctで重複する情報削除。
-    @products_B = Product.where(condition:1, brand:'ma--ru').distinct.shuffle.take(MAX_DISPLAY_RELATED_PRODUCTS)
     
+    # ブランド欄を作る場合に使用。出品中でブランド名、ナイキのものをランダムに3つ取り出す。
+    # @brand = Product.where(condition: 1, brand: "ナイキ").distinct.shuffle.take(MAX_DISPLAY_RELATED_PRODUCTS)
+
+    
+    # ↓メンズ商品。(出品中)かつカテゴリ「メンズ」の商品を３つのデータを取得。
+    @mens_array = []
+    @category = Category.find_by(name: "メンズ")
+    @category.children.each do |child|
+      child.children.each do |grand_child|
+        # 空の配列にカテゴリ：メンズの孫IDと出品中IDのproductを格納
+        @mens_array << Product.where(category_id: grand_child[:id],condition: 1)
+      end
+    end
+    # 格納した配列をフラットにして、ランダムで3つ取り出す。
+    @mens_flat = @mens_array.flatten
+    @mens_samle = @mens_flat.sample(3)
+
+    # ↓レディース商品。(出品中)かつカテゴリ「メンズ」の商品を３つのデータを取得。
+    @ledies_array = []
+    @category = Category.find_by(name: "レディース")
+    @category.children.each do |child|
+      child.children.each do |grand_child|
+        # 空の配列にカテゴリ：メンズの孫IDと出品中IDのproductを格納
+        @ledies_array << Product.where(category_id: grand_child[:id],condition: 1)
+      end
+    end
+    # 格納した配列をフラットにして、ランダムで3つ取り出す。
+    @ledies_flat = @ledies_array.flatten
+    @ledies_samle = @ledies_flat.sample(3)
+
+
+
   end
 
   def new
@@ -48,14 +78,17 @@ class ProductsController < ApplicationController
     end
   end
 
-  
-
   def show
-    @product = Product.find(params[:id])
-    @comment = Comment.new
-    @comments = @product.comments.includes(:user)
-    @image_1 = Image.where(product_id: @product).first
-    @image   = Image.where(product_id: @product)
+    # 商品が削除されているなら
+    unless Product.where(id: params[:id]) == []
+      @product = Product.find(params[:id])
+      @comment = Comment.new
+      @comments = @product.comments.includes(:user)
+      @image_1 = Image.where(product_id: @product).first
+      @image   = Image.where(product_id: @product)
+    else
+      redirect_to root_path
+    end
   end
 
 
