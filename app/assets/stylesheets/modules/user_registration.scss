@@ -39,12 +39,6 @@
               font-weight: bold;
             }
 
-            .required {
-              background-color: $main-color;
-              color: white;
-              font-size: 16px;
-            }
-
             input[type="text"] {
               width: 200px;
               height: 40px;
@@ -61,12 +55,6 @@
             label {
               font-size: 14px;
               font-weight: bold;
-            }
-
-            .required {
-              background-color: $main-color;
-              color: white;
-              font-size: 16px;
             }
 
             input[type="text"] {
@@ -92,12 +80,6 @@
               font-weight: bold;
             }
 
-            .required {
-              background-color: $main-color;
-              color: white;
-              font-size: 16px;
-            }
-
             input[type="text"] {
               width: 200px;
               height: 40px;
@@ -114,12 +96,6 @@
             label {
               font-size: 14px;
               font-weight: bold;
-            }
-
-            .required {
-              background-color: $main-color;
-              color: white;
-              font-size: 16px;
             }
 
             input[type="text"] {
@@ -144,12 +120,6 @@
               font-weight: bold;
             }
   
-            .required {
-              background-color: $main-color;
-              color: white;
-              font-size: 16px;
-            }
-  
             input[type="text"] {
               width: 200px;
               height: 40px;
@@ -169,12 +139,6 @@
 
           &__dialogue {
             text-align: left;
-  
-            .required {
-              background-color: red;
-              color: white;
-              font-size: 16px;
-            }
   
             input[type="text"] {
               width: 200px;
@@ -196,17 +160,16 @@
             font-weight: bold;
           }
 
-          .required {
-            background-color: red;
-            color: white;
-            font-size: 16px;
-          }
-
+          
           input[type="text"] {
             width: 425px;
             height: 40px;
           }
         }
+      }
+      
+      .required {
+        @include required;
       }
 
       .street_address {
@@ -217,12 +180,6 @@
           label {
             font-size: 14px;
             font-weight: bold;
-          }
-
-          .required {
-            background-color: red;
-            color: white;
-            font-size: 16px;
           }
 
           input[type="text"] {
