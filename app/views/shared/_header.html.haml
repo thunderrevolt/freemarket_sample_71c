@@ -14,12 +14,12 @@
           %ul.top-category__ul
             - @categories.each do |category|
               %li.top-category__ul__li
-                = link_to "" do
+                = link_to category_path(category) do
                   = category.name
                   %ul.top-category__children
                     - category.children.each do |child|
                       %li.top-category__children__li
-                        = link_to "" do
+                        = link_to category_path(child) do
                           = child.name
                           %ul.top-category__grandchild
                             - child.children.each do |grandchild|
