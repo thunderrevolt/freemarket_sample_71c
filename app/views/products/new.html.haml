@@ -12,7 +12,7 @@
           %p 最大10枚までアップロードできます
           = f.fields_for :images do |i|
             #image-box-1
-              %label#image-box__container
+              %label#image-box__container.item-num-0
                 = i.file_field :image, multiple: true, class: "exhibit-image__area", type: 'file', name: "images[image][]", value:"",  id:"img-file"
                 %i.fa.fa-camera
                 %p ドラッグアンドドロップ<br>もしくはクリックしてアップロード
