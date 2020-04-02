@@ -24,8 +24,12 @@
           display: flex;
           justify-content: center;
           .product-show-item-lists__img--main{
+
             // sold表示
             position: relative;
+            .main-size {
+              object-fit: cover;
+            }
             .product-sold-container{
               position: absolute;
               top:0;
@@ -46,6 +50,9 @@
             overflow: scroll;
             &--img {
               margin-left: 10px;
+              .sub-size {
+                object-fit: cover;
+              }
             }
           }
         }
@@ -296,5 +303,3 @@
   color: #555;
   font-size: 18px;
 }
-
-
