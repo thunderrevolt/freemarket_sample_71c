@@ -9,6 +9,10 @@ class ProductsController < ApplicationController
     # ↓新規投稿商品。新しく作成された3つのデータのみ取得。
     @products = Product.where(condition: 1).order(created_at: "DESC").take(MAX_DISPLAY_RELATED_PRODUCTS)
     
+    # ブランド欄を作る場合に使用。出品中でブランド名、ナイキのものをランダムに3つ取り出す。
+    # @brand = Product.where(condition: 1, brand: "ナイキ").distinct.shuffle.take(MAX_DISPLAY_RELATED_PRODUCTS)
+
+    
     # ↓メンズ商品。(出品中)かつカテゴリ「メンズ」の商品を３つのデータを取得。
     @mens_array = []
     @category = Category.find_by(name: "メンズ")

@@ -65,7 +65,7 @@
         %p お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
 .top-picup
   .top-picup__container
-    %h1 ピックアップカテゴリー
+    %h1 ピックアップNEW!!
     %h2 新規投稿商品
     .top-picup__item
       - @products.each do |product|
@@ -87,7 +87,7 @@
                 %p (税込)
 
   .top-picup__container
-    %h1.top-picup__space ピックアップブランド
+    %h1.top-picup__space ピックアップカテゴリー
     %h2 メンズ
     .top-picup__item
       - @mens_samle.each do |product|
@@ -109,7 +109,6 @@
                 %p (税込)
 
     .top-picup__container
-      %h1.top-picup__space ピックアップブランド
       %h2 レディース
       .top-picup__item
         - @ledies_samle.each do |product|
