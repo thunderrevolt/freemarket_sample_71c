@@ -1,3 +1,4 @@
+//フッター上部画像
 .top-guidance {
   background-image: image-url("bg-appBanner-pict.jpg");
   background-size: cover;
@@ -50,6 +51,7 @@
   }
 }
 
+// フッター
 footer {
   height: 370px;
   width: 100%;
@@ -97,6 +99,7 @@ footer {
     }
   }
 
+  // フッターアイコン
   .top-logo {
     text-align: center;
 

@@ -1,3 +1,4 @@
+// 会員情報登録（名前やパスワード入力画面）
 .info-registration {
   margin: auto;
   width: 800px;
@@ -23,7 +24,7 @@
     .field {
       display: flex;
       padding: 20px 0;
-
+      // ニックネーム
       .nickname {
 
         &__dialogue {
@@ -34,7 +35,6 @@
             font-weight: bold;
           }
 
-          
           input[type="text"] {
             width: 425px;
             height: 40px;
@@ -45,7 +45,7 @@
       .required {
         @include required;
       }
-
+      // 名前
       .fullname {
         display: flex;
         margin: left;
@@ -88,7 +88,7 @@
           }
         }
       }
-
+      // ふりがな
       .fullname-kana {
         display: flex;
         margin: left;
@@ -130,7 +130,7 @@
           }
         }
       }
-
+      // 誕生日
       .birthday {
         margin: left;
 
@@ -154,7 +154,7 @@
           }
         }
       }
-
+      // 電話番号
       .tel {
         margin: left;
 
@@ -174,7 +174,7 @@
           }
         }
       }
-
+      // メール
       .mail {
         margin: left;
 
@@ -186,15 +186,13 @@
             font-weight: bold;
           }
 
-
-
           input[type="email"] {
             width: 425px;
             height: 40px;
           }
         }
       }
-
+      // パスワード
       .password {
         margin: left;
 
@@ -205,8 +203,6 @@
             font-size: 14px;
             font-weight: bold;
           }
-
-
 
           input[type="password"] {
             width: 425px;
@@ -229,6 +225,7 @@
       }
     }
 
+    // 次へ
     .actions {
       padding-bottom: 20px;
       
