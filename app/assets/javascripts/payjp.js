@@ -5,9 +5,7 @@ $(window).load(function(){
 
   //formのsubmitを止めるために, クレジットカード登録のformを定義します。
   var form = $(".form");
-
   $("#charge-form").click(function() {
-    console.log("hello");
     // submitが完了する前に、formを止めます。
     form.find("input[type=submit]").prop("disabled", true);
     // submitを止められたので、PAY.JPの登録に必要な処理をします。

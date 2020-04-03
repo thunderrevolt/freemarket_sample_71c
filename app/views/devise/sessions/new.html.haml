@@ -1,4 +1,7 @@
+-# ヘッダー
 = render 'shared/product_header'
+
+-# ログイン
 .login-body
   .login-signup
     .login-signup__text アカウントをお持ちでない方はこちら
@@ -10,6 +13,7 @@
     .login-main__google
       = image_tag "google_logo.png"
       %p Googleでログイン
+  -# ログインフォーム
   .login-form
     = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
       .field
@@ -21,4 +25,6 @@
         .actions
           = f.submit "ログイン", class: 'login-form__btn'
     %p パスワードをお忘れの方
+
+-# フッター
 = render 'shared/product_footer'

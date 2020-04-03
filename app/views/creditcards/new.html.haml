@@ -1,9 +1,11 @@
 = form_with url:user_creditcards_path, method: :post, html: { name: "inputForm" },class:"form" do |f|
+  -# カード番号入力欄
   .form__upper
     .form__upper__group
       = f.label :カード番号
       %span.form-require 必須
       = f.text_field :card_number, name: "card_number", id:"card_number", type: "text", placeholder: '半角数字のみ', class: 'input-default', maxlength: "16"
+      -# アイコン一覧
       %ol
         %li
           %object{type: "image/svg+xml", data: "#{asset_path 'creditcards/visa.svg'}", width:"35", height:"20"}
@@ -19,6 +21,7 @@
           %object{type: "image/svg+xml", data: "#{asset_path 'creditcards/dinersclub.svg'}", width:"35", height:"20"}
         %li
           %object{type: "image/svg+xml", data: "#{asset_path 'creditcards/discover.svg'}", width:"35", height:"20"}
+    -# 有効期限
     .form__upper__group.exp
       .name
         = f.label :有効期限
@@ -27,9 +30,11 @@
       %span 年
       = f.select :exp_month, [["01",1],["02",2],["03",3],["04",4],["05",5],["06",6],["07",7],["08",8],["09",9],["10",10],["11",11],["12",12]],{}, class: 'input-default harf', name: "exp_month", id:"exp_month"
       %span 月
+    -# セキュリテーコード
     .form__upper__group
       = f.label :セキュリティーコード
       %span.form-require 必須
       = f.text_field :cvc, name: "cvc", id:"cvc", class:"cvc", type: "text", placeholder: 'カード背面4桁もしくは3桁の番号', class: 'input-default', maxlength: "16"
+    -# 決定ボタン
     .form__upper__group
       = f.submit '次へ進む', class: 'btn-default', id: "charge-form"

@@ -1,6 +1,9 @@
+-# ヘッダー
 = render 'shared/header'
-= render 'shared/exhibit-btn'
 
+-# 商品出品
+= render 'shared/exhibit-btn'
+-# ヘッダー下のパンくず
 .myp-header
   .myp-header__container
     = link_to "フリマ", root_path
@@ -10,12 +13,15 @@
     %p 支払い方法
 .card
   .card__container
+    -# マイページのサイドバー
     = render 'shared/user_side-bar'
+
+    -# 支払い方法
     .card__main
       %h1 支払い方法
       .card__main__container
         %h2 クレジットカード一覧
-
+        -# クレジットカードが登録されている時に表示
         - if @card.present?
           .container
             .creditcard-info
@@ -27,8 +33,7 @@
                 = @exp_month + " / " + @exp_year
               .creditcard-info__right
                 = button_to "削除する", "/users/:user_id/creditcards/:id", method: :delete, class:"creditcard-info__delete"
-
-        - else
+        - else # クレジットカードの登録がない時に表示
           .card__main__btn
             = link_to "クレジットカードを追加する", new_user_creditcard_path(current_user.id)
             %i.fas.fa-credit-card

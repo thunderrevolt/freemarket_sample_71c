@@ -43,19 +43,19 @@ class ProductsController < ApplicationController
     @product = Product.new
     @product.images.new
     @category_parent_array = ["---"]
-    #データベースから、親カテゴリーのみ抽出し、配列化
+    
+    # データベースから、親カテゴリーのみ抽出し、配列化
     array = Category.where(ancestry: nil).pluck(:name)
     @category_parent_array.push(array)
     @category_parent_array.flatten!
    
     def get_category_children
-      #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
+      # 選択された親カテゴリーに紐付く子カテゴリーの配列を取得
       @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
     end
-
       # 子カテゴリーが選択された後に動くアクション
     def get_category_grandchildren
-      #選択された子カテゴリーに紐付く孫カテゴリーの配列を取得
+      # 選択された子カテゴリーに紐付く孫カテゴリーの配列を取得
       @category_grandchildren = Category.find("#{params[:child_id]}").children
     end
   end
@@ -64,7 +64,7 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     category_id_params
-    if @product.save 
+    if @product.save
       params[:images][:image].first(10).each do |a|
         @images = @product.images.create!(image: a, product_id: @product.id)
       end
@@ -93,19 +93,20 @@ class ProductsController < ApplicationController
     @parents = Category.where(ancestry:nil)
     @category = Category.find(@product[:category_id])
     
-    # JSに必要
+    # カテゴリーの情報
     @category_root = [@category.root.name]
     @category_parent = [@category.parent.name]
     @category_my = [@category.name, @category.id]
-    #データベースから、親カテゴリーのみ抽出し、配列化
+
+    # データベースから、親カテゴリーのみ抽出し、配列化
     def category_list
       @categories = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).siblings
     end
+    # 選択された親カテゴリーに紐付く子カテゴリーの配列を取得
     def get_category_children
-      #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
       @category_children = Category.find(params[:parent_id]).children
     end
-      # 子カテゴリーが選択された後に動くアクション
+    # 子カテゴリーが選択された後に動くアクション
     def get_category_grandchildren
       #選択された子カテゴリーに紐付く孫カテゴリーの配列を取得
       @category_grandchildren = Category.find("#{params[:child_id]}").children
@@ -119,7 +120,6 @@ class ProductsController < ApplicationController
       render :edit
     end
   end
-  
   
   def destroy
     @product = Product.find(params[:id])
@@ -156,5 +156,4 @@ class ProductsController < ApplicationController
       redirect_to root_path
     end
   end
-
 end

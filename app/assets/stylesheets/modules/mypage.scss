@@ -1,3 +1,4 @@
+// マイページヘッダー
 .myp-header {
   width: 100%;
   background: white;
@@ -26,6 +27,7 @@
   }
 }
 
+// 大枠
 .myp-body {
   background-color: $back-color
 }
@@ -38,6 +40,7 @@
   margin: 0 auto;
 }
 
+// アカウント表示欄
 .myp-main {
   width: 700px;
   &__top {
@@ -85,6 +88,7 @@
   }
 }
 
+// お知らせ、やることリスト
 .myp-main__title {
   height: 72px;
   display: flex;
@@ -103,6 +107,7 @@
   }
 }
 
+// お知らせメッセージ欄
 .myp-main__body {
   padding: 16px;
   background: white;
@@ -137,6 +142,7 @@
   }
 }
 
+// 一覧をみるボタン
 .myp-main__btn {
   background: #eee;
   line-height: 56px;

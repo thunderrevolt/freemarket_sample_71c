@@ -101,11 +101,7 @@ $(function(){
   });
 });
 
-
 // --------------------画像プレビューの表示------------------------
-
-
-
 
 $(function(){
   //DataTransferオブジェクトで、データを格納する箱を作る
@@ -193,5 +189,29 @@ $(function() {
     // Math.floorで小数点以下切り捨て
     $('#tax-price').text(Math.floor( price * 0.1));
     $('#profit-price').text(price - (Math.floor(price * 0.1)));
+  });
+});
+
+// 商品説明文の文字数カウント
+$(function() {
+  var text_max = 1000; // 最大入力値
+  $(".exhibit-text").on("keydown keyup keypress change",function(){
+  $(".exhibit-text__length").text(text_max - $(".exhibit-text").val().length);
+
+    var text_length = $(this).val().length;
+    var countdown = text_max - text_length;
+    $(".exhibit-text__length").text(countdown);
+    // CSS
+    if(countdown < 0){
+      $('.exhibit-text__length').css({
+        color:'#ff0000',
+        fontWeight:'bold'
+      });
+    } else {
+      $('.exhibit-text__length').css({
+          color:'#000000',
+          fontWeight:'normal'
+      });
+    };
   });
 });

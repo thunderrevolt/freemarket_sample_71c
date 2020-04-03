@@ -160,6 +160,9 @@
     background-color: $main-color;
     box-shadow: $shadow;
     border-radius: 10px;
+    &:hover {
+      background-color: rgba(60, 201, 206, 0.488);
+    }
   }
   &__destroy {
     margin-right: 50px;
@@ -171,6 +174,9 @@
     background-color: rgb(204, 0, 0);
     box-shadow: $shadow;
     border-radius: 10px;
+    &:hover {
+      background-color: rgba(204, 0, 0, 0.495);
+    }
   }
   a {
     text-decoration: none;
@@ -255,6 +261,9 @@
   a {
     text-decoration: none;
     color: $main-color;
+    &:hover {
+      color: rgba(60, 201, 206, 0.488);
+    }
   }
 }
 

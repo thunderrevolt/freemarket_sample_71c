@@ -1,9 +1,11 @@
+// ヘッダー
 .top-header {
   width: 100%;
   padding-bottom: 10px;
   background: white;
 }
 
+// フリマアイコン＆検索部
 .top-header--top {
   display: flex;
   width: 1020px;
@@ -46,6 +48,7 @@
   }
 }
 
+// カテゴリー＆ブランド、ログイン、マイページボタンなどのブロック
 .top-header--middle {
   width: 1020px;
   margin: 0 auto;
