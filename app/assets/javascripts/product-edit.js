@@ -245,7 +245,6 @@ if(document.URL.match(/product/&&/edit/)){
       $('.js-file:last').click();
       return false;
     });
-
     // 画像したの削除ボタンが押された時隠された削除ボタンを押す
     $(document).on('click', '.js_remove__btn', function(){
       let remove_index = $(this).data('index');
