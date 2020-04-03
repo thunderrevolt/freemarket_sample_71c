@@ -58,7 +58,7 @@
               送料込み
       -# 商品説明
       .product-show-text
-        = @product.description
+        = simple_format(@product.description)
 
       -# 商品情報の内容
       .product-show-status
