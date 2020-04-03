@@ -172,7 +172,6 @@ if(document.URL.match(/product/&&/edit/)){
 
   // jsファイルの画像が変更された時にメソッドが発火する
   $(document).on('change', '.js-file', function(e) {
-
     // jsファイルの親要素のインデックス番号を取得
     const targetIndex = $(this).parent().data('index');
 
@@ -208,6 +207,9 @@ if(document.URL.match(/product/&&/edit/)){
           'display': `none`
         })
       }
+      $('.js_remove__btn').css({
+        'display': `flex`
+      })
     }
   });
 
@@ -255,12 +257,16 @@ if(document.URL.match(/product/&&/edit/)){
     $(document).on('click', '.js_remove__btn', function(){
       let remove_index = $(this).data('index');
       $(`.js-remove[data-index="${remove_index}"]`).click();
-      if($('.js-file').length <= 2){
-        $('.js_remove__btn').remove();
+        if($('.js-file').length <= 2){
+          $('.js_remove__btn').css({
+            'display': `none`
+        })
       }
     });
     if($('.js-file').length <= 2){
-      $('.js_remove__btn').remove();
+      $('.js_remove__btn').css({
+        'display': `none`
+      })
     }
   };
 });

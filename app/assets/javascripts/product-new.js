@@ -185,9 +185,6 @@ $(function(){
   })
 });
 
-
-
-
 // 値段売り上げ手数料
 $(function() {
   $(document).on('keyup', '#exhibit-price', function(e) {
