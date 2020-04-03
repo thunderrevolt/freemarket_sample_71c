@@ -257,16 +257,30 @@ if(document.URL.match(/product/&&/edit/)){
     $(document).on('click', '.js_remove__btn', function(){
       let remove_index = $(this).data('index');
       $(`.js-remove[data-index="${remove_index}"]`).click();
-        if($('.js-file').length <= 2){
-          $('.js_remove__btn').css({
-            'display': `none`
-        })
+    });
+  };
+});
+
+// 商品説明文の文字数カウント
+$(function() {
+  var text_max = 1000; // 最大入力値
+  $(".exhibit-text__length").text(text_max - $(".exhibit-text").val().length);
+
+  $(".exhibit-text").on("keydown keyup keypress change",function(){
+      var text_length = $(this).val().length;
+      var countdown = text_max - text_length;
+      $(".exhibit-text__length").text(countdown);
+      // CSS
+      if(countdown < 0){
+        $('.exhibit-text__length').css({
+          color:'#ff0000',
+          fontWeight:'bold'
+        });
+      } else {
+        $('.exhibit-text__length').css({
+            color:'#000000',
+            fontWeight:'normal'
+        });
       }
     });
-    if($('.js-file').length <= 2){
-      $('.js_remove__btn').css({
-        'display': `none`
-      })
-    }
-  };
 });
