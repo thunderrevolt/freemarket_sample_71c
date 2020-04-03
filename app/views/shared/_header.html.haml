@@ -3,9 +3,11 @@
     = link_to root_path do
       = image_tag "logo.png", class: "top-header--top__image"
     -# 検索フォーム
-    .top-header--top__search
-      %input{placeholder: "キーワードから探す", type: "search", class: "top-heder--top__form"}
-      %i.fas.fa-search
+    = form_with(url: search_products_path, local: true, method: :get, class: "search-form") do |form|
+      .top-header--top__search
+        = form.text_field :keyword, placeholder: "キーワードから探す", class: "top-form"
+        = form.submit "", class: "top-search" 
+        %i.fas.fa-search
   .top-header--middle
     .top-header--middle__left
       -# カテゴリーから探す

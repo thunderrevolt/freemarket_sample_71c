@@ -6,34 +6,43 @@
 
 .top-header--top {
   display: flex;
-  justify-content: space-between;
   width: 1020px;
   margin: 0 auto;
   padding-top: 8px;
+  .top-form {
+    width: 800px;
+    height: 40px;
+    margin-left: 45px;
+  }
+  .top-search {
+    width: 40px;
+    height: 40px;
+    margin-left: 5px;
+    background: none;
+    z-index: 2;
+    &:hover {
+      cursor: pointer;
+    }
+  }
   &__image {
     width: 134px;
     height: 36px;
   }
   &__search {
+    display: flex;
     position: relative;
     i {
       position: absolute;
       top: 0;
       right: 0;
       padding: 12px;
+      color: white;
+      background: $main-color;
+      border-radius: 4px;
       &:hover {
         cursor: pointer;
       }
     }
-  }
-  input {
-    width: 841px;
-    height: 40px;
-    border: 1px solid rgb(204, 204, 204);
-    border-radius: 4px;
-    background: rgb(245, 245, 245);
-    font-size: 16px;
-    padding-left: 10px;
   }
 }
 

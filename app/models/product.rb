@@ -16,4 +16,9 @@ class Product < ApplicationRecord
   validates :user_id, presence: true
   validates :condition, presence: true
 
+  def self.search(search)
+    return Product.all unless search
+    Product.where('name LIKE(?)', "%#{search}%")
+  end
+
 end

@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :require_login, except: [:index, :show]
+  before_action :require_login, except: [:index, :show, :search]
   MAX_DISPLAY_RELATED_PRODUCTS = 3
   before_action :user_to_current_user?, only: [:edit, :update]
   
@@ -120,14 +120,17 @@ class ProductsController < ApplicationController
     end
   end
   
-
+  
   def destroy
     @product = Product.find(params[:id])
     @product.destroy
     redirect_to root_path
   end
-
-
+  
+  def search
+    @products = Product.search(params[:keyword])
+  end
+  
   private
   def product_params
     params.require(:product).permit(:name, :description, :brand, :status, :postage_bearer, :shipping_area, :shipping_day, :price, :size, :category_id, :condition ,images_attributes: [:image, :_destroy, :id]).merge(user_id: current_user.id)
@@ -144,6 +147,7 @@ class ProductsController < ApplicationController
       redirect_to action: :index 
     end
   end
+
 
   private
   def require_login
