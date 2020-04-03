@@ -10,6 +10,9 @@ Rails.application.routes.draw do
 
   resources :categories, only: [:index, :show]
   resources :products, only: [:show, :new, :edit, :destroy, :create, :update] do
+    collection do
+      get 'search'
+    end
     resources :comments, only: :create
     get "/buy" , to: "creditcards#buy"
     #Ajaxで動くアクションのルートを作成

@@ -1,0 +1,23 @@
+.search-title {
+  background: $main-color;
+  width: 880px;
+  height: 45px;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 45px;
+  text-align: center;
+  color: white;
+  margin: 50px auto;
+  border-radius: 5px;
+}
+
+.search-flex {
+  display: flex;
+  flex-wrap: wrap;
+  width: 880px;
+  margin: 0 auto;
+  .search-size {
+    width: 200px;
+    margin: 10px;
+  }
+}
