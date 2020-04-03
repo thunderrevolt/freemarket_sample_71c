@@ -121,7 +121,7 @@ Things you may want to cover:
 ### Association
 - belongs_to :user
 
-## likesテーブル
+## favoritesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |product_id|integer|null: false, foreign_key: true|
@@ -129,3 +129,5 @@ Things you may want to cover:
 ### Association
 - belongs_to :product
 - belongs_to :user
+
+[merukari_App　ER図 - シート1 (4).pdf](https://github.com/thunderrevolt/freemarket_sample_71c/files/4426427/merukari_App.ER.-.1.4.pdf)

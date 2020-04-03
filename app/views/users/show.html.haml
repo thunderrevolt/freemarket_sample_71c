@@ -14,6 +14,7 @@
   .myp
     = render 'shared/user_side-bar'
 
+    -# マイページの写真と情報
     .myp-main
       .myp-main__top
         .myp-main__top__container
@@ -26,6 +27,7 @@
             %h2.myp-main__list__space 出品数
             %p
               = @products.length
+      -# お知らせ
       .myp-main__title
         .myp-main__title--left お知らせ
         .myp-main__title--right やることリスト
@@ -61,7 +63,7 @@
         %i.fas.fa-chevron-right
       .myp-main__body
         .myp-main__btn 一覧を見る
-
+      -# 購入した商品
       .myp-main__top2 購入した商品
       .myp-main__title
         .myp-main__title--right 取引中

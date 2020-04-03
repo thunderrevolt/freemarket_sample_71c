@@ -1,6 +1,7 @@
-
+-# ヘッダー
 = render 'shared/product_header'
 
+-# 画像投稿
 .exhibit-boby
   .exhibit-boby--container
     = form_with model: @product, class:"form-box", local: true do |f| 
@@ -16,6 +17,7 @@
                 = i.file_field :image, multiple: true, class: "exhibit-image__area", type: 'file', name: "images[image][]", value:"",  id:"img-file"
                 %i.fa.fa-camera
                 %p クリックしてアップロード
+      -# 商品名 & 商品説明
       .exhibit-boby--container__name
         .exhibit-flame
           .exhibit-label
@@ -27,6 +29,7 @@
             %p.need 必須
           = f.text_area :description, class: "exhibit-text", placeholder: '商品の説明（必須1000文字以内)&#13;&#10;(色、素材、重さ、定価、注意点など)&#13;&#10; &#13;&#10;例)2010年頃に１万円で購入したジャケットです。ライトグレーで傷はありません。合わせやすいのでオススメです♡'.html_safe
           %h5.exhibit-text__length 
+      -# カテゴリー選択
       .exhibit-boby--container__detail
         .exhibit-flame
           %h3.exhibit_h3 商品の詳細
@@ -38,7 +41,7 @@
               .exhibit-select-wrapper
                 .exhibit-select-wrapper__box
                   = f.select :category, @category_parent_array, {}, {class: 'exhibit-category-select', id: 'parent_category'}
-                  
+          -# ブランドと商品状態
           .exhibit-label
             %p ブランド
             %p.any 任意
@@ -47,6 +50,7 @@
             %p 商品の状態
             %p.need 必須
           = f.select :status, [["選択してください",""],["新品、未使用","新品、未使用"],["未使用に近い","未使用に近い"],["目立った傷や汚れなし","目立った傷や汚れなし"],["やや傷や汚れあり","やや傷や汚れあり"],["傷や汚れあり","傷や汚れあり"],["全体的に状態が悪い","全体的に状態が悪い"]]
+      -# 配送関係
       .exhibit-boby--container__delivery
         .exhibit-flame
           %h3.exhibit_h3 配送について
@@ -62,6 +66,7 @@
             %p 発送までの日数
             %p.need 必須
           = f.collection_select :shipping_day, Day.all, :id, :name, prompt: "選択してください"
+      -# 販売価格
       .exhibit-boby--container__price
         .exhibit-flame
           %h3.exhibit_h3 販売価格（300~9,999,999）
@@ -80,6 +85,7 @@
             %p#profit-price ー
           .exhibit-hidden
             = f.hidden_field :condition, value: 1
+          -# ボタン
           .exhibit-btn
             = f.submit "出品する",class:"exhibit-submit"
             = f.submit "下書きに保存",class:"exhibit-draft"
@@ -97,4 +103,5 @@
             %a{href:"#"}>加盟店規約
             に同意したことになります。
 
+-# フッター
 = render 'shared/product_footer'
