@@ -13,6 +13,7 @@
   }
 }
 
+// 投稿フォーム
 .exhibit-boby{
   background-color: #f8f8f8;
   p {
@@ -22,12 +23,14 @@
     background-color: white;
     width:550px;
     margin: 0 auto;
+    // 出品画像
     &__image{
       border-bottom: 1px solid #eee;
       p{
         margin-top: 16px;
       }
     }
+    // 商品名＆テキスト
     &__name{
       border-bottom: 1px solid #eee;
       input{
@@ -45,12 +48,15 @@
         float: right;
       }
     }
+    // 商品詳細
     &__detail{
       border-bottom: 1px solid #eee;
     }
+    // 配送について
     &__delivery{
       border-bottom: 1px solid #eee;
     }
+    // 販売価格
     &__price{
       border-bottom: 1px solid #eee;
       .exhibit-price{
@@ -82,6 +88,7 @@
           margin-top: 8px;
         }
       }
+      // 販売手数料
       .exhibit-commission{
         display: flex;
         justify-content: space-between;
@@ -89,12 +96,14 @@
         margin-top: 20px;
         padding-bottom: 15px;
       }
+      // 販売利益
       .exhibit-profit{
         display: flex;
         justify-content: space-between;
         margin-top: 20px;
         margin-bottom: 15px;
       }
+      // 出品ボタン
       .exhibit-btn{
         text-align:center;
         .exhibit-submit{
@@ -112,6 +121,7 @@
             opacity: 0.6;
           }
         }
+        // 下書きボタン
         .exhibit-draft{
           margin-bottom: 20px;
           padding: 5px 0;
@@ -158,11 +168,11 @@
   margin-bottom: 15px;
 }
 
+// 投稿フォーム共通
 input, select{
   height: 40px;
   padding:0 10px;
 }
-
 input, textarea, select {
   width: 100%;
   font-size: 12px;
@@ -172,11 +182,13 @@ input, textarea, select {
   box-sizing: border-box;
 }
 
+// 出品画像、商品名＆説明、詳細、配送、販売価格の枠
 .exhibit-flame{
   width: 490px;
   padding:30px 30px;
 }
 
+// 必須&任意アイコン
 .exhibit-label{
   display: flex;
   margin-top: 20px;
@@ -198,6 +210,7 @@ input, textarea, select {
   }
 }
 
+// フッター
 .exhibit-footer{
   width: 100%;
   height:200px;
@@ -223,6 +236,7 @@ input, textarea, select {
     }
   }
 }
+
 // 商品詳細カテゴリー
 .exhibit-default--label {
   font-size: 14px;
@@ -253,7 +267,7 @@ input, textarea, select {
 }
 
 
-
+// 画像投稿
 #image-box-1 {
   width: 490px;
   display: flex;
@@ -332,7 +346,7 @@ font-size: 20px;
 .item-num-3{
   width: 25%;
 }
-//下段のfile_field予定
+//下段のfile_field
 .item-num-4{
   width: 100%;
 }
@@ -345,7 +359,7 @@ font-size: 20px;
 .item-num-7{
   width: 25%;
 }
-//下段のfile_field予定
+//下段のfile_field
 .item-num-8{
   width: 100%;
 }
