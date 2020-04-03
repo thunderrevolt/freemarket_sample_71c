@@ -1,5 +1,10 @@
+-# ヘッダー
 = render 'shared/header'
+
+-# 出品ボタン
 = render 'shared/exhibit-btn'
+
+-# サイドバー
 .myp-header
   .myp-header__container
     = link_to "フリマ", root_path
@@ -8,7 +13,6 @@
 .myp-body
   .myp
     = render 'shared/user_side-bar'
-    
 
     .myp-main
       .myp-main__top
@@ -94,4 +98,6 @@
         %i.fas.fa-chevron-right
       .myp-main__body
         .myp-main__btn 一覧を見る
+
+-# フッター
 = render 'shared/footer'
