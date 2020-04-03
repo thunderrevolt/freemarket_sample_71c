@@ -1,3 +1,4 @@
+// 会員情報登録（住所）
 .info-registration {
   margin: auto;
   width: 800px;
@@ -24,7 +25,7 @@
       display: flex;
       padding: 20px 0;
       position: relative;
-
+      // 住所先名
       .fullname-of-address {
         display: flex;
 
@@ -105,7 +106,7 @@
           }
         }
       }
-
+      // 郵便番号
       .postal-code {
         display: flex;
 
@@ -149,7 +150,7 @@
           }
         }
       }
-
+      // 住所
       .address {
 
         &__dialogue {
@@ -171,7 +172,7 @@
       .required {
         @include required;
       }
-
+      // 番地
       .street_address {
 
         &__dialogue {
@@ -188,7 +189,7 @@
           }
         }
       }
-
+      // マンション名
       .apartment {
 
         &__dialogue {
@@ -205,7 +206,7 @@
           }
         }
       }
-
+      // 住所先電話番号
       .address-tel {
 
         &__dialogue {
