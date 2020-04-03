@@ -206,6 +206,8 @@
   &__new {
     width: 620px;
     &--text {
+      font-size: 16px;
+      padding: 10px;
       width: 620px;
       height: 200px;
     }
@@ -278,17 +280,19 @@
     padding: 20px 40px;
     height: auto;
     &__header {
+      font-size: 24px;
+      font-weight: bold;
       padding: 0.5em 1em;
       text-align: center;
-      background: -moz-linear-gradient(#ffb03c, #ff708d);
-      background: -webkit-linear-gradient(#ffb03c, #ff708d);
-      background: linear-gradient(to right, #ffb03c, #ff708d);
+      background: -moz-linear-gradient(#9ce3f8, #ff708d);
+      background: -webkit-linear-gradient(#9ce3f8, #ff708d);
+      background: linear-gradient(to right, #9ce3f8, #ff708d);
       color: #FFF;
     }
     .comments__text--text {
       position: relative;
       display: inline-block;
-      margin: 5px 30px 30px 30px;
+      margin: 5px 30px 5px 30px;
       padding: 15px 10px;
       min-width: 120px;
       max-width: 100%;
@@ -309,8 +313,17 @@
     }
   }
 }
-.comments__text a {
-  text-decoration: none;
-  color: #555;
+.comments__text {
   font-size: 18px;
+  display: flex;
+  align-items: center;
+  .show-user {
+    font-size: 16px;
+    color: #555;
+    line-height: 100%;
+    text-decoration: none;
+  }
+}
+.fa-clock, time {
+  color: #aaa;
 }

@@ -126,13 +126,16 @@
     -# コメント欄
     .product-comments-box
       .product-comments
-        %h2.product-comments__header コメント一覧
+        %h2.product-comments__header コ  メ  ン  ト  一  覧
         - if @comments
           - @comments.each do |comment|
             .comments__text
-              = link_to comment.user.nickname, "/users/#{comment.user_id}"
+              = link_to comment.user.nickname, "/users/#{comment.user_id}",class:"show-user"
               %p.comments__text--text 
-                = comment.text
+                = comment.text 
+                %br
+                %i.far.fa-clock
+                %time(datetime="#{comment.created_at}")= time_ago_in_words(comment.created_at)+"前"
     -# コメント説明
     .product-comment-form
       - if current_user
