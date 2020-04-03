@@ -1,4 +1,7 @@
+-# ヘッダー
 = render 'shared/header'
+
+-# パンくず
 -# logout.html.hamlと同じclass
 .myp-header
   %ul.myp-header__container
@@ -17,15 +20,19 @@
       %i.fas.fa-chevron-right
     %li
       = @product.name
-      
+
+-# 出品ボタン
 = render 'shared/exhibit-btn'
 
+-# 商品情報
 .product-show
   .product-show-main
     .product-show-box
+      -# 商品名
       .product-show-items
         %h2.puroduct-name
           = @product.name
+        -# 1枚目の画像を大きく
         .product-show-item-lists
           %ul.product-show-item-lists__img
             %li.product-show-item-lists__img--main{ id: "main" }
@@ -34,11 +41,12 @@
               - if @product.condition == 3
                 .product-sold-container
                   %p sold
+              -# 商品の画像一覧
               %ul.product-show-item-lists__sub
                 - @image.each do |image|
                   %li.product-show-item-lists__sub--img{ id: "first" }
                     = image_tag image.image.url, class: "sub-size"
-
+      -# 商品の値段
       .product-show-price
         %span.product-show-price__span1
           ¥
@@ -48,8 +56,11 @@
             (税込) 
             %span.product-show-span3
               送料込み
+      -# 商品説明
       .product-show-text
         = @product.description
+
+      -# 商品情報の内容
       .product-show-status
         %table.show-teable
           %tr.show-teable__tr
@@ -89,6 +100,7 @@
             %th.show-teable__th 発送日の目安
             %td.show-teable__td
               = @product.shipping_day
+      -# ボタン各種
       .product-show-btns
         .product-show-btns__like
           %i.fas.fa-star
@@ -111,7 +123,7 @@
               .product-show-link__btn
                 = link_to product_buy_path(@product) do
                   購入する
-    
+    -# コメント欄
     .product-comments-box
       .product-comments
         %h2.product-comments__header コメント一覧
@@ -121,7 +133,7 @@
               = link_to comment.user.nickname, "/users/#{comment.user_id}"
               %p.comments__text--text 
                 = comment.text
-
+    -# コメント説明
     .product-comment-form
       - if current_user
         = form_with model: [@product, @comment], class: "product-comment-form__new", local: true do |f|
@@ -134,7 +146,7 @@
       - else
         %strong
           %p ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
-        
+    -# 別商品へのリンク
     .product-after-before
       .product-after-before__before
         ＜前の商品
@@ -145,4 +157,5 @@
         = @product.category.name
         商品をもっとみる
 
+  -# フッター
   = render 'shared/footer'

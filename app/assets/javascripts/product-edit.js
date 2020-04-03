@@ -4,7 +4,6 @@ $(function(){
     var html = `<option value="${category.id}" data-category="${category.id}">${category.name}</option>`;
     return html;
   }
-
   // 親リストのリセット
   function chidrenBox(insertHTML){
     var childSelectHtml = '';
@@ -15,7 +14,6 @@ $(function(){
                           </select>`;
     $('#category-reset-js').append(childSelectHtml);
   }
-
   // 子カテゴリーの表示作成
   function appendChidrenBox(insertHTML){
     var childSelectHtml = '';
@@ -72,7 +70,7 @@ $(function(){
         dataType: 'json'
       })
       .done(function(children){
-        $('#children_wrapper').remove(); //親が変更された時、子以下を削除するする
+        $('#children_wrapper').remove(); //親が変更された時、子以下を削除する
         $('#grandchildren_wrapper').remove();
         $('#size_wrapper').remove();
         $('#brand_wrapper').remove();
@@ -86,7 +84,7 @@ $(function(){
         alert('カテゴリー取得に失敗しました');
       })
     }else{
-      $('#children_wrapper').remove(); //親カテゴリーが初期値になった時、子以下を削除するする
+      $('#children_wrapper').remove(); //親カテゴリーが初期値になった時、子以下を削除する
       $('#grandchildren_wrapper').remove();
       $('#size_wrapper').remove();
       $('#brand_wrapper').remove();
@@ -104,7 +102,7 @@ $(function(){
       })
       .done(function(grandchildren){
         if (grandchildren.length != 0) {
-          $('#grandchildren_wrapper').remove(); //子が変更された時、孫以下を削除するする
+          $('#grandchildren_wrapper').remove(); //子が変更された時、孫以下を削除する
           $('#size_wrapper').remove();
           $('#brand_wrapper').remove();
           var insertHTML = '';
@@ -125,8 +123,6 @@ $(function(){
   });
 
 // --------------------画像プレビューの表示------------------------
-
-
 
 if(document.URL.match(/product/&&/edit/)){
 
@@ -169,7 +165,6 @@ if(document.URL.match(/product/&&/edit/)){
   // 要素を非表示にする
   $('.hidden-destroy').hide();
 
-
   // jsファイルの画像が変更された時にメソッドが発火する
   $(document).on('change', '.js-file', function(e) {
     // jsファイルの親要素のインデックス番号を取得
@@ -178,7 +173,6 @@ if(document.URL.match(/product/&&/edit/)){
     // ファイルのブラウザ上でのURLを取得する
     const file = e.target.files[0];
     const blobUrl = window.URL.createObjectURL(file);
-
 
     // もし押されたjsファイル要素に既に画像が入っている場合
     if (img = $(`img[data-index="${targetIndex}"]`)[0]) {
@@ -194,21 +188,21 @@ if(document.URL.match(/product/&&/edit/)){
       // image-boxに画像データインプットボタンと削除ボタンを追加する
       $('#image-box').append(buildFileField(fileIndex[0]));
 
-      // fileindexの若番号を削除し末尾に１１以降の数字を追加する
+      // fileindexの若番号を削除し末尾に11以降の数字を追加する
       fileIndex.shift();
       fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
 
-      // 10個目の画像が投稿された時画像投稿ボタンを非表示にする
+      // 10個目の画像が投稿された時、画像投稿ボタンを非表示にする
       let count = $('.image_box').length
       $('#image-box__container').attr('class', `item-num-${count}`)
-
       if(count >= 10 ){
         $('#image-box__container').css({
           'display': `none`
         })
       }
+      // 投稿された時、画像の削除ボタンを表示する
       $('.js_remove__btn').css({
-        'display': `flex`
+        'display': `block`
       })
     }
   });
@@ -239,7 +233,6 @@ if(document.URL.match(/product/&&/edit/)){
 
       // 10個目の画像が削除された時画像投稿ボタンを表示する
       let count = $('.image_box').length
-
       if(count <= 9 ){
         $('#image-box__container').css({
           'display': `flex`
@@ -257,7 +250,19 @@ if(document.URL.match(/product/&&/edit/)){
     $(document).on('click', '.js_remove__btn', function(){
       let remove_index = $(this).data('index');
       $(`.js-remove[data-index="${remove_index}"]`).click();
+      // 「画像が一枚なら削除ボタン」を消す
+      if($('.js-file').length <= 2){
+        $('.js_remove__btn').css({
+          'display': `none`
+        })
+      }
     });
+    // 「画面を読み込んだ時に画像が一枚なら削除ボタン」を消す
+    if($('.js-file').length <= 2){
+      $('.js_remove__btn').css({
+        'display': `none`
+      })
+    }
   };
 });
 

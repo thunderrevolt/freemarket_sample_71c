@@ -1,7 +1,9 @@
+-# ヘッダー
 = render 'shared/header'
-
+-# 商品出品ボタン
 = render 'shared/exhibit-btn'
 
+-# トップページ
 .top-main
   .top-main__view
     .top-main__view__container
@@ -63,6 +65,7 @@
         = image_tag "icon-04.png", class: "illust-size"
         %h2 様々な支払いに対応
         %p お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
+-# ピックアップ商品一覧
 .top-picup
   .top-picup__container
     %h1 ピックアップNEW!!
@@ -85,7 +88,7 @@
                       %p 円
                     .top-flex--right 
                 %p (税込)
-
+  -# メンズピック商品一覧
   .top-picup__container
     %h1.top-picup__space ピックアップカテゴリー
     %h2 メンズ
@@ -107,7 +110,7 @@
                       %p 円
                     .top-flex--right 
                 %p (税込)
-
+    -# レディースピック商品一覧
     .top-picup__container
       %h2 レディース
       .top-picup__item
@@ -128,4 +131,6 @@
                         %p 円
                       .top-flex--right 
                   %p (税込)
+
+-# フッター
 = render 'shared/footer'

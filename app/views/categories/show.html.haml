@@ -1,4 +1,7 @@
+-# ヘッダー
 = render 'shared/header'
+
+-# ヘッダー下のパンくず
 .myp-header
   %ul.myp-header__container
     %li
@@ -25,7 +28,8 @@
         %li
           %i.fas.fa-chevron-right
           = @category.name
-
+          
+-# カテゴリーが親か子なら表示
 - unless @category.children == [] 
   .category-index__list
     .category-index__list__name
@@ -37,28 +41,28 @@
             = link_to category_path(child) do
               = child.name
 
+-# 関連商品一覧
 .category-index__list
   .category-index__list__name
     = @category.name + "の商品一覧"
   .c-show__container__box
     .c-show__box
-      - @products.each do |products|
-        - products.each do |product|
-          .c-show__box__image
-            - if product.condition == 3
-              .product-sold-container
-                %p sold
-            = link_to product_path(product) do
-              - product.images.first(1).each do |image|
-                = image_tag image.image.url
-              .c-show__box__text
-                %ul
-                  %li 
-                  = product.name
-                  %li 
-                  = product.price 
-                  円
-                %p (税込)
+      - @products.each do |product|
+        .c-show__box__image
+          - if product.condition == 3
+            .product-sold-container
+              %p sold
+          = link_to product_path(product) do
+            - product.images.first(1).each do |image|
+              = image_tag image.image.url
+            .c-show__box__text
+              %ul
+                %li 
+                = product.name
+                %li 
+                = product.price 
+                円
+              %p (税込)
 
-
+-# フッター
 = render 'shared/footer'
