@@ -207,7 +207,7 @@ if(document.URL.match(/product/&&/edit/)){
     }
   });
 
-  // もし削除ボタンが押された場合
+    // もし削除ボタンが押された場合
     $('#image-box').on('click', '.js-remove', function() {
 
       // 押された削除ボタンの親要素のインデックス番号を取得
