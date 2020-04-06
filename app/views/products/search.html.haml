@@ -1,0 +1,17 @@
+= render 'shared/header'
+.search-title
+  = params[:keyword] + "の検索結果"
+.search-flex
+  - @products.each do |product|
+    .c-show__box__image.search-size
+      = link_to product_path(product) do
+        - product.images.first(1).each do |image|
+          = image_tag image.image.url
+        .c-show__box__text
+          %ul
+            %li 
+            = product.name
+            %li 
+            = product.price 
+            円
+          %p (税込)

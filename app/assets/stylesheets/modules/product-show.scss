@@ -24,8 +24,14 @@
           display: flex;
           justify-content: center;
           .product-show-item-lists__img--main{
-            // sold表示
             position: relative;
+            .main-size {
+              object-fit: cover;
+              &:hover {
+                opacity: 0.4;
+                cursor: zoom-in;
+              }
+            }
             .product-sold-container{
               position: absolute;
               top:0;
@@ -46,6 +52,13 @@
             overflow: scroll;
             &--img {
               margin-left: 10px;
+              .sub-size {
+                object-fit: cover;
+                &:hover {
+                  opacity: 0.4;
+                  cursor: pointer;
+                }
+              }
             }
           }
         }
@@ -79,6 +92,12 @@
   width: 480px;
   height: 346px;
 }
+// 拡大後
+.lb-image {
+  width : 700px !important;
+  height: auto !important;
+}
+
 .sub-size {
   width: 150px;
   height: 150px;
@@ -177,6 +196,9 @@
     background-color: $main-color;
     box-shadow: $shadow;
     border-radius: 10px;
+    &:hover {
+      background-color: rgba(60, 201, 206, 0.488);
+    }
   }
   &__destroy {
     margin-right: 50px;
@@ -188,6 +210,9 @@
     background-color: rgb(204, 0, 0);
     box-shadow: $shadow;
     border-radius: 10px;
+    &:hover {
+      background-color: rgba(204, 0, 0, 0.495);
+    }
   }
   a {
     text-decoration: none;
@@ -208,6 +233,7 @@
 
 // コメント入力蘭
 .product-comment-form {
+  text-align: center;
   margin-top: 20px;
   background-color: white;
   width: 620px;
@@ -216,6 +242,8 @@
   &__new {
     width: 620px;
     &--text {
+      font-size: 16px;
+      padding: 10px;
       width: 620px;
       height: 200px;
     }
@@ -267,6 +295,72 @@
   font-weight: bold;
   font-size: 24px;
   margin: 20px 0;
-  color: $main-color;
   cursor: pointer;
+  a {
+    text-decoration: none;
+    color: $main-color;
+    &:hover {
+      color: rgba(60, 201, 206, 0.488);
+    }
+  }
+}
+
+
+// コメント一覧
+.product-comments-box {
+  width: 700px;
+  .product-comments {
+    margin-top: 20px;
+    background-color: white;
+    width: 620px;
+    padding: 20px 40px;
+    height: auto;
+    &__header {
+      font-size: 24px;
+      font-weight: bold;
+      padding: 0.5em 1em;
+      text-align: center;
+      background: -moz-linear-gradient(#9ce3f8, #ff708d);
+      background: -webkit-linear-gradient(#9ce3f8, #ff708d);
+      background: linear-gradient(to right, #9ce3f8, #ff708d);
+      color: #FFF;
+    }
+    .comments__text--text {
+      position: relative;
+      display: inline-block;
+      margin: 5px 30px 5px 30px;
+      padding: 15px 10px;
+      min-width: 120px;
+      max-width: 100%;
+      color: #555;
+      font-size: 18px;
+      background: #e0edff;
+      border-radius: 15px;
+      word-break: break-all;
+      &:before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: -25px;
+        margin-top: -15px;
+        border: 15px solid transparent;
+        border-right: 15px solid #e0edff;
+        z-index: 0;
+      }
+    }
+  }
+}
+.comments__text {
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  .show-user {
+    font-size: 16px;
+    color: #555;
+    line-height: 100%;
+    text-decoration: none;
+  }
+}
+.fa-clock, time {
+  color: #aaa;
 }

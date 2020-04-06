@@ -1,3 +1,4 @@
+// ログイン
 .login-body {
   background-color: $back-color;
 }
@@ -36,6 +37,15 @@
     color: white;
     font-size: 14px;
     line-height: 48px;
+    position: relative;
+    i {
+      height: 48px;
+      line-height: 48px;
+      font-size: 20px;
+      position: absolute;
+      top: 0;
+      left: 20px;
+    }
   }
   &__google {
     font-size: 14px;
@@ -43,6 +53,13 @@
     border: 1px solid;
     margin-top: 16px;
     color: #333;
+    position: relative;
+    img {
+      position: absolute;
+      height: 40px;
+      top: 4px;
+      left: 2px;
+    }
   }
 }
 

@@ -13,6 +13,7 @@
   }
 }
 
+// 投稿フォーム
 .exhibit-boby{
   background-color: #f8f8f8;
   p {
@@ -22,12 +23,14 @@
     background-color: white;
     width:550px;
     margin: 0 auto;
+    // 出品画像
     &__image{
       border-bottom: 1px solid #eee;
       p{
         margin-top: 16px;
       }
     }
+    // 商品名＆テキスト
     &__name{
       border-bottom: 1px solid #eee;
       input{
@@ -45,12 +48,15 @@
         float: right;
       }
     }
+    // 商品詳細
     &__detail{
       border-bottom: 1px solid #eee;
     }
+    // 配送について
     &__delivery{
       border-bottom: 1px solid #eee;
     }
+    // 販売価格
     &__price{
       border-bottom: 1px solid #eee;
       .exhibit-price{
@@ -66,7 +72,7 @@
             display: flex;
             font-weight: bold;
             .need{
-              background-color: red;
+              background-color: $main-color;
               border-radius: 2px;
               color: white;
               padding:0 5px ;
@@ -82,6 +88,7 @@
           margin-top: 8px;
         }
       }
+      // 販売手数料
       .exhibit-commission{
         display: flex;
         justify-content: space-between;
@@ -89,12 +96,14 @@
         margin-top: 20px;
         padding-bottom: 15px;
       }
+      // 販売利益
       .exhibit-profit{
         display: flex;
         justify-content: space-between;
         margin-top: 20px;
         margin-bottom: 15px;
       }
+      // 出品ボタン
       .exhibit-btn{
         text-align:center;
         .exhibit-submit{
@@ -104,10 +113,15 @@
           width: 50%;
           color: white;
           font-weight: bold;
-          background-color: #ea353d;
+          background-color: $main-color;
           border-radius: 5px;
           border:none;
+          &:hover {
+            cursor: pointer;
+            opacity: 0.6;
+          }
         }
+        // 下書きボタン
         .exhibit-draft{
           margin-bottom: 20px;
           padding: 5px 0;
@@ -116,6 +130,10 @@
           background-color: #cccccc;
           border-radius: 5px;
           border:none;
+          &:hover {
+            cursor: pointer;
+            opacity: 0.6;
+          }
         }
         a{
           color:#0095ee;
@@ -143,18 +161,27 @@
   }
 }
 
-
 .exhibit_h3{
   font-size: 10px;
   color: #888888;
   margin-bottom: 15px;
 }
-
+// 画像の削除ボタン
+.item-image__operetion, .js_remove__btn {
+  font-size: 16px;
+  text-align: center;
+  color: white;
+  background-color: $main-color;
+  font-weight: bold;
+  &:hover {
+    background-color:  rgba(60, 201, 206, 0.488);
+  }
+}
+// 投稿フォーム共通
 input, select{
   height: 40px;
   padding:0 10px;
 }
-
 input, textarea, select {
   width: 100%;
   font-size: 12px;
@@ -164,18 +191,20 @@ input, textarea, select {
   box-sizing: border-box;
 }
 
+// 出品画像、商品名＆説明、詳細、配送、販売価格の枠
 .exhibit-flame{
   width: 490px;
   padding:30px 30px;
 }
 
+// 必須&任意アイコン
 .exhibit-label{
   display: flex;
   margin-top: 20px;
   margin-bottom: 15px;
   font-weight: bold;
   .need{
-    background-color: red;
+    background-color: $main-color;
     border-radius: 2px;
     color: white;
     padding:0 5px ;
@@ -190,6 +219,7 @@ input, textarea, select {
   }
 }
 
+// フッター
 .exhibit-footer{
   width: 100%;
   height:200px;
@@ -215,11 +245,21 @@ input, textarea, select {
     }
   }
 }
+
 // 商品詳細カテゴリー
+.exhibit-default--label {
+  font-size: 14px;
+}
 .exhibit-detail-category, .exhibit-detail-categories{
   width: 100%;
+  margin-top: 5px;
   .exhibit-detail-category-name{
     margin-bottom: 15px;
+    display: flex;
+    p {
+      width: 24px;
+      height: 18px;
+    }
   }
   .exhibit-category-select {
     width: 490px;
@@ -236,47 +276,13 @@ input, textarea, select {
 }
 
 
-// プレビュー表示
-.item-num-0{
-  width: 100%;
-}
-.item-num-1{
-  width: 491px;
-}
-.item-num-2{
-  width: 363px;
-}
-.item-num-3{
-  width: 234px;
-}
-.item-num-4{
-  width: 106px;
-}
-//下段のfile_field予定
-.item-num-5{
-  width: 100%;
-}
-.item-num-6{
-  width: 491px;
-}
-.item-num-7{
-  width: 363px;
-}
-.item-num-8{
-  width: 234px;
-}
-.item-num-9{
-  width: 106px;
-}
-
+// 画像投稿
 #image-box-1 {
   width: 490px;
   display: flex;
   flex-wrap: wrap;
 }
 #image-box__container{
-  width: auto;
-  margin: 0 auto;
   background-color: #f5f5f5;
   display: flex;
   justify-content: center;
@@ -285,6 +291,7 @@ input, textarea, select {
   height: 120px;
   flex-direction: column;
   flex-wrap: wrap;
+  cursor: pointer;
 }
 .exhibit-image__area{
   display: none;
@@ -306,7 +313,7 @@ input, textarea, select {
   }
 }
 .item-image {
-  margin: 0 3px;
+  padding: 0 3px;
   &__operetion--delete {
     cursor: pointer;
     &::after {
@@ -317,9 +324,13 @@ input, textarea, select {
 #previews{
   display: flex;
   padding-top: 16px;
+  width: 490px;
+  display: flex;
+  flex-wrap: wrap;
   .preview{
+    width: 490px;
     display: flex;
-    padding-top: 16px;
+    flex-wrap: wrap;
   }
 }
 
@@ -327,10 +338,50 @@ input, textarea, select {
 font-size: 0;
 display: none;
 }
-.js_remove__btn{
-text-align: center;
-font-size: 20px;
+// プレビュー表示
+.item-num-0{
+  width: 100%;
 }
+.item-num-1{
+  width: 75%;
+}
+.item-num-2{
+  width: 50%;
+}
+.item-num-3{
+  width: 25%;
+}
+//下段のfile_field
+.item-num-4{
+  width: 100%;
+}
+.item-num-5{
+  width: 75%;
+}
+.item-num-6{
+  width: 50%;
+}
+.item-num-7{
+  width: 25%;
+}
+//下段のfile_field
+.item-num-8{
+  width: 100%;
+}
+.item-num-9{
+  width: 75%;
+}
+
+// edit
+#previews {
+  width: 490px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.image_box {
+  padding: 0 3px;
+}
+
 
 
 

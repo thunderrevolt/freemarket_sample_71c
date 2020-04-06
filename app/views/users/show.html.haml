@@ -1,5 +1,10 @@
+-# ヘッダー
 = render 'shared/header'
+
+-# 出品ボタン
 = render 'shared/exhibit-btn'
+
+-# サイドバー
 .myp-header
   .myp-header__container
     = link_to "フリマ", root_path
@@ -8,18 +13,21 @@
 .myp-body
   .myp
     = render 'shared/user_side-bar'
-    
 
+    -# マイページの写真と情報
     .myp-main
       .myp-main__top
         .myp-main__top__container
           = image_tag "komaki.jpg"
-          %h1 小牧功知
+          %h1
+            = @user.nickname
           .myp-main__list
             %h2 評価
             %p 14
             %h2.myp-main__list__space 出品数
-            %p 29
+            %p
+              = @products.length
+      -# お知らせ
       .myp-main__title
         .myp-main__title--left お知らせ
         .myp-main__title--right やることリスト
@@ -55,7 +63,7 @@
         %i.fas.fa-chevron-right
       .myp-main__body
         .myp-main__btn 一覧を見る
-
+      -# 購入した商品
       .myp-main__top2 購入した商品
       .myp-main__title
         .myp-main__title--right 取引中
@@ -92,4 +100,6 @@
         %i.fas.fa-chevron-right
       .myp-main__body
         .myp-main__btn 一覧を見る
+
+-# フッター
 = render 'shared/footer'
