@@ -1,12 +1,6 @@
-$main-color: #3CCACE;
-
-$shadow: rgba(145, 145, 145, 0.18) 0px 0px 2px;
-$back-color: #f8f8f8;
-
-body {
-  font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
-}
-
+@import "modules/variable";
+@import "modules/font";
+@import "modules/mixin";
 @import "modules/reset";
 @import "modules/header";
 @import "modules/footer";
@@ -21,8 +15,8 @@ body {
 @import "modules/buy";
 @import "modules/user_info_registration";
 @import "modules/user_registration.scss";
-@import "modules/card";
 @import "modules/creditcard";
 @import "modules/category_index";
 @import "modules/category_show";
 @import "modules/favorites.scss";
+@import "modules/search";

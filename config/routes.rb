@@ -8,12 +8,11 @@ Rails.application.routes.draw do
   end
   root 'products#index'
 
-
   resources :categories, only: [:index, :show]
-
-  resources :buies, only: :index
-
   resources :products, only: [:show, :new, :edit, :destroy, :create, :update] do
+    collection do
+      get 'search'
+    end
     resources :comments, only: :create
     get "/buy" , to: "creditcards#buy"
 

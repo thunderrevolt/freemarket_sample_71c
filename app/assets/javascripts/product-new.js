@@ -1,5 +1,6 @@
 $(function(){
   // カテゴリーセレクトボックスのオプションを作成
+  // insertHTML += appendOption(child);から推移
   function appendOption(category){
     var html = `<option value="${category.id}" data-category="${category.id}">${category.name}</option>`;
     return html;
@@ -36,20 +37,25 @@ $(function(){
     if (parentCategory != "---"){ //親カテゴリーが初期値でないことを確認
 
       $.ajax({
+        //GETでモデルのメソッドに飛びデータとして{ parent_name: parentCategory },をjson形式で送る
         url: 'get_category_children',
         type: 'GET',
         data: { parent_name: parentCategory },
         dataType: 'json'
       })
+      // 子のカテゴリー取得が成功の場合（引数としてchildrenがget_category_childrenからの返り値）
       .done(function(children){
-        $('#children_wrapper').remove(); //親が変更された時、子以下を削除するする
+        //親が変更された時、子以下を削除する
+        $('#children_wrapper').remove(); 
         $('#grandchildren_wrapper').remove();
         $('#size_wrapper').remove();
         $('#brand_wrapper').remove();
         var insertHTML = '';
+        // 子のカテゴリーを一つずつ取り出しinsertHTMLに入れていく
         children.forEach(function(child){
           insertHTML += appendOption(child);
         });
+        // 子のカテゴリーがoptionダグで囲まれたものがinsertHTMLにありappendChidrenBoxの引数として渡される
         appendChidrenBox(insertHTML);
       })
       .fail(function(){
@@ -95,11 +101,7 @@ $(function(){
   });
 });
 
-
 // --------------------画像プレビューの表示------------------------
-
-
-
 
 $(function(){
   //DataTransferオブジェクトで、データを格納する箱を作る
@@ -114,12 +116,13 @@ $(function(){
       //FileReaderのreadAsDataURLで指定したFileオブジェクトを読み込む
       var fileReader = new FileReader();
 
-      //DataTransferオブジェクトに対して、fileを追加
+      //DataTransferオブジェクトに対して、items.addメソッドを使いfileを追加
       dataBox.items.add(file)
       //DataTransferオブジェクトに入ったfile一覧をfile_fieldの中に代入
       file_field.files = dataBox.files
-
+      // プレビューの画像のクラス(.item-image)の数をnumに代入
       var num = $('.item-image').length + 1 + i
+      // readAsDataURL メソッドでファイルを読み込みbase64 エンコーディングされた data: URL の文字列が格納されます。
       fileReader.readAsDataURL(file);
       //画像が10枚になったら超えたらドロップボックスを削除する
       if (num == 10){
@@ -127,6 +130,7 @@ $(function(){
       }
       //読み込みが完了すると、srcにfileのURLを格納
       fileReader.onloadend = function() {
+        // 画像のurlをsrcに代入
         var src = fileReader.result
         var html= `<div class='item-image' data-image="${file.name}">
                     <div class=' item-image__content'>
@@ -147,7 +151,7 @@ $(function(){
   });
   //削除ボタンをクリックすると発火するイベント
   $(document).on("click", '.item-image__operetion--delete', function(){
-    //削除を押されたプレビュー要素を取得
+    //削除を押されたプレビュー要素の親の親のクラスを取得
     var target_image = $(this).parent().parent()
     //削除を押されたプレビューimageのfile名を取得
     var target_name = $(target_image).data('image')
@@ -177,14 +181,37 @@ $(function(){
   })
 });
 
-
-
-
 // 値段売り上げ手数料
-// HTML側でonkeyup:"ShowPrice(value);"属性作成
-function ShowPrice( price ) {
-  // Math.floorで小数点以下切り捨て
-  document.getElementById("tax-price").innerHTML = Math.floor(price * 0.1)
-  document.getElementById("profit-price").innerHTML = price - (Math.floor(price * 0.1))
-}
-  
+$(function() {
+  $(document).on('keyup', '#exhibit-price', function(e) {
+    // #exhibit-priceに入力された値を取得しpriceに代入
+    var price = ($('#exhibit-price').val())
+    // Math.floorで小数点以下切り捨て
+    $('#tax-price').text(Math.floor( price * 0.1));
+    $('#profit-price').text(price - (Math.floor(price * 0.1)));
+  });
+});
+
+// 商品説明文の文字数カウント
+$(function() {
+  var text_max = 1000; // 最大入力値
+  $(".exhibit-text").on("keydown keyup keypress change",function(){
+  $(".exhibit-text__length").text(text_max - $(".exhibit-text").val().length);
+
+    var text_length = $(this).val().length;
+    var countdown = text_max - text_length;
+    $(".exhibit-text__length").text(countdown);
+    // CSS
+    if(countdown < 0){
+      $('.exhibit-text__length').css({
+        color:'#ff0000',
+        fontWeight:'bold'
+      });
+    } else {
+      $('.exhibit-text__length').css({
+          color:'#000000',
+          fontWeight:'normal'
+      });
+    };
+  });
+});

@@ -1,3 +1,4 @@
+// 会員情報登録（住所）
 .info-registration {
   margin: auto;
   width: 800px;
@@ -24,7 +25,7 @@
       display: flex;
       padding: 20px 0;
       position: relative;
-
+      // 住所先名
       .fullname-of-address {
         display: flex;
 
@@ -37,12 +38,6 @@
             label {
               font-size: 14px;
               font-weight: bold;
-            }
-
-            .required {
-              background-color: red;
-              color: white;
-              font-size: 16px;
             }
 
             input[type="text"] {
@@ -61,12 +56,6 @@
             label {
               font-size: 14px;
               font-weight: bold;
-            }
-
-            .required {
-              background-color: red;
-              color: white;
-              font-size: 16px;
             }
 
             input[type="text"] {
@@ -92,12 +81,6 @@
               font-weight: bold;
             }
 
-            .required {
-              background-color: red;
-              color: white;
-              font-size: 16px;
-            }
-
             input[type="text"] {
               width: 200px;
               height: 40px;
@@ -116,12 +99,6 @@
               font-weight: bold;
             }
 
-            .required {
-              background-color: red;
-              color: white;
-              font-size: 16px;
-            }
-
             input[type="text"] {
               width: 200px;
               height: 40px;
@@ -129,7 +106,7 @@
           }
         }
       }
-
+      // 郵便番号
       .postal-code {
         display: flex;
 
@@ -142,12 +119,6 @@
             label {
               font-size: 14px;
               font-weight: bold;
-            }
-  
-            .required {
-              background-color: red;
-              color: white;
-              font-size: 16px;
             }
   
             input[type="text"] {
@@ -170,12 +141,6 @@
           &__dialogue {
             text-align: left;
   
-            .required {
-              background-color: red;
-              color: white;
-              font-size: 16px;
-            }
-  
             input[type="text"] {
               width: 200px;
               height: 40px;
@@ -185,7 +150,7 @@
           }
         }
       }
-
+      // 住所
       .address {
 
         &__dialogue {
@@ -196,19 +161,18 @@
             font-weight: bold;
           }
 
-          .required {
-            background-color: red;
-            color: white;
-            font-size: 16px;
-          }
-
+          
           input[type="text"] {
             width: 425px;
             height: 40px;
           }
         }
       }
-
+      
+      .required {
+        @include required;
+      }
+      // 番地
       .street_address {
 
         &__dialogue {
@@ -219,19 +183,13 @@
             font-weight: bold;
           }
 
-          .required {
-            background-color: red;
-            color: white;
-            font-size: 16px;
-          }
-
           input[type="text"] {
             width: 425px;
             height: 40px;
           }
         }
       }
-
+      // マンション名
       .apartment {
 
         &__dialogue {
@@ -248,7 +206,7 @@
           }
         }
       }
-
+      // 住所先電話番号
       .address-tel {
 
         &__dialogue {

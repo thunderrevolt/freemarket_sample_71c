@@ -1,5 +1,6 @@
 class CreditcardsController < ApplicationController
   require "payjp"
+  before_action :require_login
   before_action :set_card
 
   def index
@@ -113,8 +114,14 @@ class CreditcardsController < ApplicationController
   end
 
   private
+  def require_login
+    unless user_signed_in?
+      flash[:error] = "ログイン状態でありません"
+      redirect_to root_path
+    end
+  end
+
   def set_card
     @card = Creditcard.where(user_id: current_user.id).first if Creditcard.where(user_id: current_user.id).present?
   end
-
 end

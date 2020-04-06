@@ -22,4 +22,9 @@ class Product < ApplicationRecord
     Favorite.where(product_id: product.id).exists?
   end
 
+  def self.search(search)
+    return Product.all unless search
+    Product.where('name LIKE(?)', "%#{search}%")
+  end
+
 end

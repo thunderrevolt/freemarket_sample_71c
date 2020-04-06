@@ -1,4 +1,7 @@
+-# ヘッダー
 = render 'shared/header'
+
+-# パンくず
 -# logout.html.hamlと同じclass
 .myp-header
   %ul.myp-header__container
@@ -17,28 +20,33 @@
       %i.fas.fa-chevron-right
     %li
       = @product.name
-      
+
+-# 出品ボタン
 = render 'shared/exhibit-btn'
 
+-# 商品情報
 .product-show
   .product-show-main
     .product-show-box
+      -# 商品名
       .product-show-items
         %h2.puroduct-name
           = @product.name
+        -# 1枚目の画像を大きく
         .product-show-item-lists
           %ul.product-show-item-lists__img
             %li.product-show-item-lists__img--main{ id: "main" }
-              = image_tag @image_1.image.url, class: "main-size"
+              = image_tag @image.first.image.url, class: "main-size"
               // 以下３行でsold表示
               - if @product.condition == 3
                 .product-sold-container
                   %p sold
+              -# 商品の画像一覧
               %ul.product-show-item-lists__sub
                 - @image.each do |image|
                   %li.product-show-item-lists__sub--img{ id: "first" }
                     = image_tag image.image.url, class: "sub-size"
-
+      -# 商品の値段
       .product-show-price
         %span.product-show-price__span1
           ¥
@@ -48,8 +56,11 @@
             (税込) 
             %span.product-show-span3
               送料込み
+      -# 商品説明
       .product-show-text
-        = @product.description
+        = simple_format(@product.description)
+
+      -# 商品情報の内容
       .product-show-status
         %table.show-teable
           %tr.show-teable__tr
@@ -123,29 +134,47 @@
               = link_to product_path(@product), method: :delete do
                 削除
         - else
-          .product-show-link
-            .product-show-link__btn
-              = link_to product_buy_path(@product) do
-                購入する
-    
+          - if @product.condition == 1
+            .product-show-link
+              .product-show-link__btn
+                = link_to product_buy_path(@product) do
+                  購入する
+    -# コメント欄
     .product-comments-box
       .product-comments
-      -# コメントがあれば表示
+        %h2.product-comments__header コ  メ  ン  ト  一  覧
+        - if @comments
+          - @comments.each do |comment|
+            .comments__text
+              = link_to comment.user.nickname, "/users/#{comment.user_id}",class:"show-user"
+              %p.comments__text--text 
+                = comment.text 
+                %br
+                %i.far.fa-clock
+                %time(datetime="#{comment.created_at}")= time_ago_in_words(comment.created_at)+"前"
+    -# コメント説明
     .product-comment-form
-      %form.product-comment-form__new
-        %input{type: "textarea", class: "product-comment-form__new--text"}
-        %p.product-comment-form__new--report
-          相手のことを考え丁寧なコメントを心がけましょう。
-          %br
-          不快な言葉遣いなどは利用制限や退会処分となることがあります。
-        %input{type: "submit", class:"product-comment-form__new--btn fas fa-star", value: "コメントする"}
-        
+      - if current_user
+        = form_with model: [@product, @comment], class: "product-comment-form__new", local: true do |f|
+          = f.text_area :text, class: "product-comment-form__new--text", plsceholder: "コメントする", rows: "2"
+          %p.product-comment-form__new--report
+            相手のことを考え丁寧なコメントを心がけましょう。
+            %br
+            不快な言葉遣いなどは利用制限や退会処分となることがあります。
+          = f.submit "コメントする",class: "product-comment-form__new--btn fas fa-star"
+      - else
+        %strong
+          %p ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
+    -# 別商品へのリンク
     .product-after-before
       .product-after-before__before
         ＜前の商品
       .product-after-before__after
         次の商品＞
     .product-show-category
-      ベビー商品をもっとみる
+      = link_to category_path(@product.category) do
+        = @product.category.name
+        商品をもっとみる
 
+  -# フッター
   = render 'shared/footer'

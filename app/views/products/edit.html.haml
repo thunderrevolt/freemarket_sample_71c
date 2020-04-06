@@ -1,5 +1,7 @@
+-# ヘッダー
 = render 'shared/product_header'
 
+-# 出品情報
 .exhibit-boby
   .exhibit-boby--container
     = form_with model: @product, class:"form-box", local: true do |f| 
@@ -9,6 +11,8 @@
             %p 出品画像
             %p.need 必須
           %p 最大10枚までアップロードできます
+
+          -# 画像編集
           #image-box
             #previews
               .preview
@@ -18,9 +22,9 @@
                       = image_tag image.image.url, data: { index: i }, width: "114", height: '80'
                       .js_remove__btn(data-index="#{i}")
                         = "削除"
-              %label#image-box__container
-                %i.fa.fa-camera
-                %p ドラッグアンドドロップ<br>もしくはクリックしてアップロード
+                %label#image-box__container
+                  %i.fa.fa-camera
+                  %p クリックしてアップロード
             = f.fields_for :images do |image|
               .js-file_group(data-index = "#{image.index}")
                 = image.file_field :image, class: 'js-file hidden'
@@ -32,6 +36,7 @@
                 = file_field_tag :image, name: "product[images_attributes][#{@product.images.count}][image]", class: 'js-file hidden'
                 .js-remove.hidden(data-index = "#{@product.images.count}") 削除
 
+      -# 商品情報編集
       .exhibit-boby--container__name
         .exhibit-flame
           .exhibit-label
@@ -42,15 +47,17 @@
             %p 商品の説明
             %p.need 必須
           = f.text_area :description, class: "exhibit-text", placeholder: '商品の説明（必須1000文字以内)&#13;&#10;(色、素材、重さ、定価、注意点など)&#13;&#10; &#13;&#10;例)2010年頃に１万円で購入したジャケットです。ライトグレーで傷はありません。合わせやすいのでオススメです♡'.html_safe
-          %h5 0/1000
+          %h5.exhibit-text__length 
       .exhibit-boby--container__detail
         .exhibit-flame
           %h3.exhibit_h3 商品の詳細
-          .exhibit-detail-categories
-            .exhibit-detail-category-name
-              .exhibit-label
-                = f.label 'カテゴリー', class: 'exhibit-default-label'
-                %span.need 必須
+
+          -# カテゴリー編集
+          .exhibit-label
+            .exhibit-detail-categories
+              .exhibit-detail-category-name
+                = f.label 'カテゴリー', class: 'exhibit-default--label'
+                %p.need 必須
               .exhibit-select-wrapper
                 .exhibit-select-wrapper__box{id: "category-reset-js"}
                   = f.select :category, @category_root, {}, {class: 'exhibit-category-select', id: 'parent_categories'}
@@ -60,14 +67,18 @@
               .exhibit-select-wrapper__added{ id: "grandchildren_wrapper" }
                 .exhibit-select-wrapper__box
                   = f.select :category_id, [@category_my], {}, class: "exhibit-select-wrapper__box--select", id: 'grandchild_categories'
+
+          -# ブランド編集
           .exhibit-label
             %p ブランド
             %p.any 任意
           = f.text_field :brand, placeholder: '例）シャネル'
+          -# 商品の状態-編集
           .exhibit-label
             %p 商品の状態
             %p.need 必須
           = f.select :status, [["選択してください",""],["新品、未使用","新品、未使用"],["未使用に近い","未使用に近い"],["目立った傷や汚れなし","目立った傷や汚れなし"],["やや傷や汚れあり","やや傷や汚れあり"],["傷や汚れあり","傷や汚れあり"],["全体的に状態が悪い","全体的に状態が悪い"]]
+      -# 配送料の負担-編集
       .exhibit-boby--container__delivery
         .exhibit-flame
           %h3.exhibit_h3 配送について
@@ -75,14 +86,17 @@
             %p 配送料の負担
             %p.need 必須
           = f.collection_select :postage_bearer, Shipping.all, :id, :name, prompt: "選択してください"
+          -# 発送元の地域-編集
           .exhibit-label
             %p 発送元の地域
             %p.need 必須
           = f.collection_select :shipping_area, Prefecture.all, :id, :name, prompt: "選択してください"
+          -# 発送までの日数-編集
           .exhibit-label
             %p 発送までの日数
             %p.need 必須
           = f.collection_select :shipping_day, Day.all, :id, :name, prompt: "選択してください"
+      -# 販売価格-編集
       .exhibit-boby--container__price
         .exhibit-flame
           %h3.exhibit_h3 販売価格（300~9,999,999）
@@ -92,15 +106,16 @@
                 %p 販売価格
                 %p.need 必須
               %p ¥
-            = f.text_field :price, placeholder: '0',style: "text-align: right;"
+            = f.text_field :price, placeholder: '0', id: "exhibit-price", style: "text-align: right;"
           .exhibit-commission
             %p 販売手数料（10%）
-            %p ー
+            %p#tax-price ー
           .exhibit-profit
             %p  販売利益
-            %p ー
+            %p#profit-price ー
           .exhibit-hidden
             = f.hidden_field :condition, value: 1
+          -# ボタン
           .exhibit-btn
             = f.submit "変更する",class:"exhibit-submit"
             = link_to product_path(@product), class: "" do
@@ -117,5 +132,6 @@
             などの販売は犯罪であり、法律により処罰される可能性があります。また、出品をもちまして
             %a{href:"#"}>加盟店規約
             に同意したことになります。
-
+            
+-# フッター
 = render 'shared/product_footer'

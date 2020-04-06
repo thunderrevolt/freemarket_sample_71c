@@ -3,28 +3,32 @@
     = link_to root_path do
       = image_tag "logo.png", class: "top-header--top__image"
     -# 検索フォーム
-    .top-header--top__search
-      %input{placeholder: "キーワードから探す", type: "search", class: "top-heder--top__form"}
+    = form_with(url: search_products_path, local: true, method: :get, class: "search-form") do |form|
+      .top-header--top__search
+        = form.text_field :keyword, placeholder: "キーワードから探す", class: "top-form"
+        = form.submit "", class: "top-search" 
+        %i.fas.fa-search
   .top-header--middle
     .top-header--middle__left
       -# カテゴリーから探す
       %ul.top-category
         %li.top-category--left
-          カテゴリーから探す
+          = link_to categories_path do
+            カテゴリーから探す
           %ul.top-category__ul
             - @categories.each do |category|
               %li.top-category__ul__li
-                = link_to "" do
+                = link_to category_path(category) do
                   = category.name
                   %ul.top-category__children
                     - category.children.each do |child|
                       %li.top-category__children__li
-                        = link_to "" do
+                        = link_to category_path(child) do
                           = child.name
                           %ul.top-category__grandchild
                             - child.children.each do |grandchild|
                               .top-category__grandchild__li
-                                =link_to "" do
+                                =link_to category_path(grandchild) do
                                   = grandchild.name
 
       -# ブランドから探す
@@ -40,7 +44,6 @@
           = link_to "#", class: "top-li_to" do
             %i.fas.fa-check
             %p.top-li やることリスト
-            
         .top-category__btn--sign_in
           = link_to user_path(current_user.id), class: "top-li_to" do
             = image_tag "komaki.jpg"

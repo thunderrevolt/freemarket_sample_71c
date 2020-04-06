@@ -1,3 +1,4 @@
+// 会員情報登録（名前やパスワード入力画面）
 .info-registration {
   margin: auto;
   width: 800px;
@@ -23,7 +24,7 @@
     .field {
       display: flex;
       padding: 20px 0;
-
+      // ニックネーム
       .nickname {
 
         &__dialogue {
@@ -34,19 +35,17 @@
             font-weight: bold;
           }
 
-          .required {
-            background-color: red;
-            color: white;
-            font-size: 16px;
-          }
-
           input[type="text"] {
             width: 425px;
             height: 40px;
           }
         }
       }
-
+      
+      .required {
+        @include required;
+      }
+      // 名前
       .fullname {
         display: flex;
         margin: left;
@@ -62,11 +61,7 @@
               font-weight: bold;
             }
 
-            .required {
-              background-color: red;
-              color: white;
-              font-size: 16px;
-            }
+            
 
             input[type="text"] {
               width: 200px;
@@ -85,11 +80,6 @@
               font-weight: bold;
             }
 
-            .required {
-              background-color: red;
-              color: white;
-              font-size: 16px;
-            }
 
             input[type="text"] {
               width: 200px;
@@ -98,7 +88,7 @@
           }
         }
       }
-
+      // ふりがな
       .fullname-kana {
         display: flex;
         margin: left;
@@ -114,11 +104,6 @@
               font-weight: bold;
             }
 
-            .required {
-              background-color: red;
-              color: white;
-              font-size: 16px;
-            }
 
             input[type="text"] {
               width: 200px;
@@ -137,11 +122,6 @@
               font-weight: bold;
             }
 
-            .required {
-              background-color: red;
-              color: white;
-              font-size: 16px;
-            }
 
             input[type="text"] {
               width: 200px;
@@ -150,7 +130,7 @@
           }
         }
       }
-
+      // 誕生日
       .birthday {
         margin: left;
 
@@ -162,11 +142,7 @@
             font-weight: bold;
           }
 
-          .required {
-            background-color: red;
-            color: white;
-            font-size: 16px;
-          }
+
         }
 
         &__date {
@@ -178,7 +154,7 @@
           }
         }
       }
-
+      // 電話番号
       .tel {
         margin: left;
 
@@ -190,11 +166,7 @@
             font-weight: bold;
           }
 
-          .required {
-            background-color: red;
-            color: white;
-            font-size: 16px;
-          }
+
 
           input[type="text"] {
             width: 425px;
@@ -202,7 +174,7 @@
           }
         }
       }
-
+      // メール
       .mail {
         margin: left;
 
@@ -214,19 +186,13 @@
             font-weight: bold;
           }
 
-          .required {
-            background-color: red;
-            color: white;
-            font-size: 16px;
-          }
-
           input[type="email"] {
             width: 425px;
             height: 40px;
           }
         }
       }
-
+      // パスワード
       .password {
         margin: left;
 
@@ -236,12 +202,6 @@
           label {
             font-size: 14px;
             font-weight: bold;
-          }
-
-          .required {
-            background-color: red;
-            color: white;
-            font-size: 16px;
           }
 
           input[type="password"] {
@@ -265,6 +225,7 @@
       }
     }
 
+    // 次へ
     .actions {
       padding-bottom: 20px;
       
