@@ -108,6 +108,7 @@
   margin-top: 30px;
   display: flex;
   justify-content: space-between;
+
   &__like {
     display: flex;
     border: solid 2px #ffb340;
@@ -115,15 +116,34 @@
     font-size: 16px;
     padding: 10px;
     align-items: center;
-    color: $main-color;
     cursor: pointer;
+    
+    .flex {
+      display: flex;
+
+      .fas {
+        margin-top: 3px;
+      }
+    }
+
+    .change .fa-star {
+      color: $main-color;
+    }
+
+    .changed .fa-star {
+      color: black;
+      opacity: 0.5;
+    }
+
+    p {
+      color: $main-color;
+    }
+
     &:hover {
       opacity: 0.4;
     }
-    .fa-star {
-      margin-right: 5px;
-    }
   }
+
   &__report {
     display: flex;
     align-items: center;
@@ -132,9 +152,11 @@
     font-size: 16px;
     padding: 10px;
     cursor: pointer;
+
     &:hover {
       opacity: 0.4;
     }
+    
     .fa-flag {
       margin-right: 5px;
     }

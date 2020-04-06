@@ -8,7 +8,6 @@ class ProductsController < ApplicationController
     @products = Product.where(condition: 1).order(created_at: "DESC").take(MAX_DISPLAY_RELATED_PRODUCTS)
     # ↓1(出品中)のブランド名「ma--ru」の商品をshuffleメソッドとtakeメソッドでランダムで３つのデータを取得。distinctで重複する情報削除。
     @products_B = Product.where(condition:1, brand:'ma--ru').distinct.shuffle.take(MAX_DISPLAY_RELATED_PRODUCTS)
-    
   end
 
   def new
@@ -19,7 +18,7 @@ class ProductsController < ApplicationController
     array = Category.where(ancestry: nil).pluck(:name)
     @category_parent_array.push(array)
     @category_parent_array.flatten!
-   
+
     def get_category_children
       #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
       @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
@@ -53,6 +52,7 @@ class ProductsController < ApplicationController
     @comment = Comment.new
     @image_1 = Image.where(product_id: @product).first
     @image   = Image.where(product_id: @product)
+    @products_favo = @product.id
   end
 
 
@@ -95,6 +95,9 @@ class ProductsController < ApplicationController
     redirect_to root_path
   end
 
+  def favorites
+    @products_favo = current_user.favorite_products.includes(:user).recent
+  end
 
   private
   def product_params

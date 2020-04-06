@@ -16,6 +16,10 @@ Rails.application.routes.draw do
   resources :products, only: [:show, :new, :edit, :destroy, :create, :update] do
     resources :comments, only: :create
     get "/buy" , to: "creditcards#buy"
+
+    resource :favorites, only: [:create, :destroy]
+    get :favorites, on: :collection
+
     #Ajaxで動くアクションのルートを作成
     collection do
       get 'category_list', defaults: { format: 'json' }
@@ -26,6 +30,7 @@ Rails.application.routes.draw do
   
   resources :users, only: [:index, :show] do
     resources :creditcards, only: [:index, :new, :create, :destroy]
+    resources :favorites, :index
   end
   
   get '/logout', to: 'users#logout'
