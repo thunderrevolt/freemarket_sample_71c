@@ -21,12 +21,12 @@ ActiveRecord::Schema.define(version: 2020_04_01_073903) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "tel"
+    t.string "street_address", null: false
     t.integer "zip1", null: false
     t.integer "zip2", null: false
     t.string "address1", null: false
     t.string "address2", null: false
-    t.bigint "tel"
-    t.string "street_address", null: false
     t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
@@ -94,6 +94,7 @@ ActiveRecord::Schema.define(version: 2020_04_01_073903) do
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "nickname", null: false
     t.string "first_name", null: false
     t.string "last_name", null: false
     t.string "first_name_kana", null: false
@@ -107,7 +108,9 @@ ActiveRecord::Schema.define(version: 2020_04_01_073903) do
     t.datetime "updated_at", null: false
     t.bigint "tel", null: false
     t.date "birthday", null: false
-    t.string "nickname"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["nickname"], name: "index_users_on_nickname", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "addresses", "users"
