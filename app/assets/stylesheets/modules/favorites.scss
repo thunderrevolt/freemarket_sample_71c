@@ -1,0 +1,52 @@
+.favo-flex {
+  display: flex;
+
+  .favo-box {
+    width: calc(100vw - 650px);
+    margin: 0 100px;
+
+    .favo-index {
+      height: 48px;
+      text-align: center;
+      background-color: white;
+      border-bottom: 1px solid #ebebeb;
+      line-height: 48px;
+    }
+
+    .favo-flex {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .favo-image {
+        height: 110px;
+        width: calc(100vw - 650px);
+        background-color: white;
+        border-bottom: 1px solid #ebebeb;
+        line-height: 110px;
+        position: relative;
+        color: black;
+
+        &:hover {
+          background-color: #ebebeb;
+        }
+        
+        .image {
+          position: absolute;
+          top: 14%;
+          padding-left: 50px;
+        }
+      }
+
+      .favo-image i {
+        float: right;
+        line-height: 110px;
+        padding-right: 20px;
+      }
+    }
+  }
+}
+
+a {
+  text-decoration: none;
+}

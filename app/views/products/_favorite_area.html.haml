@@ -1,0 +1,4 @@
+- if product.favorite_by?
+  = render 'products/favorite', product: product
+- else
+  = render 'products/unfavorite', product: product

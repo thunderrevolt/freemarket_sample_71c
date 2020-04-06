@@ -37,7 +37,8 @@
           %ul.product-show-item-lists__img
             %li.product-show-item-lists__img--main{ id: "main" }
               %a{class: "data-lightbox", data: { lightbox: "group"} , href: @image_1.image.url}
-                = image_tag @image_1.image.url, class: "main-size"
+                = image_tag @image.first.image.url, class: "main-size"
+
               // 以下３行でsold表示
               - if @product.condition == 3
                 .product-sold-container
@@ -101,14 +102,30 @@
             %th.show-teable__th 発送日の目安
             %td.show-teable__td
               = @product.shipping_day
-      -# ボタン各種
-      .product-show-btns
-        .product-show-btns__like
-          %i.fas.fa-star
-          %p お気に入り0
-        .product-show-btns__report
-          %i.fas.fa-flag
-          %p 不適切な商品の情報
+      - if user_signed_in?
+        - if @product.user_id != current_user.id
+          .product-show-btns
+            .product-show-btns__like#changed-color
+              .product-show-btns__like__star#favo
+                - if current_user.favorite_by?(@product)
+                  = link_to product_favorites_path(@product), method: :delete, remote: true, id: :"js-favorite-button-for-product-#{@product.id}", :class => "change" do
+                    %i.fas.fa-star.change
+                    %p お気に入り
+                - else
+                  = link_to product_favorites_path(@product), method: :post, remote: true, id: :"js-favorite-button-for-product-#{@product.id}", :class => "changed" do
+                    %i.fas.fa-star.changed
+                    %p お気に入り
+            .product-show-btns__report
+              %i.fas.fa-flag
+              %p 不適切な商品の情報
+        - else
+          .product-show-btns
+            .product-show-btns__like
+              %i.fas.fa-star
+              %p お気に入り
+            .product-show-btns__report
+              %i.fas.fa-flag
+              %p 不適切な商品の情報
       - if user_signed_in?
         - if @product.user_id == current_user.id
           .product-show-link

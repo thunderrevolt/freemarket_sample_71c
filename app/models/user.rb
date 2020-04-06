@@ -4,7 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :products
+  has_many :products, dependent: :destroy
+  has_many :favorites, dependent: :destroy
+  has_many :favorite_product, through: :favorites, source: :product
   has_many :comments
   has_many :creditcards
   has_one :address
@@ -39,4 +41,12 @@ class User < ApplicationRecord
             length: { maximum: 255 }, 
             format: { with: /\A[\x21-\x3f\x41-\x7e]+@(?:[-a-z0-9]+\.)+[a-z]{2,}\z/i },
             uniqueness: true
+
+  def own_product?(product)
+    self.id == product.user_id
+  end
+
+  def favorite_by?(product)
+    Favorite.where(product_id: product.id).exists?
+  end
 end
