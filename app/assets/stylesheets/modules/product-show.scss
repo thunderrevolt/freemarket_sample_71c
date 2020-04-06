@@ -27,6 +27,10 @@
             position: relative;
             .main-size {
               object-fit: cover;
+              &:hover {
+                opacity: 0.4;
+                cursor: zoom-in;
+              }
             }
             .product-sold-container{
               position: absolute;
@@ -50,6 +54,10 @@
               margin-left: 10px;
               .sub-size {
                 object-fit: cover;
+                &:hover {
+                  opacity: 0.4;
+                  cursor: pointer;
+                }
               }
             }
           }
@@ -84,6 +92,12 @@
   width: 480px;
   height: 346px;
 }
+// 拡大後
+.lb-image {
+  width : 700px !important;
+  height: auto !important;
+}
+
 .sub-size {
   width: 150px;
   height: 150px;
@@ -300,6 +314,7 @@
       font-size: 18px;
       background: #e0edff;
       border-radius: 15px;
+      word-break: break-all;
       &:before {
         content: "";
         position: absolute;
