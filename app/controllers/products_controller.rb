@@ -8,6 +8,8 @@ class ProductsController < ApplicationController
     # @products = Product.includes(:images,:user).order('created_at DESC')
     # ↓新規投稿商品。新しく作成された3つのデータのみ取得。
     @products = Product.where(condition: 1).order(created_at: "DESC").take(MAX_DISPLAY_RELATED_PRODUCTS)
+    # ↓1(出品中)のブランド名「ma--ru」の商品をshuffleメソッドとtakeメソッドでランダムで３つのデータを取得。distinctで重複する情報削除。
+    @products_B = Product.where(condition:1, brand:'ma--ru').distinct.shuffle.take(MAX_DISPLAY_RELATED_PRODUCTS)
     
     # ↓メンズ商品。(出品中)かつカテゴリ「メンズ」の商品を３つのデータを取得。
     @mens_array = []
@@ -34,9 +36,6 @@ class ProductsController < ApplicationController
     # 格納した配列をフラットにして、ランダムで3つ取り出す。
     @ledies_flat = @ledies_array.flatten
     @ledies_samle = @ledies_flat.sample(3)
-
-
-
   end
 
   def new
@@ -48,7 +47,7 @@ class ProductsController < ApplicationController
     array = Category.where(ancestry: nil).pluck(:name)
     @category_parent_array.push(array)
     @category_parent_array.flatten!
-   
+
     def get_category_children
       # 選択された親カテゴリーに紐付く子カテゴリーの配列を取得
       @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
@@ -75,6 +74,9 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @product = Product.find(params[:id])
+    @comment = Comment.new
+    @image   = Image.where(product_id: @product)
     # 商品が削除されているなら
     unless Product.where(id: params[:id]) == []
       @product = Product.find(params[:id])
@@ -125,6 +127,10 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @product.destroy
     redirect_to root_path
+  end
+
+  def favorites
+    @products_favo = current_user.favorite_products.includes(:user).recent
   end
   
   def search

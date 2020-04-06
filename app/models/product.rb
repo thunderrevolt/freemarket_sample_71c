@@ -3,6 +3,8 @@ class Product < ApplicationRecord
   belongs_to :category
   has_many :images, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :favorites, dependent: :destroy
+
   accepts_nested_attributes_for :images, allow_destroy: true
 
   validates :name, presence: true, length: { maximum: 40 }
@@ -15,6 +17,10 @@ class Product < ApplicationRecord
   validates :category_id, presence: true
   validates :user_id, presence: true
   validates :condition, presence: true
+
+  def favorite_by?(product)
+    Favorite.where(product_id: product.id).exists?
+  end
 
   def self.search(search)
     return Product.all unless search
