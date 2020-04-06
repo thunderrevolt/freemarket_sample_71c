@@ -36,7 +36,7 @@
         .product-show-item-lists
           %ul.product-show-item-lists__img
             %li.product-show-item-lists__img--main{ id: "main" }
-              %a{class: "data-lightbox", "data-lightbox" => "group", href: @image_1.image.url}
+              %a{class: "data-lightbox", data: { lightbox: "group"} , href: @image_1.image.url}
                 = image_tag @image_1.image.url, class: "main-size"
               // 以下３行でsold表示
               - if @product.condition == 3
