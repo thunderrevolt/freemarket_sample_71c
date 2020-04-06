@@ -104,7 +104,7 @@
         - if @product.user_id != current_user.id
           .product-show-btns
             .product-show-btns__like#changed-color
-              %div{:style => "display: inline; float: right;", :id => "favo"}
+              .product-show-btns__like__star#favo
                 - if current_user.favorite_by?(@product)
                   = link_to product_favorites_path(@product), method: :delete, remote: true, id: :"js-favorite-button-for-product-#{@product.id}", :class => "change" do
                     %i.fas.fa-star.change

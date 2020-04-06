@@ -136,6 +136,11 @@
     padding: 10px;
     align-items: center;
     cursor: pointer;
+
+    &__star {
+      display: inline; 
+      float: right;
+    }
     
     .flex {
       display: flex;
