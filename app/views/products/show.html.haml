@@ -108,7 +108,7 @@
           .product-show-btns
             .product-show-btns__like#changed-color
               .product-show-btns__like__star#favo
-                - if current_user.favorite_by?(@product)
+                - if Favorite.find_by(user_id: current_user.id, product_id: @product.id)
                   = render 'products/favorite', product: @product
                 - else
                   = render 'products/unfavorite', product: @product
