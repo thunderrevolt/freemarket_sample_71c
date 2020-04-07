@@ -4,6 +4,9 @@
 .search-flex
   - @products.each do |product|
     .c-show__box__image.search-size
+      - if product.condition == 3
+        .product-sold-container__search
+          %p sold
       = link_to product_path(product) do
         - product.images.first(1).each do |image|
           = image_tag image.image.url
@@ -15,3 +18,4 @@
             = product.price 
             円
           %p (税込)
+= render 'shared/footer'
