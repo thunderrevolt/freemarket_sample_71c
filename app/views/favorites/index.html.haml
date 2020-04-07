@@ -1,18 +1,26 @@
 = render "/shared/header"
 
-.favo-flex
-  = render "/shared/user_side-bar"
+.myp-header
+  .myp-header__container
+    = link_to "フリマ", root_path
+    %i.fas.fa-chevron-right
+    = link_to "マイページ", user_path(@user, id: current_user.id)
+    %i.fas.fa-chevron-right
+    %p.favo-weight いいね！一覧
+.myp-body
+  .myp
+    = render 'shared/user_side-bar'
 
-  .favo-box
-    %h2.favo-index いいね！一覧
-    - if @favorites.empty?
-      %h1= t('.not_boards')
-    - else
-      .row.d-flex
-        .favo-flex
-          - @favorites.each do |f|
-            = link_to product_path(f.product), :class => "favo-image" do
-              - Product.find_by(id: f.product_id).images.first(1).each do |i|
-                = image_tag i.image.url, class: "image", size: "80x80"
-                %i.fas.fa-angle-double-right
+    .favo-box
+      %h2.favo-index いいね！一覧
+      - if @favorites.empty?
+        %h1= t('.not_boards')
+      - else
+        .row.d-flex
+          .favo-flex
+            - @favorites.each do |f|
+              = link_to product_path(f.product), :class => "favo-image" do
+                - Product.find_by(id: f.product_id).images.first(1).each do |i|
+                  = image_tag i.image.url, class: "image", size: "80x80"
+                  %i.fas.fa-angle-double-right
 = render "/shared/footer"
