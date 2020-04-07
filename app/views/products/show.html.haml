@@ -10,13 +10,16 @@
         FURIMA
       %i.fas.fa-chevron-right
     %li
-      = @product.category.root.name
+      = link_to category_path(@product.category.root) do
+        = @product.category.root.name
       %i.fas.fa-chevron-right
     %li
-      = @product.category.parent.name
+      = link_to category_path(@product.category.parent) do
+        = @product.category.parent.name
       %i.fas.fa-chevron-right
     %li
-      = @product.category.name
+      = link_to category_path(@product.category) do
+        = @product.category.name
       %i.fas.fa-chevron-right
     %li
       = @product.name
@@ -59,8 +62,11 @@
             %span.product-show-span3
               送料込み
       -# 商品説明
-      .product-show-text
-        = simple_format(@product.description)
+      .product-show-content
+        .product-show-content__title
+          出品説明
+        .product-show-content__text
+          = simple_format(@product.description)
 
       -# 商品情報の内容
       .product-show-status

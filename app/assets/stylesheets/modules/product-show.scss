@@ -76,10 +76,20 @@
         justify-content: center;
       }
     }
-    .product-show-text {
+    .product-show-content {
       line-height: 1.5;
       font-size: 18px;
       margin-bottom: 30px;
+      // border: solid 1px #ccc;
+      &__title {
+        padding: 5px;
+        background-color: #eee;
+        text-align: center;
+        border: solid 1px #ccc;
+      }
+      &__text {
+        padding: 3px 10px;
+      }
     }
   }
 }
@@ -139,7 +149,6 @@
 
     &__star {
       display: inline; 
-      float: right;
     }
     
     .flex {

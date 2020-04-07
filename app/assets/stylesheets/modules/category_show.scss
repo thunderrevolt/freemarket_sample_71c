@@ -17,10 +17,12 @@
   flex-wrap: wrap;
   position: relative;
   &__image {
-    width: calc(100% / 3);
+    box-shadow: $product-shadow;
+    width: calc(590px / 3);
     box-sizing: border-box;
+    margin: 0 5px 20px;
     .product-sold-container {
-      width: calc(100% / 3);
+      width: calc(590px / 3);
       background-color: crimson;
       text-align: center;
       position: absolute;
