@@ -74,6 +74,17 @@ describe Product, type: :model do
       expect(product).to be_valid
     end
 
+    it "商品説明の文字が1000文字の場合登録できる事" do
+      product = build(:product, description: "a" * 1000)
+      expect(product).to be_valid
+    end
+
+    it "商品説明の文字が1000文字以上の場合登録できない事" do
+      product = build(:product, description: "a" * 1001)
+      product.valid?
+      expect(product.errors[:description]).to include("は1000文字以内で入力してください")
+    end
+
     it "値段が9999999円以上の時登録できない" do
       product = build(:product, price: 10000000)
       product.valid?
